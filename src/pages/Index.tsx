@@ -6,15 +6,38 @@ import ContentSection from "@/components/ContentSection";
 import CompletionScreen from "@/components/CompletionScreen";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
 type AppState = "welcome" | "training" | "completed";
 
 const totalQuestions = trainingSections.reduce((sum, s) => sum + s.questions.length, 0);
 
+const pageVariants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? 80 : -80,
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+  },
+  exit: (direction: number) => ({
+    x: direction > 0 ? -80 : 80,
+    opacity: 0,
+  }),
+};
+
+const pageTransition = {
+  type: "tween" as const,
+  ease: [0.4, 0, 0.2, 1] as const,
+  duration: 0.35,
+};
+
 const Index = () => {
   const [state, setState] = useState<AppState>("welcome");
   const [currentSection, setCurrentSection] = useState(0);
   const [answeredQuestions, setAnsweredQuestions] = useState<Record<string, boolean>>({});
+  const [direction, setDirection] = useState(1);
 
   const score = Object.values(answeredQuestions).filter(Boolean).length;
 
@@ -27,8 +50,8 @@ const Index = () => {
   const isLastSection = currentSection === trainingSections.length - 1;
 
   const goNext = () => {
+    setDirection(1);
     if (isLastSection) {
-      // Save training record
       const record = {
         completedAt: new Date().toISOString(),
         score,
@@ -47,6 +70,7 @@ const Index = () => {
 
   const goPrev = () => {
     if (currentSection > 0) {
+      setDirection(-1);
       setCurrentSection(prev => prev - 1);
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -59,11 +83,28 @@ const Index = () => {
   };
 
   if (state === "welcome") {
-    return <WelcomeScreen onStart={() => setState("training")} />;
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.4 }}
+      >
+        <WelcomeScreen onStart={() => setState("training")} />
+      </motion.div>
+    );
   }
 
   if (state === "completed") {
-    return <CompletionScreen score={score} totalQuestions={totalQuestions} onRetry={handleRetry} />;
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
+        <CompletionScreen score={score} totalQuestions={totalQuestions} onRetry={handleRetry} />
+      </motion.div>
+    );
   }
 
   return (
@@ -75,13 +116,24 @@ const Index = () => {
         totalQuestions={totalQuestions}
       />
 
-      <main className="flex-1 px-4 py-6 max-w-2xl mx-auto w-full">
-        <ContentSection
-          key={section.id}
-          section={section}
-          answeredQuestions={answeredQuestions}
-          onAnswer={handleAnswer}
-        />
+      <main className="flex-1 px-4 py-6 max-w-2xl mx-auto w-full overflow-hidden">
+        <AnimatePresence mode="wait" custom={direction}>
+          <motion.div
+            key={currentSection}
+            custom={direction}
+            variants={pageVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={pageTransition}
+          >
+            <ContentSection
+              section={section}
+              answeredQuestions={answeredQuestions}
+              onAnswer={handleAnswer}
+            />
+          </motion.div>
+        </AnimatePresence>
 
         {/* Navigation */}
         <div className="flex items-center gap-3 mt-8 pt-6 border-t">

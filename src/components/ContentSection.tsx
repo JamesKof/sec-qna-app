@@ -52,7 +52,7 @@ const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSection
   const [checkedTasks, setCheckedTasks] = useState<Record<number, boolean>>({});
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="space-y-6">
       {/* Section header */}
       <div className="flex items-center gap-3">
         <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
