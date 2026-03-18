@@ -17,6 +17,7 @@ interface StudentRecord {
   attempts: number;
   best_score: number;
   passed: boolean;
+  certificate_name: string;
 }
 
 const Admin = () => {
