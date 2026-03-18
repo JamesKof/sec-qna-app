@@ -3,6 +3,7 @@ import { Leaf, ArrowRight, LayoutDashboard } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImg from "@/assets/hero-landscape.jpg";
 import LanguageToggle from "./LanguageToggle";
+import ThemeToggle from "./ThemeToggle";
 import { useI18n } from "@/lib/i18n";
 
 interface WelcomeScreenProps {
@@ -14,8 +15,9 @@ const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Language toggle */}
-      <div className="absolute top-4 right-4 z-20">
+      {/* Controls */}
+      <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
+        <ThemeToggle />
         <LanguageToggle />
       </div>
 

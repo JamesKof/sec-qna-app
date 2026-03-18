@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
+import { useAuth } from "@/hooks/useAuth";
+import { supabase } from "@/integrations/supabase/client";
 
 type AppState = "welcome" | "training" | "completed";
 
@@ -40,6 +42,7 @@ const Index = () => {
   const [answeredQuestions, setAnsweredQuestions] = useState<Record<string, boolean>>({});
   const [direction, setDirection] = useState(1);
   const { t } = useI18n();
+  const { user } = useAuth();
 
   const score = Object.values(answeredQuestions).filter(Boolean).length;
 
@@ -51,18 +54,27 @@ const Index = () => {
   const sectionQuestionsAnswered = section?.questions.every(q => q.id in answeredQuestions) ?? true;
   const isLastSection = currentSection === trainingSections.length - 1;
 
-  const goNext = () => {
+  const goNext = async () => {
     setDirection(1);
     if (isLastSection) {
-      const record = {
-        completedAt: new Date().toISOString(),
-        score,
-        totalQuestions,
-        passed: Math.round((score / totalQuestions) * 100) >= 70,
-      };
+      const passed = Math.round((score / totalQuestions) * 100) >= 70;
+      
+      // Save to Supabase if logged in
+      if (user) {
+        await supabase.from("training_records").insert({
+          user_id: user.id,
+          score,
+          total_questions: totalQuestions,
+          passed,
+        });
+      }
+      
+      // Also keep localStorage for non-logged-in users
+      const record = { completedAt: new Date().toISOString(), score, totalQuestions, passed };
       const existing = JSON.parse(localStorage.getItem("sec-training-records") || "[]");
       existing.push(record);
       localStorage.setItem("sec-training-records", JSON.stringify(existing));
+      
       setState("completed");
     } else {
       setCurrentSection(prev => prev + 1);
