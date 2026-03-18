@@ -3,55 +3,77 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { trainingSections } from "@/data/trainingContent";
-import { Leaf, LogOut, CheckCircle2, Clock, ExternalLink, BookOpen, Award } from "lucide-react";
+import { Leaf, LogOut, CheckCircle2, Clock, ExternalLink, BookOpen, Award, Download } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
+import { useAuth } from "@/hooks/useAuth";
+import { supabase } from "@/integrations/supabase/client";
+import ThemeToggle from "@/components/ThemeToggle";
+import { generateCertificate } from "@/lib/certificate";
 
 interface TrainingRecord {
-  completedAt: string;
+  completed_at: string;
   score: number;
-  totalQuestions: number;
+  total_questions: number;
   passed: boolean;
 }
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const { user, loading, signOut, isAdmin } = useAuth();
   const [records, setRecords] = useState<TrainingRecord[]>([]);
+  const [profile, setProfile] = useState<{ full_name: string } | null>(null);
 
   useEffect(() => {
-    const auth = localStorage.getItem("sec-auth");
-    if (!auth) {
+    if (!loading && !user) {
       navigate("/login");
       return;
     }
-    const saved = localStorage.getItem("sec-training-records");
-    if (saved) setRecords(JSON.parse(saved));
-  }, [navigate]);
+    if (user) {
+      supabase.from("training_records").select("*").eq("user_id", user.id).order("completed_at", { ascending: true })
+        .then(({ data }) => { if (data) setRecords(data); });
+      supabase.from("profiles").select("full_name").eq("user_id", user.id).single()
+        .then(({ data }) => { if (data) setProfile(data); });
+    }
+  }, [user, loading, navigate]);
 
-  const handleLogout = () => {
-    localStorage.removeItem("sec-auth");
+  const handleLogout = async () => {
+    await signOut();
     navigate("/login");
   };
 
+  if (loading) return <div className="min-h-screen flex items-center justify-center"><p className="text-muted-foreground">Loading...</p></div>;
+
   const latestRecord = records.length > 0 ? records[records.length - 1] : null;
-  const bestScore = records.length > 0 ? Math.max(...records.map(r => Math.round((r.score / r.totalQuestions) * 100))) : 0;
+  const bestScore = records.length > 0 ? Math.max(...records.map(r => Math.round((r.score / r.total_questions) * 100))) : 0;
+  const hasPassed = records.some(r => r.passed);
 
   return (
     <div className="min-h-screen bg-muted/30">
-      {/* Header */}
       <header className="sticky top-0 z-40 bg-card border-b px-4 py-3">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Leaf className="w-5 h-5 text-primary" />
             <span className="font-serif font-bold text-lg text-foreground">SEC Dashboard</span>
           </div>
-          <Button variant="ghost" size="sm" onClick={handleLogout} className="gap-1.5 text-muted-foreground">
-            <LogOut className="w-4 h-4" /> Logout
-          </Button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            {isAdmin && (
+              <Button variant="outline" size="sm" onClick={() => navigate("/admin")} className="text-xs">
+                Admin
+              </Button>
+            )}
+            <Button variant="ghost" size="sm" onClick={handleLogout} className="gap-1.5 text-muted-foreground">
+              <LogOut className="w-4 h-4" /> Logout
+            </Button>
+          </div>
         </div>
       </header>
 
       <main className="max-w-3xl mx-auto px-4 py-6 space-y-6">
-        {/* Stats */}
+        {profile?.full_name && (
+          <p className="text-lg font-medium text-foreground">Welcome, {profile.full_name}!</p>
+        )}
+
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
           <Card>
             <CardContent className="p-4 text-center">
@@ -76,7 +98,24 @@ const Dashboard = () => {
           </Card>
         </div>
 
-        {/* Training Sections */}
+        {/* Certificate Download */}
+        {hasPassed && (
+          <Card className="border-primary/20 bg-primary/5">
+            <CardContent className="p-4 flex items-center justify-between">
+              <div>
+                <p className="font-semibold text-foreground">🎓 You passed the training!</p>
+                <p className="text-sm text-muted-foreground">Download your certificate</p>
+              </div>
+              <Button
+                onClick={() => generateCertificate(profile?.full_name || user?.email || "Student", bestScore)}
+                className="gap-2"
+              >
+                <Download className="w-4 h-4" /> Certificate
+              </Button>
+            </CardContent>
+          </Card>
+        )}
+
         <Card>
           <CardHeader>
             <CardTitle className="text-lg">Training Modules</CardTitle>
@@ -101,7 +140,6 @@ const Dashboard = () => {
           </CardContent>
         </Card>
 
-        {/* History */}
         {records.length > 0 && (
           <Card>
             <CardHeader>
@@ -109,19 +147,19 @@ const Dashboard = () => {
             </CardHeader>
             <CardContent className="space-y-3">
               {[...records].reverse().map((r, i) => {
-                const pct = Math.round((r.score / r.totalQuestions) * 100);
+                const pct = Math.round((r.score / r.total_questions) * 100);
                 return (
                   <div key={i} className="p-3 rounded-lg border space-y-2">
                     <div className="flex items-center justify-between">
                       <span className="text-sm font-medium text-foreground">
-                        {new Date(r.completedAt).toLocaleDateString()} {new Date(r.completedAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                        {new Date(r.completed_at).toLocaleDateString()} {new Date(r.completed_at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                       </span>
                       <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${r.passed ? "bg-success/15 text-success" : "bg-destructive/15 text-destructive"}`}>
                         {r.passed ? "Passed" : "Failed"}
                       </span>
                     </div>
                     <Progress value={pct} className="h-2" />
-                    <p className="text-xs text-muted-foreground">{r.score}/{r.totalQuestions} correct ({pct}%)</p>
+                    <p className="text-xs text-muted-foreground">{r.score}/{r.total_questions} correct ({pct}%)</p>
                   </div>
                 );
               })}
@@ -129,13 +167,12 @@ const Dashboard = () => {
           </Card>
         )}
 
-        {/* Actions */}
         <div className="flex flex-col sm:flex-row gap-3">
           <Button onClick={() => navigate("/")} variant="outline" className="flex-1 h-11 font-bold gap-2">
             <BookOpen className="w-4 h-4" /> Start Training
           </Button>
           <Button asChild className="flex-1 h-11 font-bold gap-2">
-            <a href="https://ussd-soil-erosion.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <a href="https://ussd-soil-erosion.vercel.app/ussd-simulator" target="_blank" rel="noopener noreferrer">
               <ExternalLink className="w-4 h-4" /> SEC App Simulator
             </a>
           </Button>

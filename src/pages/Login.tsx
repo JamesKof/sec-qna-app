@@ -1,64 +1,106 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Leaf, LogIn, AlertCircle } from "lucide-react";
-
-const DEMO_USER = { email: "demo@sec-app.rw", password: "demo1234" };
+import { Leaf, LogIn, AlertCircle, UserPlus } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { signIn, signUp } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [fullName, setFullName] = useState("");
   const [error, setError] = useState("");
+  const [isSignUp, setIsSignUp] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email === DEMO_USER.email && password === DEMO_USER.password) {
-      localStorage.setItem("sec-auth", JSON.stringify({ email, loggedInAt: Date.now() }));
-      navigate("/dashboard");
+    setError("");
+    setLoading(true);
+
+    if (isSignUp) {
+      const { error } = await signUp(email, password, fullName);
+      if (error) {
+        setError(error.message);
+      } else {
+        setError("");
+        navigate("/dashboard");
+      }
     } else {
-      setError("Invalid credentials. Use the demo account below.");
+      const { error } = await signIn(email, password);
+      if (error) {
+        setError(error.message);
+      } else {
+        navigate("/dashboard");
+      }
     }
+    setLoading(false);
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 bg-muted/30">
+      <div className="absolute top-4 right-4">
+        <ThemeToggle />
+      </div>
       <Card className="w-full max-w-sm">
         <CardHeader className="text-center">
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 mx-auto mb-2">
             <Leaf className="w-7 h-7 text-primary" />
           </div>
-          <CardTitle className="font-serif text-2xl">SEC Dashboard</CardTitle>
-          <CardDescription>Sign in to view training progress</CardDescription>
+          <CardTitle className="font-serif text-2xl">
+            {isSignUp ? "Create Account" : "SEC Dashboard"}
+          </CardTitle>
+          <CardDescription>
+            {isSignUp ? "Sign up to track your training progress" : "Sign in to view training progress"}
+          </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleLogin} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
             {error && (
               <div className="flex items-center gap-2 text-sm text-destructive bg-destructive/10 rounded-lg p-3">
                 <AlertCircle className="w-4 h-4 shrink-0" />
                 {error}
               </div>
             )}
+            {isSignUp && (
+              <div className="space-y-2">
+                <Label htmlFor="fullName">Full Name</Label>
+                <Input id="fullName" value={fullName} onChange={e => setFullName(e.target.value)} placeholder="Your full name" required />
+              </div>
+            )}
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="demo@sec-app.rw" required />
+              <Input id="email" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="you@example.com" required />
             </div>
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="••••••••" required />
+              <Input id="password" type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="••••••••" required minLength={6} />
             </div>
-            <Button type="submit" className="w-full h-11 font-bold gap-2">
-              <LogIn className="w-4 h-4" /> Sign In
+            <Button type="submit" className="w-full h-11 font-bold gap-2" disabled={loading}>
+              {isSignUp ? <UserPlus className="w-4 h-4" /> : <LogIn className="w-4 h-4" />}
+              {loading ? "Please wait..." : isSignUp ? "Sign Up" : "Sign In"}
             </Button>
           </form>
 
-          <div className="mt-5 p-3 rounded-lg bg-accent/50 border border-border">
-            <p className="text-xs font-semibold text-muted-foreground mb-1">Demo Credentials</p>
-            <p className="text-sm font-mono">demo@sec-app.rw</p>
-            <p className="text-sm font-mono">demo1234</p>
+          <div className="mt-4 text-center">
+            <button
+              type="button"
+              onClick={() => { setIsSignUp(!isSignUp); setError(""); }}
+              className="text-sm text-primary hover:underline"
+            >
+              {isSignUp ? "Already have an account? Sign in" : "Don't have an account? Sign up"}
+            </button>
+          </div>
+
+          <div className="mt-3 text-center">
+            <Link to="/admin" className="text-xs text-muted-foreground hover:text-foreground">
+              Admin Portal →
+            </Link>
           </div>
         </CardContent>
       </Card>
