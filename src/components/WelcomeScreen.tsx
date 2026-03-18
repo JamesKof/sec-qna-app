@@ -1,4 +1,7 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Leaf, ArrowRight, LayoutDashboard } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImg from "@/assets/hero-landscape.jpg";
@@ -7,11 +10,17 @@ import ThemeToggle from "./ThemeToggle";
 import { useI18n } from "@/lib/i18n";
 
 interface WelcomeScreenProps {
-  onStart: () => void;
+  onStart: (certificateName: string) => void;
 }
 
 const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
   const { t } = useI18n();
+  const [name, setName] = useState("");
+
+  const handleStart = () => {
+    if (!name.trim()) return;
+    onStart(name.trim());
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -50,8 +59,24 @@ const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
             {t("welcome.description")}
           </p>
 
+          {/* Certificate Name Input */}
+          <div className="text-left mb-4 space-y-2">
+            <Label htmlFor="certName" className="text-sm font-semibold">
+              Your full name (for certificate)
+            </Label>
+            <Input
+              id="certName"
+              value={name}
+              onChange={e => setName(e.target.value)}
+              placeholder="Enter your full name"
+              className="text-center"
+              onKeyDown={e => { if (e.key === "Enter" && name.trim()) handleStart(); }}
+            />
+          </div>
+
           <Button
-            onClick={onStart}
+            onClick={handleStart}
+            disabled={!name.trim()}
             size="lg"
             className="w-full md:w-auto text-base font-bold gap-2 h-14 px-10 rounded-xl"
           >

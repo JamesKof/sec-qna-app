@@ -1,15 +1,17 @@
 import { Button } from "@/components/ui/button";
-import { Award, RotateCcw, CheckCircle, XCircle, ExternalLink } from "lucide-react";
+import { Award, RotateCcw, CheckCircle, XCircle, ExternalLink, Download } from "lucide-react";
 import { PASSING_SCORE } from "@/data/trainingContent";
 import { useI18n } from "@/lib/i18n";
+import { generateCertificate } from "@/lib/certificate";
 
 interface CompletionScreenProps {
   score: number;
   totalQuestions: number;
   onRetry: () => void;
+  certificateName: string;
 }
 
-const CompletionScreen = ({ score, totalQuestions, onRetry }: CompletionScreenProps) => {
+const CompletionScreen = ({ score, totalQuestions, onRetry, certificateName }: CompletionScreenProps) => {
   const percentage = totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0;
   const passed = percentage >= PASSING_SCORE;
   const { t } = useI18n();
@@ -67,6 +69,18 @@ const CompletionScreen = ({ score, totalQuestions, onRetry }: CompletionScreenPr
               {t("completion.readyMessage")}
             </p>
           </div>
+        )}
+
+        {/* Download Certificate */}
+        {passed && (
+          <Button
+            onClick={() => generateCertificate(certificateName || "Student", percentage)}
+            size="lg"
+            className="w-full h-12 text-base font-bold rounded-xl gap-2 mb-3 bg-success hover:bg-success/90 text-success-foreground"
+          >
+            <Download className="w-5 h-5" />
+            Download Certificate
+          </Button>
         )}
 
         {passed && (
