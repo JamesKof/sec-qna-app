@@ -108,7 +108,11 @@ const Dashboard = () => {
                 <p className="text-sm text-muted-foreground">Download your certificate</p>
               </div>
               <Button
-                onClick={() => generateCertificate(profile?.full_name || user?.email || "Student", bestScore)}
+                onClick={() => {
+                  const passedRecord = records.find(r => r.passed);
+                  const certName = passedRecord?.certificate_name || profile?.full_name || user?.email || "Student";
+                  generateCertificate(certName, bestScore);
+                }}
                 className="gap-2"
               >
                 <Download className="w-4 h-4" /> Certificate
