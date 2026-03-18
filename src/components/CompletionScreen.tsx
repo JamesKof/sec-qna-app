@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Award, RotateCcw, CheckCircle, XCircle, ExternalLink } from "lucide-react";
 import { PASSING_SCORE } from "@/data/trainingContent";
+import { useI18n } from "@/lib/i18n";
 
 interface CompletionScreenProps {
   score: number;
@@ -11,6 +12,7 @@ interface CompletionScreenProps {
 const CompletionScreen = ({ score, totalQuestions, onRetry }: CompletionScreenProps) => {
   const percentage = totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0;
   const passed = percentage >= PASSING_SCORE;
+  const { t } = useI18n();
 
   return (
     <div className="min-h-screen flex items-center justify-center px-5 py-12">
@@ -27,20 +29,20 @@ const CompletionScreen = ({ score, totalQuestions, onRetry }: CompletionScreenPr
         </div>
 
         <h1 className="font-serif text-3xl font-bold text-foreground mb-2">
-          {passed ? "Congratulations!" : "Keep Learning!"}
+          {passed ? t("completion.congrats") : t("completion.keepLearning")}
         </h1>
 
         <p className="text-muted-foreground text-lg mb-6">
           {passed
-            ? "You have successfully completed the SEC App Online Training."
-            : `You need ${PASSING_SCORE}% to pass. Review the material and try again.`}
+            ? t("completion.passMessage")
+            : t("completion.failMessage", { score: String(PASSING_SCORE) })}
         </p>
 
         {/* Score card */}
         <div className="bg-card rounded-2xl border p-6 mb-6 space-y-4">
           <div className="text-5xl font-bold text-foreground">{percentage}%</div>
           <p className="text-sm text-muted-foreground">
-            {score} out of {totalQuestions} correct
+            {score} {t("completion.outOf")} {totalQuestions} {t("completion.correct")}
           </p>
           <div className="w-full h-3 bg-muted rounded-full overflow-hidden">
             <div
@@ -52,9 +54,9 @@ const CompletionScreen = ({ score, totalQuestions, onRetry }: CompletionScreenPr
           </div>
           <div className="flex items-center justify-center gap-2 text-sm">
             {passed ? (
-              <><CheckCircle className="w-4 h-4 text-success" /> <span className="text-success font-semibold">Passed</span></>
+              <><CheckCircle className="w-4 h-4 text-success" /> <span className="text-success font-semibold">{t("completion.passed")}</span></>
             ) : (
-              <><XCircle className="w-4 h-4 text-destructive" /> <span className="text-destructive font-semibold">Below passing score</span></>
+              <><XCircle className="w-4 h-4 text-destructive" /> <span className="text-destructive font-semibold">{t("completion.belowPassing")}</span></>
             )}
           </div>
         </div>
@@ -62,7 +64,7 @@ const CompletionScreen = ({ score, totalQuestions, onRetry }: CompletionScreenPr
         {passed && (
           <div className="bg-primary/5 border border-primary/20 rounded-xl p-4 mb-6">
             <p className="text-sm text-foreground font-medium">
-              🎓 You are now ready to use the SEC App simulator or live USSD system to support inclusive soil erosion monitoring under the 125 Rwanda Project.
+              {t("completion.readyMessage")}
             </p>
           </div>
         )}
@@ -73,9 +75,9 @@ const CompletionScreen = ({ score, totalQuestions, onRetry }: CompletionScreenPr
             size="lg"
             className="w-full h-12 text-base font-bold rounded-xl gap-2 mb-3"
           >
-            <a href="https://ussd-soil-erosion.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <a href="https://ussd-soil-erosion.vercel.app/ussd-simulator" target="_blank" rel="noopener noreferrer">
               <ExternalLink className="w-5 h-5" />
-              Launch SEC App Simulator
+              {t("completion.launchSimulator")}
             </a>
           </Button>
         )}
@@ -87,7 +89,7 @@ const CompletionScreen = ({ score, totalQuestions, onRetry }: CompletionScreenPr
           className="w-full h-12 text-base font-bold rounded-xl gap-2"
         >
           <RotateCcw className="w-5 h-5" />
-          {passed ? "Retake Training" : "Try Again"}
+          {passed ? t("completion.retake") : t("completion.tryAgain")}
         </Button>
       </div>
     </div>

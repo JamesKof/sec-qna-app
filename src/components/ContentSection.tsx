@@ -10,6 +10,7 @@ import {
 import communityImg from "@/assets/community.jpg";
 import ussdImg from "@/assets/ussd-phone.jpg";
 import heroImg from "@/assets/hero-landscape.jpg";
+import { useI18n } from "@/lib/i18n";
 
 const iconMap: Record<string, React.ReactNode> = {
   "book-open": <BookOpen className="w-7 h-7" />,
@@ -50,6 +51,7 @@ interface ContentSectionProps {
 
 const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSectionProps) => {
   const [checkedTasks, setCheckedTasks] = useState<Record<number, boolean>>({});
+  const { t } = useI18n();
 
   return (
     <div className="space-y-6">
@@ -59,7 +61,7 @@ const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSection
           {iconMap[section.icon]}
         </div>
         <h2 className="font-serif text-xl md:text-2xl font-bold text-foreground">
-          {section.title}
+          {t(`section.${section.id}.title`)}
         </h2>
       </div>
 
@@ -67,16 +69,16 @@ const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSection
       {sectionImages[section.id] && (
         <img
           src={sectionImages[section.id]}
-          alt={section.title}
+          alt={t(`section.${section.id}.title`)}
           className="w-full h-40 md:h-52 object-cover rounded-xl"
         />
       )}
 
       {/* Content paragraphs */}
       <div className="space-y-3">
-        {section.content.map((paragraph, i) => (
+        {section.content.map((_, i) => (
           <p key={i} className="text-base leading-relaxed text-foreground/90">
-            {paragraph}
+            {t(`section.${section.id}.content.${i}`)}
           </p>
         ))}
       </div>
@@ -89,7 +91,7 @@ const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSection
               <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0 mt-0.5">
                 {smallIconMap[obj.icon] || <CheckCircle className="w-5 h-5" />}
               </div>
-              <p className="text-sm font-medium text-foreground">{obj.text}</p>
+              <p className="text-sm font-medium text-foreground">{t(`objective.${i}`)}</p>
             </div>
           ))}
         </div>
@@ -98,14 +100,14 @@ const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSection
       {/* Practice tasks (section 10) */}
       {section.practiceTasks && (
         <div className="space-y-3 bg-muted/50 rounded-xl p-4">
-          <p className="text-sm font-bold text-foreground uppercase tracking-wider">Practice Tasks</p>
-          {section.practiceTasks.map((task, i) => (
+          <p className="text-sm font-bold text-foreground uppercase tracking-wider">{t("practice.title")}</p>
+          {section.practiceTasks.map((_, i) => (
             <label key={i} className="flex items-center gap-3 p-3 bg-card rounded-lg cursor-pointer border hover:border-primary/50 transition-colors">
               <Checkbox
                 checked={checkedTasks[i] || false}
                 onCheckedChange={(checked) => setCheckedTasks(prev => ({ ...prev, [i]: !!checked }))}
               />
-              <span className="text-sm font-medium text-foreground">{task}</span>
+              <span className="text-sm font-medium text-foreground">{t(`practice.${i}`)}</span>
             </label>
           ))}
         </div>

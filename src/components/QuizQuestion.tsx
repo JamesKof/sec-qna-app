@@ -3,6 +3,7 @@ import { QuizQuestion as QuizQuestionType } from "@/data/trainingContent";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, XCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useI18n } from "@/lib/i18n";
 
 interface QuizQuestionProps {
   question: QuizQuestionType;
@@ -14,6 +15,7 @@ const QuizQuestion = ({ question, onAnswer, answered }: QuizQuestionProps) => {
   const [selected, setSelected] = useState<number[]>([]);
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const { t } = useI18n();
 
   const isMulti = question.type === "multi-select";
 
@@ -57,17 +59,17 @@ const QuizQuestion = ({ question, onAnswer, answered }: QuizQuestionProps) => {
       {/* Question type badge */}
       <div className="flex items-center gap-2">
         <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-primary/10 text-primary">
-          {question.type === "multiple-choice" ? "Multiple Choice" :
-           question.type === "true-false" ? "True / False" : "Select All"}
+          {question.type === "multiple-choice" ? t("quiz.multipleChoice") :
+           question.type === "true-false" ? t("quiz.trueFalse") : t("quiz.selectAll")}
         </span>
       </div>
 
       <p className="text-lg font-bold text-foreground leading-snug">
-        {question.question}
+        {t(`${question.id}.question`)}
       </p>
 
       <div className="space-y-2.5">
-        {question.options.map((option, index) => (
+        {question.options.map((_, index) => (
           <button
             key={index}
             onClick={() => handleSelect(index)}
@@ -92,7 +94,7 @@ const QuizQuestion = ({ question, onAnswer, answered }: QuizQuestionProps) => {
                 {selected.includes(index) && <span className="w-2.5 h-2.5 rounded-full bg-primary" />}
               </span>
             )}
-            {option}
+            {t(`${question.id}.${index}`)}
           </button>
         ))}
       </div>
@@ -103,7 +105,7 @@ const QuizQuestion = ({ question, onAnswer, answered }: QuizQuestionProps) => {
           disabled={selected.length === 0}
           className="w-full h-12 text-base font-bold rounded-xl"
         >
-          Check Answer
+          {t("quiz.checkAnswer")}
         </Button>
       )}
 
@@ -118,7 +120,7 @@ const QuizQuestion = ({ question, onAnswer, answered }: QuizQuestionProps) => {
             <XCircle className="w-6 h-6 text-destructive flex-shrink-0 mt-0.5" />
           )}
           <p className="text-sm font-medium text-foreground">
-            {isCorrect ? question.feedbackCorrect : question.feedbackIncorrect}
+            {isCorrect ? t(`${question.id}.correct`) : t(`${question.id}.incorrect`)}
           </p>
         </div>
       )}

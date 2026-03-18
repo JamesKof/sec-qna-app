@@ -7,6 +7,7 @@ import CompletionScreen from "@/components/CompletionScreen";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useI18n } from "@/lib/i18n";
 
 type AppState = "welcome" | "training" | "completed";
 
@@ -38,6 +39,7 @@ const Index = () => {
   const [currentSection, setCurrentSection] = useState(0);
   const [answeredQuestions, setAnsweredQuestions] = useState<Record<string, boolean>>({});
   const [direction, setDirection] = useState(1);
+  const { t } = useI18n();
 
   const score = Object.values(answeredQuestions).filter(Boolean).length;
 
@@ -144,21 +146,21 @@ const Index = () => {
             className="flex-1 h-12 rounded-xl font-bold gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
-            Previous
+            {t("nav.previous")}
           </Button>
           <Button
             onClick={goNext}
             disabled={!sectionQuestionsAnswered}
             className="flex-1 h-12 rounded-xl font-bold gap-2"
           >
-            {isLastSection ? "Finish" : "Next"}
+            {isLastSection ? t("nav.finish") : t("nav.next")}
             {!isLastSection && <ArrowRight className="w-4 h-4" />}
           </Button>
         </div>
 
         {!sectionQuestionsAnswered && section.questions.length > 0 && (
           <p className="text-center text-xs text-muted-foreground mt-3">
-            Answer all questions to continue
+            {t("nav.answerAll")}
           </p>
         )}
       </main>
