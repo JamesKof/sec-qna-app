@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Leaf, ArrowRight } from "lucide-react";
+import { Leaf, ArrowRight, LayoutDashboard } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImg from "@/assets/hero-landscape.jpg";
 
 interface WelcomeScreenProps {
