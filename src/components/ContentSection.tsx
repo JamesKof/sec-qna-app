@@ -1,7 +1,7 @@
 import { TrainingSection, learningObjectives } from "@/data/trainingContent";
 import QuizQuestion from "./QuizQuestion";
 import { Checkbox } from "@/components/ui/checkbox";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   BookOpen, Target, CloudRain, Users, Smartphone,
   UserCheck, MapPin, Mountain, ShieldCheck, MonitorSmartphone,
