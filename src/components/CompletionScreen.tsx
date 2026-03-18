@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Award, RotateCcw, CheckCircle, XCircle } from "lucide-react";
+import { Award, RotateCcw, CheckCircle, XCircle, ExternalLink } from "lucide-react";
 import { PASSING_SCORE } from "@/data/trainingContent";
 
 interface CompletionScreenProps {
@@ -65,6 +65,19 @@ const CompletionScreen = ({ score, totalQuestions, onRetry }: CompletionScreenPr
               🎓 You are now ready to use the SEC App simulator or live USSD system to support inclusive soil erosion monitoring under the 125 Rwanda Project.
             </p>
           </div>
+        )}
+
+        {passed && (
+          <Button
+            asChild
+            size="lg"
+            className="w-full h-12 text-base font-bold rounded-xl gap-2 mb-3"
+          >
+            <a href="https://ussd-soil-erosion.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <ExternalLink className="w-5 h-5" />
+              Launch SEC App Simulator
+            </a>
+          </Button>
         )}
 
         <Button
