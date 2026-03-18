@@ -15,8 +15,9 @@ const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Language toggle */}
-      <div className="absolute top-4 right-4 z-20">
+      {/* Controls */}
+      <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
+        <ThemeToggle />
         <LanguageToggle />
       </div>
 

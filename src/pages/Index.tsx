@@ -51,18 +51,27 @@ const Index = () => {
   const sectionQuestionsAnswered = section?.questions.every(q => q.id in answeredQuestions) ?? true;
   const isLastSection = currentSection === trainingSections.length - 1;
 
-  const goNext = () => {
+  const goNext = async () => {
     setDirection(1);
     if (isLastSection) {
-      const record = {
-        completedAt: new Date().toISOString(),
-        score,
-        totalQuestions,
-        passed: Math.round((score / totalQuestions) * 100) >= 70,
-      };
+      const passed = Math.round((score / totalQuestions) * 100) >= 70;
+      
+      // Save to Supabase if logged in
+      if (user) {
+        await supabase.from("training_records").insert({
+          user_id: user.id,
+          score,
+          total_questions: totalQuestions,
+          passed,
+        });
+      }
+      
+      // Also keep localStorage for non-logged-in users
+      const record = { completedAt: new Date().toISOString(), score, totalQuestions, passed };
       const existing = JSON.parse(localStorage.getItem("sec-training-records") || "[]");
       existing.push(record);
       localStorage.setItem("sec-training-records", JSON.stringify(existing));
+      
       setState("completed");
     } else {
       setCurrentSection(prev => prev + 1);
