@@ -202,6 +202,7 @@ const Admin = () => {
                 <TableHeader>
                   <TableRow>
                     <TableHead>Name</TableHead>
+                    <TableHead>Certificate Name</TableHead>
                     <TableHead>Email</TableHead>
                     <TableHead className="text-center">Attempts</TableHead>
                     <TableHead className="text-center">Best Score</TableHead>
@@ -212,6 +213,7 @@ const Admin = () => {
                   {students.map(s => (
                     <TableRow key={s.user_id}>
                       <TableCell className="font-medium">{s.full_name || "—"}</TableCell>
+                      <TableCell className="text-muted-foreground">{s.certificate_name || "—"}</TableCell>
                       <TableCell className="text-muted-foreground">{s.email || "—"}</TableCell>
                       <TableCell className="text-center">{s.attempts}</TableCell>
                       <TableCell className="text-center">{s.best_score}%</TableCell>
