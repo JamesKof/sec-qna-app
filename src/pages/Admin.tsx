@@ -41,7 +41,7 @@ const Admin = () => {
 
   const loadStudents = async () => {
     const { data: profiles } = await supabase.from("profiles").select("user_id, full_name, email");
-    const { data: records } = await supabase.from("training_records").select("user_id, score, total_questions, passed");
+    const { data: records } = await supabase.from("training_records").select("user_id, score, total_questions, passed, certificate_name");
 
     if (profiles) {
       const studentMap: Record<string, StudentRecord> = {};
@@ -53,6 +53,7 @@ const Admin = () => {
           attempts: 0,
           best_score: 0,
           passed: false,
+          certificate_name: "",
         };
       }
       if (records) {
@@ -62,6 +63,7 @@ const Admin = () => {
             const pct = Math.round((r.score / r.total_questions) * 100);
             if (pct > studentMap[r.user_id].best_score) studentMap[r.user_id].best_score = pct;
             if (r.passed) studentMap[r.user_id].passed = true;
+            if (r.certificate_name) studentMap[r.user_id].certificate_name = r.certificate_name;
           }
         }
       }
