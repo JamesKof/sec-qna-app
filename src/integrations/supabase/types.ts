@@ -43,6 +43,7 @@ export type Database = {
       }
       training_records: {
         Row: {
+          certificate_name: string
           completed_at: string
           id: string
           passed: boolean
@@ -51,6 +52,7 @@ export type Database = {
           user_id: string
         }
         Insert: {
+          certificate_name?: string
           completed_at?: string
           id?: string
           passed?: boolean
@@ -59,6 +61,7 @@ export type Database = {
           user_id: string
         }
         Update: {
+          certificate_name?: string
           completed_at?: string
           id?: string
           passed?: boolean
