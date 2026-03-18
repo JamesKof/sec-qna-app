@@ -15,6 +15,7 @@ interface TrainingRecord {
   score: number;
   total_questions: number;
   passed: boolean;
+  certificate_name: string;
 }
 
 const Dashboard = () => {
