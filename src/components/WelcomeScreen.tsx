@@ -51,6 +51,17 @@ const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
           <p className="text-xs text-muted-foreground mt-4">
             11 sections · Interactive quizzes · ~25 minutes
           </p>
+
+          <Link to="/login">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="mt-3 gap-2 text-muted-foreground hover:text-foreground"
+            >
+              <LayoutDashboard className="w-4 h-4" />
+              View Dashboard
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

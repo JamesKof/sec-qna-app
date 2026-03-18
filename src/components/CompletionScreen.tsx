@@ -73,7 +73,7 @@ const CompletionScreen = ({ score, totalQuestions, onRetry }: CompletionScreenPr
             size="lg"
             className="w-full h-12 text-base font-bold rounded-xl gap-2 mb-3"
           >
-            <a href="https://ussd-soil-erosion.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <a href="https://ussd-soil-erosion.vercel.app/ussd-simulator" target="_blank" rel="noopener noreferrer">
               <ExternalLink className="w-5 h-5" />
               Launch SEC App Simulator
             </a>
