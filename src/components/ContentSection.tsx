@@ -1,7 +1,7 @@
 import { TrainingSection, learningObjectives } from "@/data/trainingContent";
 import QuizQuestion from "./QuizQuestion";
 import { Checkbox } from "@/components/ui/checkbox";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   BookOpen, Target, CloudRain, Users, Smartphone,
   UserCheck, MapPin, Mountain, ShieldCheck, MonitorSmartphone,
@@ -52,6 +52,15 @@ interface ContentSectionProps {
 const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSectionProps) => {
   const [checkedTasks, setCheckedTasks] = useState<Record<number, boolean>>({});
   const { t } = useI18n();
+  const firstQuestionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (section.questions.length > 0 && firstQuestionRef.current) {
+      setTimeout(() => {
+        firstQuestionRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 400);
+    }
+  }, [section.id]);
 
   return (
     <div className="space-y-6">
@@ -117,13 +126,14 @@ const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSection
       {section.questions.length > 0 && (
         <div className="space-y-6 pt-2">
           <div className="h-px bg-border" />
-          {section.questions.map((q) => (
-            <QuizQuestion
-              key={q.id}
-              question={q}
-              onAnswer={(correct) => onAnswer(q.id, correct)}
-              answered={q.id in answeredQuestions}
-            />
+          {section.questions.map((q, idx) => (
+            <div key={q.id} ref={idx === 0 ? firstQuestionRef : undefined}>
+              <QuizQuestion
+                question={q}
+                onAnswer={(correct) => onAnswer(q.id, correct)}
+                answered={q.id in answeredQuestions}
+              />
+            </div>
           ))}
         </div>
       )}
