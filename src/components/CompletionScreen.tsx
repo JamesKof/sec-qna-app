@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Award, RotateCcw, CheckCircle, XCircle } from "lucide-react";
+import { Award, RotateCcw, CheckCircle, XCircle, ExternalLink } from "lucide-react";
 import { PASSING_SCORE } from "@/data/trainingContent";
 
 interface CompletionScreenProps {
