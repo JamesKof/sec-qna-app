@@ -2,14 +2,23 @@ import { Button } from "@/components/ui/button";
 import { Leaf, ArrowRight, LayoutDashboard } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImg from "@/assets/hero-landscape.jpg";
+import LanguageToggle from "./LanguageToggle";
+import { useI18n } from "@/lib/i18n";
 
 interface WelcomeScreenProps {
   onStart: () => void;
 }
 
 const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
+  const { t } = useI18n();
+
   return (
     <div className="min-h-screen flex flex-col">
+      {/* Language toggle */}
+      <div className="absolute top-4 right-4 z-20">
+        <LanguageToggle />
+      </div>
+
       {/* Hero */}
       <div className="relative h-[45vh] md:h-[55vh] overflow-hidden">
         <img
@@ -28,15 +37,15 @@ const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
           </div>
 
           <h1 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-2">
-            SEC USSD App Training
+            {t("welcome.title")}
           </h1>
 
           <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-3">
-            125 Rwanda Project
+            {t("welcome.project")}
           </p>
 
           <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
-            Learn to use the USSD Soil Erosion Control App for community-based environmental monitoring — step by step, right from your phone.
+            {t("welcome.description")}
           </p>
 
           <Button
@@ -44,12 +53,12 @@ const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
             size="lg"
             className="w-full md:w-auto text-base font-bold gap-2 h-14 px-10 rounded-xl"
           >
-            Start Training
+            {t("welcome.start")}
             <ArrowRight className="w-5 h-5" />
           </Button>
 
           <p className="text-xs text-muted-foreground mt-4">
-            11 sections · Interactive quizzes · ~25 minutes
+            {t("welcome.info")}
           </p>
 
           <Link to="/login">
@@ -59,7 +68,7 @@ const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
               className="mt-3 gap-2 text-muted-foreground hover:text-foreground"
             >
               <LayoutDashboard className="w-4 h-4" />
-              View Dashboard
+              {t("welcome.dashboard")}
             </Button>
           </Link>
         </div>
