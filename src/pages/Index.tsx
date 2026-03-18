@@ -28,6 +28,16 @@ const Index = () => {
 
   const goNext = () => {
     if (isLastSection) {
+      // Save training record
+      const record = {
+        completedAt: new Date().toISOString(),
+        score,
+        totalQuestions,
+        passed: Math.round((score / totalQuestions) * 100) >= 70,
+      };
+      const existing = JSON.parse(localStorage.getItem("sec-training-records") || "[]");
+      existing.push(record);
+      localStorage.setItem("sec-training-records", JSON.stringify(existing));
       setState("completed");
     } else {
       setCurrentSection(prev => prev + 1);
