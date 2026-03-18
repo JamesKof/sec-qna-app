@@ -17,6 +17,7 @@ interface StudentRecord {
   attempts: number;
   best_score: number;
   passed: boolean;
+  certificate_name: string;
 }
 
 const Admin = () => {
@@ -40,7 +41,7 @@ const Admin = () => {
 
   const loadStudents = async () => {
     const { data: profiles } = await supabase.from("profiles").select("user_id, full_name, email");
-    const { data: records } = await supabase.from("training_records").select("user_id, score, total_questions, passed");
+    const { data: records } = await supabase.from("training_records").select("user_id, score, total_questions, passed, certificate_name");
 
     if (profiles) {
       const studentMap: Record<string, StudentRecord> = {};
@@ -52,6 +53,7 @@ const Admin = () => {
           attempts: 0,
           best_score: 0,
           passed: false,
+          certificate_name: "",
         };
       }
       if (records) {
@@ -61,6 +63,7 @@ const Admin = () => {
             const pct = Math.round((r.score / r.total_questions) * 100);
             if (pct > studentMap[r.user_id].best_score) studentMap[r.user_id].best_score = pct;
             if (r.passed) studentMap[r.user_id].passed = true;
+            if (r.certificate_name) studentMap[r.user_id].certificate_name = r.certificate_name;
           }
         }
       }
@@ -199,6 +202,7 @@ const Admin = () => {
                 <TableHeader>
                   <TableRow>
                     <TableHead>Name</TableHead>
+                    <TableHead>Certificate Name</TableHead>
                     <TableHead>Email</TableHead>
                     <TableHead className="text-center">Attempts</TableHead>
                     <TableHead className="text-center">Best Score</TableHead>
@@ -209,6 +213,7 @@ const Admin = () => {
                   {students.map(s => (
                     <TableRow key={s.user_id}>
                       <TableCell className="font-medium">{s.full_name || "—"}</TableCell>
+                      <TableCell className="text-muted-foreground">{s.certificate_name || "—"}</TableCell>
                       <TableCell className="text-muted-foreground">{s.email || "—"}</TableCell>
                       <TableCell className="text-center">{s.attempts}</TableCell>
                       <TableCell className="text-center">{s.best_score}%</TableCell>

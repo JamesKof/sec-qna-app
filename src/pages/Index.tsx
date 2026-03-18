@@ -41,6 +41,7 @@ const Index = () => {
   const [currentSection, setCurrentSection] = useState(0);
   const [answeredQuestions, setAnsweredQuestions] = useState<Record<string, boolean>>({});
   const [direction, setDirection] = useState(1);
+  const [certificateName, setCertificateName] = useState("");
   const { t } = useI18n();
   const { user } = useAuth();
 
@@ -58,7 +59,7 @@ const Index = () => {
     setDirection(1);
     if (isLastSection) {
       const passed = Math.round((score / totalQuestions) * 100) >= 70;
-      
+
       // Save to Supabase if logged in
       if (user) {
         await supabase.from("training_records").insert({
@@ -66,15 +67,16 @@ const Index = () => {
           score,
           total_questions: totalQuestions,
           passed,
+          certificate_name: certificateName,
         });
       }
-      
+
       // Also keep localStorage for non-logged-in users
-      const record = { completedAt: new Date().toISOString(), score, totalQuestions, passed };
+      const record = { completedAt: new Date().toISOString(), score, totalQuestions, passed, certificateName };
       const existing = JSON.parse(localStorage.getItem("sec-training-records") || "[]");
       existing.push(record);
       localStorage.setItem("sec-training-records", JSON.stringify(existing));
-      
+
       setState("completed");
     } else {
       setCurrentSection(prev => prev + 1);
@@ -96,6 +98,11 @@ const Index = () => {
     setState("welcome");
   };
 
+  const handleStart = (name: string) => {
+    setCertificateName(name);
+    setState("training");
+  };
+
   if (state === "welcome") {
     return (
       <motion.div
@@ -104,7 +111,7 @@ const Index = () => {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.4 }}
       >
-        <WelcomeScreen onStart={() => setState("training")} />
+        <WelcomeScreen onStart={handleStart} />
       </motion.div>
     );
   }
@@ -116,7 +123,7 @@ const Index = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
-        <CompletionScreen score={score} totalQuestions={totalQuestions} onRetry={handleRetry} />
+        <CompletionScreen score={score} totalQuestions={totalQuestions} onRetry={handleRetry} certificateName={certificateName} />
       </motion.div>
     );
   }
