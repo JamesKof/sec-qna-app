@@ -52,6 +52,15 @@ interface ContentSectionProps {
 const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSectionProps) => {
   const [checkedTasks, setCheckedTasks] = useState<Record<number, boolean>>({});
   const { t } = useI18n();
+  const firstQuestionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (section.questions.length > 0 && firstQuestionRef.current) {
+      setTimeout(() => {
+        firstQuestionRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 400);
+    }
+  }, [section.id]);
 
   return (
     <div className="space-y-6">
