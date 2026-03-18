@@ -42,6 +42,7 @@ const Index = () => {
   const [answeredQuestions, setAnsweredQuestions] = useState<Record<string, boolean>>({});
   const [direction, setDirection] = useState(1);
   const { t } = useI18n();
+  const { user } = useAuth();
 
   const score = Object.values(answeredQuestions).filter(Boolean).length;
 
