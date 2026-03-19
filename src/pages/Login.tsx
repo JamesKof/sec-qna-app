@@ -103,7 +103,7 @@ const Login = () => {
           </div>
 
           <div className="mt-3 text-center">
-            <Link to="/admin" className="text-xs text-muted-foreground hover:text-foreground">
+            <Link to={langPrefix + "/admin"} className="text-xs text-muted-foreground hover:text-foreground">
               Admin Portal →
             </Link>
           </div>
