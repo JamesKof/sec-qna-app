@@ -40,7 +40,7 @@ const Login = () => {
       if (error) {
         setError(error.message);
       } else {
-        navigate("/dashboard");
+        navigate(langPrefix + "/dashboard");
       }
     }
     setLoading(false);
