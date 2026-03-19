@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import heroImg from "@/assets/hero-landscape.jpg";
 import LanguageToggle from "./LanguageToggle";
 import ThemeToggle from "./ThemeToggle";
+import PartnerLogos from "./PartnerLogos";
 import { useI18n } from "@/lib/i18n";
 
 interface WelcomeScreenProps {
