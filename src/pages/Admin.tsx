@@ -218,7 +218,6 @@ const Admin = () => {
               </Button>
             )}
           </CardHeader>
-          </CardHeader>
           <CardContent>
             {students.length === 0 ? (
               <p className="text-sm text-muted-foreground text-center py-8">No students registered yet.</p>
