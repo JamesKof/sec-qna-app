@@ -25,6 +25,8 @@ interface TrainingRecord {
 const Dashboard = () => {
   const navigate = useNavigate();
   const { user, loading, signOut, isAdmin } = useAuth();
+  const { lang } = useI18n();
+  const langPrefix = lang === "rw" ? "/rw" : "";
   const [records, setRecords] = useState<TrainingRecord[]>([]);
   const [profile, setProfile] = useState<{ full_name: string } | null>(null);
 
