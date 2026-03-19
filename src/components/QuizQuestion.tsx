@@ -15,12 +15,14 @@ const QuizQuestion = ({ question, onAnswer, answered }: QuizQuestionProps) => {
   const [selected, setSelected] = useState<number[]>([]);
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [attempt, setAttempt] = useState(0); // 0 = no attempt, 1 = first wrong, 2 = final
   const { t } = useI18n();
 
   const isMulti = question.type === "multi-select";
+  const isFinalized = showFeedback && (isCorrect || attempt >= 2);
 
   const handleSelect = (index: number) => {
-    if (showFeedback || answered) return;
+    if (isFinalized || answered) return;
     if (isMulti) {
       setSelected(prev =>
         prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index]
@@ -35,8 +37,22 @@ const QuizQuestion = ({ question, onAnswer, answered }: QuizQuestionProps) => {
       selected.length === question.correctAnswers.length &&
       selected.every(s => question.correctAnswers.includes(s));
     setIsCorrect(correct);
-    setShowFeedback(true);
-    onAnswer(correct);
+    const newAttempt = attempt + 1;
+    setAttempt(newAttempt);
+
+    if (correct || newAttempt >= 2) {
+      setShowFeedback(true);
+      onAnswer(correct);
+    } else {
+      // First wrong attempt — show retry feedback
+      setShowFeedback(true);
+    }
+  };
+
+  const handleRetry = () => {
+    setSelected([]);
+    setShowFeedback(false);
+    setIsCorrect(false);
   };
 
   const getOptionClass = (index: number) => {
