@@ -210,6 +210,8 @@ const Dashboard = () => {
           </Card>
         )}
 
+        <Leaderboard />
+
         <div className="flex flex-col sm:flex-row gap-3">
           <Button onClick={() => navigate("/")} variant="outline" className="flex-1 h-11 font-bold gap-2">
             <BookOpen className="w-4 h-4" /> Start Training
