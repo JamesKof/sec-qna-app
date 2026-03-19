@@ -84,7 +84,7 @@ const Leaderboard = () => {
           >
             <div className="flex items-center justify-center w-8 h-8 shrink-0">
               {i < 3 ? (
-                rankIcons[i]
+                getRankIcon(i)
               ) : (
                 <span className="text-sm font-bold text-muted-foreground">
                   {i + 1}
