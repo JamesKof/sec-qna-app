@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { trainingSections } from "@/data/trainingContent";
@@ -9,8 +9,10 @@ import { Progress } from "@/components/ui/progress";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import ThemeToggle from "@/components/ThemeToggle";
+import LanguageToggle from "@/components/LanguageToggle";
 import { generateCertificate } from "@/lib/certificate";
 import Leaderboard from "@/components/Leaderboard";
+import { useI18n } from "@/lib/i18n";
 
 interface TrainingRecord {
   completed_at: string;
