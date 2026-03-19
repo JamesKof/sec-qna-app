@@ -171,10 +171,4 @@ const QuizQuestion = ({ question, onAnswer, answered }: QuizQuestionProps) => {
 };
 
 export default QuizQuestion;
-        </div>
-      )}
-    </div>
-  );
-};
 
-export default QuizQuestion;
