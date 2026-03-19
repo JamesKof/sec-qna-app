@@ -113,7 +113,6 @@ const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
               className="text-center"
               onKeyDown={e => { if (e.key === "Enter" && name.trim()) handleStart(); }}
             />
-            />
           </div>
 
           <Button
