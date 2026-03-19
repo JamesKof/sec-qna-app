@@ -210,8 +210,14 @@ const Admin = () => {
 
         {/* Students Table */}
         <Card>
-          <CardHeader>
+          <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle className="text-lg">Students & Scores</CardTitle>
+            {students.length > 0 && (
+              <Button variant="outline" size="sm" onClick={handleExportCSV} className="gap-2">
+                <FileDown className="w-4 h-4" /> Export CSV
+              </Button>
+            )}
+          </CardHeader>
           </CardHeader>
           <CardContent>
             {students.length === 0 ? (
