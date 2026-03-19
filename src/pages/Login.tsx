@@ -13,6 +13,8 @@ import { useI18n } from "@/lib/i18n";
 const Login = () => {
   const navigate = useNavigate();
   const { signIn, signUp } = useAuth();
+  const { lang } = useI18n();
+  const langPrefix = lang === "rw" ? "/rw" : "";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
