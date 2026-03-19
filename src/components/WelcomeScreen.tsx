@@ -103,15 +103,16 @@ const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
           {/* Certificate Name Input */}
           <div className="text-left mb-4 space-y-2">
             <Label htmlFor="certName" className="text-sm font-semibold">
-              {lang === "rw" ? "Amazina yawe yose (ku cyemezo)" : "Your full name (for certificate)"}
+              {t("welcome.nameLabel")}
             </Label>
             <Input
               id="certName"
               value={name}
               onChange={e => setName(e.target.value)}
-              placeholder={lang === "rw" ? "Injiza amazina yawe yose" : "Enter your full name"}
+              placeholder={t("welcome.namePlaceholder")}
               className="text-center"
               onKeyDown={e => { if (e.key === "Enter" && name.trim()) handleStart(); }}
+            />
             />
           </div>
 
