@@ -10,6 +10,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import ThemeToggle from "@/components/ThemeToggle";
 import { generateCertificate } from "@/lib/certificate";
+import Leaderboard from "@/components/Leaderboard";
 
 interface TrainingRecord {
   completed_at: string;
@@ -208,6 +209,8 @@ const Dashboard = () => {
             </CardContent>
           </Card>
         )}
+
+        <Leaderboard />
 
         <div className="flex flex-col sm:flex-row gap-3">
           <Button onClick={() => navigate("/")} variant="outline" className="flex-1 h-11 font-bold gap-2">
