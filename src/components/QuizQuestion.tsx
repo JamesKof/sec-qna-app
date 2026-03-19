@@ -59,16 +59,21 @@ const QuizQuestion = ({ question, onAnswer, answered }: QuizQuestionProps) => {
     const isSelected = selected.includes(index);
     const isCorrectOption = question.correctAnswers.includes(index);
 
-    if (showFeedback || answered) {
+    if (isFinalized || answered) {
       if (isCorrectOption) return "border-success bg-success/10 text-foreground";
       if (isSelected && !isCorrectOption) return "border-destructive bg-destructive/10 text-foreground";
       return "border-border bg-muted/30 text-muted-foreground opacity-60";
+    }
+    // After first wrong attempt but in retry mode — don't reveal correct answers
+    if (showFeedback && !isCorrect && attempt === 1) {
+      if (isSelected && !isCorrectOption) return "border-destructive bg-destructive/10 text-foreground";
+      return "border-border bg-card text-foreground";
     }
     if (isSelected) return "border-primary bg-primary/10 text-foreground ring-2 ring-primary/30";
     return "border-border bg-card text-foreground hover:border-primary/50 hover:bg-primary/5";
   };
 
-  const feedbackShown = showFeedback || answered;
+  const feedbackShown = isFinalized || answered;
 
   return (
     <div className="space-y-4 animate-fade-in">
