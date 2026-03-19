@@ -10,6 +10,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import ThemeToggle from "@/components/ThemeToggle";
 import { generateCertificate } from "@/lib/certificate";
+import Leaderboard from "@/components/Leaderboard";
 
 interface TrainingRecord {
   completed_at: string;
