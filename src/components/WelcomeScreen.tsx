@@ -100,6 +100,8 @@ const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
             </Button>
           </Link>
         </div>
+
+        <PartnerLogos />
       </div>
     </div>
   );

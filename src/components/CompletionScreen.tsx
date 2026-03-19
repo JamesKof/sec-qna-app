@@ -106,6 +106,8 @@ const CompletionScreen = ({ score, totalQuestions, onRetry, certificateName }: C
           <RotateCcw className="w-5 h-5" />
           {passed ? t("completion.retake") : t("completion.tryAgain")}
         </Button>
+
+        <PartnerLogos variant="compact" />
       </div>
     </div>
   );
