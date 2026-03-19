@@ -48,8 +48,9 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 bg-muted/30">
-      <div className="absolute top-4 right-4">
+      <div className="absolute top-4 right-4 flex items-center gap-2">
         <ThemeToggle />
+        <LanguageToggle />
       </div>
       <Card className="w-full max-w-sm">
         <CardHeader className="text-center">
