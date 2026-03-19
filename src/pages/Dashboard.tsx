@@ -45,7 +45,7 @@ const Dashboard = () => {
 
   const handleLogout = async () => {
     await signOut();
-    navigate("/login");
+    navigate(langPrefix + "/login");
   };
 
   if (loading) return <div className="min-h-screen flex items-center justify-center"><p className="text-muted-foreground">Loading...</p></div>;
