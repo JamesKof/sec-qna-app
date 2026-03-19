@@ -33,7 +33,7 @@ const Login = () => {
         setError(error.message);
       } else {
         setError("");
-        navigate("/dashboard");
+        navigate(langPrefix + "/dashboard");
       }
     } else {
       const { error } = await signIn(email, password);
