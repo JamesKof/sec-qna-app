@@ -94,6 +94,17 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      get_leaderboard: {
+        Args: { limit_count?: number }
+        Returns: {
+          attempts: number
+          best_percentage: number
+          best_score: number
+          full_name: string
+          latest_completed_at: string
+          total_questions: number
+        }[]
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
