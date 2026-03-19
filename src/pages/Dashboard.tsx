@@ -64,8 +64,9 @@ const Dashboard = () => {
           </div>
           <div className="flex items-center gap-2">
             <ThemeToggle />
+            <LanguageToggle />
             {isAdmin && (
-              <Button variant="outline" size="sm" onClick={() => navigate("/admin")} className="text-xs">
+              <Button variant="outline" size="sm" onClick={() => navigate(langPrefix + "/admin")} className="text-xs">
                 Admin
               </Button>
             )}
