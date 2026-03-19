@@ -1,22 +1,22 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { useI18n, Language } from "@/lib/i18n";
+import { useLocation } from "react-router-dom";
+import { useI18n } from "@/lib/i18n";
 
 /**
- * Syncs the i18n language with the URL :lang param.
- * Wrap route elements with this to enable /rw/ prefix routing.
+ * Syncs the i18n language with the URL path.
+ * Routes under /rw/ automatically switch to Kinyarwanda.
  */
 const LanguageRoute = ({ children }: { children: React.ReactNode }) => {
-  const { lang } = useParams<{ lang?: string }>();
+  const location = useLocation();
   const { setLang } = useI18n();
 
   useEffect(() => {
-    if (lang === "rw") {
+    if (location.pathname === "/rw" || location.pathname.startsWith("/rw/")) {
       setLang("rw");
     } else {
       setLang("en");
     }
-  }, [lang, setLang]);
+  }, [location.pathname, setLang]);
 
   return <>{children}</>;
 };
