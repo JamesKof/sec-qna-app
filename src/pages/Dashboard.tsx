@@ -145,29 +145,65 @@ const Dashboard = () => {
           </CardContent>
         </Card>
 
+        {/* Training Report Summary */}
         {records.length > 0 && (
-          <Card>
+          <Card className="border-accent/30">
             <CardHeader>
-              <CardTitle className="text-lg">Attempt History</CardTitle>
+              <CardTitle className="text-lg flex items-center gap-2">
+                <BarChart3 className="w-5 h-5 text-primary" />
+                Training Report
+              </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-3">
-              {[...records].reverse().map((r, i) => {
-                const pct = Math.round((r.score / r.total_questions) * 100);
-                return (
-                  <div key={i} className="p-3 rounded-lg border space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-foreground">
-                        {new Date(r.completed_at).toLocaleDateString()} {new Date(r.completed_at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
-                      </span>
-                      <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${r.passed ? "bg-success/15 text-success" : "bg-destructive/15 text-destructive"}`}>
-                        {r.passed ? "Passed" : "Failed"}
-                      </span>
-                    </div>
-                    <Progress value={pct} className="h-2" />
-                    <p className="text-xs text-muted-foreground">{r.score}/{r.total_questions} correct ({pct}%)</p>
-                  </div>
-                );
-              })}
+            <CardContent className="space-y-4">
+              <div className="grid grid-cols-2 gap-3">
+                <div className="p-3 rounded-lg bg-muted/50 text-center">
+                  <p className="text-2xl font-bold text-foreground">{records.length}</p>
+                  <p className="text-xs text-muted-foreground">Total Sessions</p>
+                </div>
+                <div className="p-3 rounded-lg bg-muted/50 text-center">
+                  <p className="text-2xl font-bold text-foreground">{records.filter(r => r.passed).length}/{records.length}</p>
+                  <p className="text-xs text-muted-foreground">Pass Rate</p>
+                </div>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b text-left">
+                      <th className="pb-2 text-muted-foreground font-medium">#</th>
+                      <th className="pb-2 text-muted-foreground font-medium">Name</th>
+                      <th className="pb-2 text-muted-foreground font-medium">Date</th>
+                      <th className="pb-2 text-muted-foreground font-medium">Score</th>
+                      <th className="pb-2 text-muted-foreground font-medium">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[...records].reverse().map((r, i) => {
+                      const pct = Math.round((r.score / r.total_questions) * 100);
+                      return (
+                        <tr key={i} className="border-b last:border-0">
+                          <td className="py-2.5 text-muted-foreground">{records.length - i}</td>
+                          <td className="py-2.5 font-medium text-foreground">{r.certificate_name || "—"}</td>
+                          <td className="py-2.5 text-muted-foreground whitespace-nowrap">
+                            {new Date(r.completed_at).toLocaleDateString()}
+                          </td>
+                          <td className="py-2.5">
+                            <div className="flex items-center gap-2">
+                              <Progress value={pct} className="h-1.5 w-16" />
+                              <span className="text-xs text-muted-foreground">{pct}%</span>
+                            </div>
+                          </td>
+                          <td className="py-2.5">
+                            <Badge variant={r.passed ? "default" : "destructive"} className="text-[10px]">
+                              {r.passed ? "Passed" : "Failed"}
+                            </Badge>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
             </CardContent>
           </Card>
         )}
