@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { I18nProvider } from "@/lib/i18n";
 import { AuthProvider } from "@/hooks/useAuth";
+import LanguageRoute from "@/components/LanguageRoute";
 import Index from "./pages/Index.tsx";
 import Login from "./pages/Login.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
@@ -22,10 +23,18 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/admin" element={<Admin />} />
+              {/* Default English routes */}
+              <Route path="/" element={<LanguageRoute><Index /></LanguageRoute>} />
+              <Route path="/login" element={<LanguageRoute><Login /></LanguageRoute>} />
+              <Route path="/dashboard" element={<LanguageRoute><Dashboard /></LanguageRoute>} />
+              <Route path="/admin" element={<LanguageRoute><Admin /></LanguageRoute>} />
+
+              {/* Kinyarwanda routes under /rw prefix */}
+              <Route path="/rw" element={<LanguageRoute><Index /></LanguageRoute>} />
+              <Route path="/rw/login" element={<LanguageRoute><Login /></LanguageRoute>} />
+              <Route path="/rw/dashboard" element={<LanguageRoute><Dashboard /></LanguageRoute>} />
+              <Route path="/rw/admin" element={<LanguageRoute><Admin /></LanguageRoute>} />
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>

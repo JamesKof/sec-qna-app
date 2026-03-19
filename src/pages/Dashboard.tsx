@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { trainingSections } from "@/data/trainingContent";
@@ -9,8 +9,10 @@ import { Progress } from "@/components/ui/progress";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import ThemeToggle from "@/components/ThemeToggle";
+import LanguageToggle from "@/components/LanguageToggle";
 import { generateCertificate } from "@/lib/certificate";
 import Leaderboard from "@/components/Leaderboard";
+import { useI18n } from "@/lib/i18n";
 
 interface TrainingRecord {
   completed_at: string;
@@ -23,12 +25,14 @@ interface TrainingRecord {
 const Dashboard = () => {
   const navigate = useNavigate();
   const { user, loading, signOut, isAdmin } = useAuth();
+  const { lang } = useI18n();
+  const langPrefix = lang === "rw" ? "/rw" : "";
   const [records, setRecords] = useState<TrainingRecord[]>([]);
   const [profile, setProfile] = useState<{ full_name: string } | null>(null);
 
   useEffect(() => {
     if (!loading && !user) {
-      navigate("/login");
+      navigate(langPrefix + "/login");
       return;
     }
     if (user) {
@@ -41,7 +45,7 @@ const Dashboard = () => {
 
   const handleLogout = async () => {
     await signOut();
-    navigate("/login");
+    navigate(langPrefix + "/login");
   };
 
   if (loading) return <div className="min-h-screen flex items-center justify-center"><p className="text-muted-foreground">Loading...</p></div>;
@@ -60,8 +64,9 @@ const Dashboard = () => {
           </div>
           <div className="flex items-center gap-2">
             <ThemeToggle />
+            <LanguageToggle />
             {isAdmin && (
-              <Button variant="outline" size="sm" onClick={() => navigate("/admin")} className="text-xs">
+              <Button variant="outline" size="sm" onClick={() => navigate(langPrefix + "/admin")} className="text-xs">
                 Admin
               </Button>
             )}
@@ -213,7 +218,7 @@ const Dashboard = () => {
         <Leaderboard />
 
         <div className="flex flex-col sm:flex-row gap-3">
-          <Button onClick={() => navigate("/")} variant="outline" className="flex-1 h-11 font-bold gap-2">
+          <Button onClick={() => navigate(langPrefix + "/")} variant="outline" className="flex-1 h-11 font-bold gap-2">
             <BookOpen className="w-4 h-4" /> Start Training
           </Button>
           <Button asChild className="flex-1 h-11 font-bold gap-2">

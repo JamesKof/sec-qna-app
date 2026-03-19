@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -7,10 +7,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Leaf, LogIn, AlertCircle, UserPlus } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import ThemeToggle from "@/components/ThemeToggle";
+import LanguageToggle from "@/components/LanguageToggle";
+import { useI18n } from "@/lib/i18n";
 
 const Login = () => {
   const navigate = useNavigate();
   const { signIn, signUp } = useAuth();
+  const { lang } = useI18n();
+  const langPrefix = lang === "rw" ? "/rw" : "";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
@@ -29,14 +33,14 @@ const Login = () => {
         setError(error.message);
       } else {
         setError("");
-        navigate("/dashboard");
+        navigate(langPrefix + "/dashboard");
       }
     } else {
       const { error } = await signIn(email, password);
       if (error) {
         setError(error.message);
       } else {
-        navigate("/dashboard");
+        navigate(langPrefix + "/dashboard");
       }
     }
     setLoading(false);
@@ -44,8 +48,9 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 bg-muted/30">
-      <div className="absolute top-4 right-4">
+      <div className="absolute top-4 right-4 flex items-center gap-2">
         <ThemeToggle />
+        <LanguageToggle />
       </div>
       <Card className="w-full max-w-sm">
         <CardHeader className="text-center">
@@ -98,7 +103,7 @@ const Login = () => {
           </div>
 
           <div className="mt-3 text-center">
-            <Link to="/admin" className="text-xs text-muted-foreground hover:text-foreground">
+            <Link to={langPrefix + "/admin"} className="text-xs text-muted-foreground hover:text-foreground">
               Admin Portal →
             </Link>
           </div>
