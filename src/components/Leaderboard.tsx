@@ -12,11 +12,12 @@ interface LeaderboardEntry {
   latest_completed_at: string;
 }
 
-const rankIcons = [
-  <Trophy className="w-5 h-5 text-yellow-500" />,
-  <Medal className="w-5 h-5 text-gray-400" />,
-  <Award className="w-5 h-5 text-amber-600" />,
-];
+const getRankIcon = (index: number) => {
+  if (index === 0) return <Trophy className="w-5 h-5 text-yellow-500" />;
+  if (index === 1) return <Medal className="w-5 h-5 text-muted-foreground" />;
+  if (index === 2) return <Award className="w-5 h-5 text-amber-600" />;
+  return null;
+};
 
 const Leaderboard = () => {
   const [entries, setEntries] = useState<LeaderboardEntry[]>([]);
