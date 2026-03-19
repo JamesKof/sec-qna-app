@@ -3,6 +3,7 @@ import { Award, RotateCcw, CheckCircle, XCircle, ExternalLink, Download } from "
 import { PASSING_SCORE } from "@/data/trainingContent";
 import { useI18n } from "@/lib/i18n";
 import { generateCertificate } from "@/lib/certificate";
+import PartnerLogos from "./PartnerLogos";
 
 interface CompletionScreenProps {
   score: number;
