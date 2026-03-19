@@ -5,6 +5,7 @@ import ProgressHeader from "@/components/ProgressHeader";
 import ContentSection from "@/components/ContentSection";
 import CompletionScreen from "@/components/CompletionScreen";
 import { Button } from "@/components/ui/button";
+import PartnerLogos from "@/components/PartnerLogos";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
@@ -182,6 +183,8 @@ const Index = () => {
             {t("nav.answerAll")}
           </p>
         )}
+
+        <PartnerLogos variant="compact" />
       </main>
     </div>
   );

@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Leaf, LogOut, UserPlus, Shield, Users, AlertCircle } from "lucide-react";
+import { Leaf, LogOut, UserPlus, Shield, Users, AlertCircle, FileDown } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -94,6 +94,25 @@ const Admin = () => {
       setTimeout(() => loadStudents(), 1000);
     }
     setAddLoading(false);
+  };
+
+  const handleExportCSV = () => {
+    const headers = ["Name", "Certificate Name", "Email", "Attempts", "Best Score (%)", "Status"];
+    const rows = students.map(s => [
+      s.full_name || "",
+      s.certificate_name || "",
+      s.email || "",
+      String(s.attempts),
+      String(s.best_score),
+      s.passed ? "Passed" : s.attempts > 0 ? "Failed" : "Not Started",
+    ]);
+    const csv = [headers, ...rows].map(r => r.map(c => `"${c.replace(/"/g, '""')}"`).join(",")).join("\n");
+    const blob = new Blob([csv], { type: "text/csv" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `SEC_Training_Report_${new Date().toISOString().split("T")[0]}.csv`;
+    a.click();
+    URL.revokeObjectURL(a.href);
   };
 
   const handleLogout = async () => {
@@ -191,8 +210,13 @@ const Admin = () => {
 
         {/* Students Table */}
         <Card>
-          <CardHeader>
+          <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle className="text-lg">Students & Scores</CardTitle>
+            {students.length > 0 && (
+              <Button variant="outline" size="sm" onClick={handleExportCSV} className="gap-2">
+                <FileDown className="w-4 h-4" /> Export CSV
+              </Button>
+            )}
           </CardHeader>
           <CardContent>
             {students.length === 0 ? (
