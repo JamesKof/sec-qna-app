@@ -96,6 +96,25 @@ const Admin = () => {
     setAddLoading(false);
   };
 
+  const handleExportCSV = () => {
+    const headers = ["Name", "Certificate Name", "Email", "Attempts", "Best Score (%)", "Status"];
+    const rows = students.map(s => [
+      s.full_name || "",
+      s.certificate_name || "",
+      s.email || "",
+      String(s.attempts),
+      String(s.best_score),
+      s.passed ? "Passed" : s.attempts > 0 ? "Failed" : "Not Started",
+    ]);
+    const csv = [headers, ...rows].map(r => r.map(c => `"${c.replace(/"/g, '""')}"`).join(",")).join("\n");
+    const blob = new Blob([csv], { type: "text/csv" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `SEC_Training_Report_${new Date().toISOString().split("T")[0]}.csv`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  };
+
   const handleLogout = async () => {
     await signOut();
     navigate("/login");
