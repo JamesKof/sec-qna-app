@@ -183,6 +183,8 @@ const Index = () => {
             {t("nav.answerAll")}
           </p>
         )}
+
+        <PartnerLogos variant="compact" />
       </main>
     </div>
   );
