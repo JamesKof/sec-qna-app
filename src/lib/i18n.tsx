@@ -61,6 +61,8 @@ const translations: Record<string, Record<Language, string>> = {
 
   // Language toggle
   "lang.switch": { en: "Kinyarwanda", rw: "English" },
+  "welcome.nameLabel": { en: "Your full name (for certificate)", rw: "Amazina yawe yose (ku cyemezo)" },
+  "welcome.namePlaceholder": { en: "Enter your full name", rw: "Injiza amazina yawe yose" },
 
   // Training section titles
   "section.1.title": { en: "Introduction", rw: "Intangiriro" },
