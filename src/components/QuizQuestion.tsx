@@ -120,7 +120,8 @@ const QuizQuestion = ({ question, onAnswer, answered }: QuizQuestionProps) => {
         ))}
       </div>
 
-      {!feedbackShown && (
+      {/* Submit / Retry buttons */}
+      {!feedbackShown && !showFeedback && (
         <Button
           onClick={handleSubmit}
           disabled={selected.length === 0}
@@ -130,6 +131,26 @@ const QuizQuestion = ({ question, onAnswer, answered }: QuizQuestionProps) => {
         </Button>
       )}
 
+      {/* First wrong attempt — retry prompt */}
+      {showFeedback && !isCorrect && attempt === 1 && !answered && (
+        <div className="space-y-3 animate-fade-in">
+          <div className="p-4 rounded-xl border-2 bg-destructive/10 border-destructive/30 flex items-start gap-3">
+            <XCircle className="w-6 h-6 text-destructive flex-shrink-0 mt-0.5" />
+            <p className="text-sm font-medium text-foreground">
+              {t("quiz.tryAgain")}
+            </p>
+          </div>
+          <Button
+            onClick={handleRetry}
+            variant="outline"
+            className="w-full h-12 text-base font-bold rounded-xl border-primary text-primary hover:bg-primary/10"
+          >
+            {t("quiz.retryButton")}
+          </Button>
+        </div>
+      )}
+
+      {/* Final feedback */}
       {feedbackShown && (
         <div className={cn(
           "p-4 rounded-xl border-2 flex items-start gap-3 animate-fade-in",
@@ -143,6 +164,13 @@ const QuizQuestion = ({ question, onAnswer, answered }: QuizQuestionProps) => {
           <p className="text-sm font-medium text-foreground">
             {isCorrect ? t(`${question.id}.correct`) : t(`${question.id}.incorrect`)}
           </p>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default QuizQuestion;
         </div>
       )}
     </div>
