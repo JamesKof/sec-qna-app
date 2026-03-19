@@ -32,7 +32,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (!loading && !user) {
-      navigate("/login");
+      navigate(langPrefix + "/login");
       return;
     }
     if (user) {
