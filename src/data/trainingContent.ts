@@ -27,8 +27,8 @@ export const trainingSections: TrainingSection[] = [
     icon: "book-open",
     content: [
       "Welcome to the SEC App Online Training Module!",
-      "This interactive lesson will guide you step-by-step through the use of the USSD Soil Erosion Control (SEC) App.",
-      "You will learn why soil erosion monitoring matters, how the app works, and how to enter data accurately using your mobile phone.",
+      "This interactive lesson will guide you step-by-step through the use of the USSD Soil Erosion Control (SEC) App. You will learn why soil erosion monitoring matters, how climate change influences erosion, and how to correctly report erosion evidence and control measures using a basic mobile phone.",
+      "This lesson is self-paced. Please read each section carefully and answer the questions that follow.",
       "The training is part of the 125 Rwanda Project, supporting community-based environmental monitoring across Rwanda."
     ],
     questions: []
@@ -55,16 +55,16 @@ export const trainingSections: TrainingSection[] = [
       {
         id: "q3-1",
         type: "multiple-choice",
-        question: "Which climate change factor most directly increases soil erosion in Rwanda?",
+        question: "Which climate change factor most directly increases soil erosion in your area (district)?",
         options: [
-          "Rising temperatures",
-          "Intense and unpredictable rainfall",
-          "Decreased humidity",
-          "Longer dry seasons"
+          "Higher average temperatures",
+          "Increased rainfall variability and extreme storms",
+          "Wind speed in cities",
+          "Longer daylight hours"
         ],
         correctAnswers: [1],
         feedbackCorrect: "Correct! Intense and unpredictable rainfall increases runoff, which accelerates soil erosion.",
-        feedbackIncorrect: "Incorrect. This factor does not directly cause large-scale soil erosion. Intense rainfall is the primary driver."
+        feedbackIncorrect: "Incorrect. This factor does not directly cause large-scale soil erosion."
       }
     ]
   },
@@ -117,9 +117,8 @@ export const trainingSections: TrainingSection[] = [
     title: "Why USSD Technology",
     icon: "smartphone",
     content: [
-      "USSD technology allows users to interact with the SEC App using simple menu prompts on basic mobile phones.",
-      "It does not require internet access or smartphones, making the SEC App accessible to people in remote areas, older users, and those with limited connectivity.",
-      "This supports equitable participation in soil erosion monitoring."
+      "USSD technology allows users to interact with the SEC App using simple menu prompts on basic mobile phones. It does not require internet access or smartphones.",
+      "This makes the SEC App accessible to people in remote areas, older users, and those with limited connectivity, supporting equitable participation."
     ],
     questions: [
       {
@@ -134,7 +133,7 @@ export const trainingSections: TrainingSection[] = [
         ],
         correctAnswers: [2],
         feedbackCorrect: "Correct! USSD works on basic phones and does not require internet.",
-        feedbackIncorrect: "Incorrect. The SEC App was designed for low-connectivity environments using basic phones."
+        feedbackIncorrect: "Incorrect. The SEC App was designed for low-connectivity environments."
       }
     ]
   },
@@ -143,8 +142,7 @@ export const trainingSections: TrainingSection[] = [
     title: "Entering Biodata",
     icon: "user-check",
     content: [
-      "Biodata links each erosion report to a real user and location, making reports traceable and useful for planning.",
-      "Accurate biodata improves reliability and supports inclusive monitoring.",
+      "Biodata links each erosion report to a real user and location, making reports traceable and useful for planning. Accurate biodata improves reliability and supports inclusive monitoring.",
       "Fields such as gender, age range, and disability status help ensure equitable representation across social groups.",
       "All personal information must be handled ethically and kept confidential."
     ],
@@ -154,14 +152,23 @@ export const trainingSections: TrainingSection[] = [
         type: "multiple-choice",
         question: "Why is accurate biodata important?",
         options: [
-          "It makes reports longer",
-          "It links reports to real users and supports planning",
-          "It is optional and not needed",
-          "It replaces field visits"
+          "For advertising",
+          "For traceability and planning",
+          "To rank users",
+          "To identify political views"
         ],
         correctAnswers: [1],
-        feedbackCorrect: "Correct! Accurate biodata ensures reports are traceable and useful for planning.",
-        feedbackIncorrect: "Incorrect. Biodata is essential for linking reports to real users and locations."
+        feedbackCorrect: "Correct! Accurate biodata supports planning and verification.",
+        feedbackIncorrect: "Incorrect. Biodata is collected only for official monitoring purposes."
+      },
+      {
+        id: "q6-2",
+        type: "true-false",
+        question: "Biodata collected through the SEC App should be kept confidential.",
+        options: ["True", "False"],
+        correctAnswers: [0],
+        feedbackCorrect: "Correct! Confidentiality protects users and builds trust.",
+        feedbackIncorrect: "Incorrect. Personal data must always be protected."
       }
     ]
   },
@@ -172,20 +179,12 @@ export const trainingSections: TrainingSection[] = [
     content: [
       "Each land parcel in Rwanda has a Unique Parcel ID (UPI) based on administrative hierarchy.",
       "Correct parcel identification ensures erosion reports are linked to the correct location.",
+      "The first single digit is the province code; the first two digits are the district code; the second two digits are the sector code; the third two digits are the cell code; and the last set of digits are the short UPI for the parcel. Note that the short UPI may have 3 or 4 digits.",
       "If users forget the UPI, they can seek help from SEDOs, family members, or neighbors."
     ],
     questions: [
       {
         id: "q7-1",
-        type: "true-false",
-        question: "Biodata collected through the SEC App should be kept confidential.",
-        options: ["True", "False"],
-        correctAnswers: [0],
-        feedbackCorrect: "Correct! Confidentiality protects users and builds trust.",
-        feedbackIncorrect: "Incorrect. Personal data must always be protected."
-      },
-      {
-        id: "q7-2",
         type: "multiple-choice",
         question: "What does the long UPI represent?",
         options: [
@@ -205,9 +204,9 @@ export const trainingSections: TrainingSection[] = [
     title: "Erosion Evidence",
     icon: "mountain",
     content: [
-      "Common signs of erosion include gullies, rills, exposed roots, sediment deposits, and bare soil.",
-      "The SEC App focuses on observable evidence to make reporting easier and consistent.",
-      "The app does not measure erosion severity; other government systems handle detailed analysis."
+      "Common signs of erosion include gullies, rills, exposed roots, sediment deposits, and bare soil. The SEC App focuses on observable evidence to make reporting easier and consistent.",
+      "The pictures show sheet and rill erosion, large gully, landslide, small gully, turbid water, and river bank erosion respectively.",
+      "The SEC app does not report erosion severity; other government systems handle detailed analysis."
     ],
     questions: [
       {
@@ -227,6 +226,7 @@ export const trainingSections: TrainingSection[] = [
     icon: "shield-check",
     content: [
       "Erosion control measures such as terraces, agroforestry, and vegetation cover reduce runoff and stabilize soil.",
+      "The pictures show progressive terraces, agroforestry, radical terraces, riparian buffer, and mulching respectively.",
       "Quantifying these measures improves planning and monitoring.",
       "The SEC App guides users through structured data entry to support accuracy."
     ],

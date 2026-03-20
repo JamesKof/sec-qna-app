@@ -13,6 +13,22 @@ const translations: Record<string, Record<Language, string>> = {
   "welcome.start": { en: "Start Training", rw: "Tangira Amahugurwa" },
   "welcome.info": { en: "11 sections · Interactive quizzes · ~25 minutes", rw: "Igice 11 · Ibibazo bihuza · ~Iminota 25" },
   "welcome.dashboard": { en: "View Dashboard", rw: "Reba Dashboard" },
+  "welcome.nameNote": {
+    en: "Your full name (for certification) should include First Name (required), Middle Name (optional), Last Name (required), and District Name (required).",
+    rw: "Amazina yawe yose (ku cyemezo) agomba kuba arimo Izina rya mbere (rigombwa), Izina ryo hagati (ntirihatira), Izina rya nyuma (rigombwa), n'Izina ry'Akarere (rigombwa).",
+  },
+  "welcome.firstName": { en: "First Name", rw: "Izina rya Mbere" },
+  "welcome.firstNamePlaceholder": { en: "Enter first name", rw: "Injiza izina rya mbere" },
+  "welcome.middleName": { en: "Middle Name", rw: "Izina ryo Hagati" },
+  "welcome.middleNamePlaceholder": { en: "Optional", rw: "Ntirihatira" },
+  "welcome.lastName": { en: "Last Name", rw: "Izina rya Nyuma" },
+  "welcome.lastNamePlaceholder": { en: "Enter last name", rw: "Injiza izina rya nyuma" },
+  "welcome.district": { en: "District", rw: "Akarere" },
+  "welcome.districtPlaceholder": { en: "Enter district name", rw: "Injiza izina ry'akarere" },
+
+  // Keep legacy keys for backward compat
+  "welcome.nameLabel": { en: "Your full name (for certificate)", rw: "Amazina yawe yose (ku cyemezo)" },
+  "welcome.namePlaceholder": { en: "Enter your full name", rw: "Injiza amazina yawe yose" },
 
   // Progress Header
   "progress.section": { en: "Section", rw: "Igice" },
@@ -61,8 +77,6 @@ const translations: Record<string, Record<Language, string>> = {
 
   // Language toggle
   "lang.switch": { en: "Kinyarwanda", rw: "English" },
-  "welcome.nameLabel": { en: "Your full name (for certificate)", rw: "Amazina yawe yose (ku cyemezo)" },
-  "welcome.namePlaceholder": { en: "Enter your full name", rw: "Injiza amazina yawe yose" },
 
   // Training section titles
   "section.1.title": { en: "Introduction", rw: "Intangiriro" },
@@ -77,18 +91,18 @@ const translations: Record<string, Record<Language, string>> = {
   "section.10.title": { en: "Simulator Practice", rw: "Kwimenyereza kuri Simulator" },
   "section.11.title": { en: "Final Check", rw: "Isuzuma Nyuma" },
 
-  // Section content
+  // Section content — updated from professional document
   "section.1.content.0": {
     en: "Welcome to the SEC App Online Training Module!",
     rw: "Murakaza neza mu mahugurwa ya SEC App!",
   },
   "section.1.content.1": {
-    en: "This interactive lesson will guide you step-by-step through the use of the USSD Soil Erosion Control (SEC) App.",
-    rw: "Iri somo rihuza rizakuyobora intambwe ku ntambwe mu gukoresha USSD Soil Erosion Control (SEC) App.",
+    en: "This interactive lesson will guide you step-by-step through the use of the USSD Soil Erosion Control (SEC) App. You will learn why soil erosion monitoring matters, how climate change influences erosion, and how to correctly report erosion evidence and control measures using a basic mobile phone.",
+    rw: "Iri somo rihuza rizakuyobora intambwe ku ntambwe mu gukoresha USSD Soil Erosion Control (SEC) App. Uziga impamvu gukurikirana isuri y'ubutaka ari ngombwa, uko ihindagurika ry'ikirere riteza imbere isuri, n'uko utanga raporo y'ibimenyetso by'isuri n'ingamba zo kurwanya ukoresheje telefoni isanzwe.",
   },
   "section.1.content.2": {
-    en: "You will learn why soil erosion monitoring matters, how the app works, and how to enter data accurately using your mobile phone.",
-    rw: "Uziga impamvu gukurikirana isuri y'ubutaka ari ngombwa, uko app ikora, n'uko winjiza amakuru neza ukoresheje telefoni yawe.",
+    en: "This lesson is self-paced. Please read each section carefully and answer the questions that follow.",
+    rw: "Iri somo urikora ku muvuduko wawe. Nyamuneka soma buri gice witonze kandi usubize ibibazo bikurikira.",
   },
   "section.1.content.3": {
     en: "The training is part of the 125 Rwanda Project, supporting community-based environmental monitoring across Rwanda.",
@@ -123,30 +137,22 @@ const translations: Record<string, Record<Language, string>> = {
     rw: "Guhuza ibitekerezo byose biteza imbere ireme ry'amakuru kandi bigatuma imyanzuro ku bidukikije ari myiza.",
   },
   "section.5.content.0": {
-    en: "USSD technology allows users to interact with the SEC App using simple menu prompts on basic mobile phones.",
-    rw: "Ikoranabuhanga rya USSD rituma abakoresha bashobora gukoresha SEC App bakoresheje menu yoroshye kuri telefoni isanzwe.",
+    en: "USSD technology allows users to interact with the SEC App using simple menu prompts on basic mobile phones. It does not require internet access or smartphones.",
+    rw: "Ikoranabuhanga rya USSD rituma abakoresha bashobora gukoresha SEC App bakoresheje menu yoroshye kuri telefoni isanzwe. Ntisaba interineti cyangwa telefoni zigezweho.",
   },
   "section.5.content.1": {
-    en: "It does not require internet access or smartphones, making the SEC App accessible to people in remote areas, older users, and those with limited connectivity.",
-    rw: "Ntisaba interineti cyangwa telefoni zigezweho, bituma SEC App igerwaho n'abantu bari mu turere tw'icyaro, abakuze, n'abafite interineti nke.",
-  },
-  "section.5.content.2": {
-    en: "This supports equitable participation in soil erosion monitoring.",
-    rw: "Ibi bishyigikira ubusabane bungana mu gukurikirana isuri y'ubutaka.",
+    en: "This makes the SEC App accessible to people in remote areas, older users, and those with limited connectivity, supporting equitable participation.",
+    rw: "Ibi bituma SEC App igerwaho n'abantu bari mu turere tw'icyaro, abakuze, n'abafite interineti nke, bishyigikira ubusabane bungana.",
   },
   "section.6.content.0": {
-    en: "Biodata links each erosion report to a real user and location, making reports traceable and useful for planning.",
-    rw: "Amakuru y'umuntu ahuza buri raporo y'isuri n'umukoresha n'aho ari, bituma raporo zikurikiranwa kandi zigafasha mu gutegura.",
+    en: "Biodata links each erosion report to a real user and location, making reports traceable and useful for planning. Accurate biodata improves reliability and supports inclusive monitoring.",
+    rw: "Amakuru y'umuntu ahuza buri raporo y'isuri n'umukoresha n'aho ari, bituma raporo zikurikiranwa kandi zigafasha mu gutegura. Amakuru y'umuntu yizewe ateza imbere kwizera no gushyigikira gukurikirana guhwanye.",
   },
   "section.6.content.1": {
-    en: "Accurate biodata improves reliability and supports inclusive monitoring.",
-    rw: "Amakuru y'umuntu yizewe ateza imbere kwizera no gushyigikira gukurikirana guhwanye.",
-  },
-  "section.6.content.2": {
     en: "Fields such as gender, age range, and disability status help ensure equitable representation across social groups.",
     rw: "Ibice nk'igitsina, imyaka, n'ubumuga bifasha kwemeza ko abantu bose bahagarariye neza.",
   },
-  "section.6.content.3": {
+  "section.6.content.2": {
     en: "All personal information must be handled ethically and kept confidential.",
     rw: "Amakuru yose bwite agomba gufatwa neza kandi agakomeza kuba ibanga.",
   },
@@ -159,30 +165,38 @@ const translations: Record<string, Record<Language, string>> = {
     rw: "Kumenya umurima neza byemeza ko raporo z'isuri zihuza n'ahantu hakwiriye.",
   },
   "section.7.content.2": {
+    en: "The first single digit is the province code; the first two digits are the district code; the second two digits are the sector code; the third two digits are the cell code; and the last set of digits are the short UPI for the parcel. Note that the short UPI may have 3 or 4 digits.",
+    rw: "Imibare ya mbere ni kode y'intara; imibare ibiri ya mbere ni kode y'akarere; imibare ibiri ya kabiri ni kode y'umurenge; imibare ibiri ya gatatu ni kode y'akagari; n'imibare ya nyuma ni UPI ngufi y'umurima. Menya ko UPI ngufi ishobora kugira imibare 3 cyangwa 4.",
+  },
+  "section.7.content.3": {
     en: "If users forget the UPI, they can seek help from SEDOs, family members, or neighbors.",
     rw: "Niba abakoresha bibagiwe UPI, bashobora gusaba ubufasha ku ba SEDO, umuryango, cyangwa abaturanyi.",
   },
   "section.8.content.0": {
-    en: "Common signs of erosion include gullies, rills, exposed roots, sediment deposits, and bare soil.",
-    rw: "Ibimenyetso bisanzwe by'isuri birimo imigezi, imirongo, imizi igaragara, ibyondo, n'ubutaka butagira ikintu.",
+    en: "Common signs of erosion include gullies, rills, exposed roots, sediment deposits, and bare soil. The SEC App focuses on observable evidence to make reporting easier and consistent.",
+    rw: "Ibimenyetso bisanzwe by'isuri birimo imigezi, imirongo, imizi igaragara, ibyondo, n'ubutaka butagira ikintu. SEC App ishingira ku bimenyetso bigaragara kugira ngo gutanga raporo bibe byoroshye kandi bihwanye.",
   },
   "section.8.content.1": {
-    en: "The SEC App focuses on observable evidence to make reporting easier and consistent.",
-    rw: "SEC App ishingira ku bimenyetso bigaragara kugira ngo gutanga raporo bibe byoroshye kandi bihwanye.",
+    en: "The pictures show sheet and rill erosion, large gully, landslide, small gully, turbid water, and river bank erosion respectively.",
+    rw: "Amafoto agaragaza isuri y'urupapuro n'imirongo, umwobo munini, inyerera, umwobo muto, amazi y'umukara, n'isuri y'inkombe y'umugezi.",
   },
   "section.8.content.2": {
-    en: "The app does not measure erosion severity; other government systems handle detailed analysis.",
-    rw: "App ntipima urugero rw'isuri; izindi sisitemu za leta zikora isesengura ryimbitse.",
+    en: "The SEC app does not report erosion severity; other government systems handle detailed analysis.",
+    rw: "SEC App ntitanga raporo y'urugero rw'isuri; izindi sisitemu za leta zikora isesengura ryimbitse.",
   },
   "section.9.content.0": {
     en: "Erosion control measures such as terraces, agroforestry, and vegetation cover reduce runoff and stabilize soil.",
     rw: "Ingamba zo kurwanya isuri nk'amaterasi, ubuhinzi-burorere, n'ibimera bigabanya amazi atemba kandi bikomeza ubutaka.",
   },
   "section.9.content.1": {
+    en: "The pictures show progressive terraces, agroforestry, radical terraces, riparian buffer, and mulching respectively.",
+    rw: "Amafoto agaragaza amaterasi agenda mbere, ubuhinzi-burorere, amaterasi y'ibanze, urukingiro rw'inkombe, n'gufunika ubutaka.",
+  },
+  "section.9.content.2": {
     en: "Quantifying these measures improves planning and monitoring.",
     rw: "Kubara izo ngamba biteza imbere gutegura no gukurikirana.",
   },
-  "section.9.content.2": {
+  "section.9.content.3": {
     en: "The SEC App guides users through structured data entry to support accuracy.",
     rw: "SEC App iyobora abakoresha mu kwinjiza amakuru yubahirije uburyo kugira ngo hafashwe neza.",
   },
@@ -227,22 +241,22 @@ const translations: Record<string, Record<Language, string>> = {
   "practice.2": { en: "Report erosion evidence", rw: "Tanga raporo y'ibimenyetso by'isuri" },
   "practice.3": { en: "Record erosion control measures", rw: "Andika ingamba zo kurwanya isuri" },
 
-  // Questions
+  // Questions — updated from document
   "q3-1.question": {
-    en: "Which climate change factor most directly increases soil erosion in Rwanda?",
-    rw: "Ni ikihe kintu cy'ihindagurika ry'ikirere cyongerera isuri y'ubutaka mu Rwanda?",
+    en: "Which climate change factor most directly increases soil erosion in your area (district)?",
+    rw: "Ni ikihe kintu cy'ihindagurika ry'ikirere cyongerera isuri y'ubutaka mu karere kawe?",
   },
-  "q3-1.0": { en: "Rising temperatures", rw: "Ubushyuhe burerure" },
-  "q3-1.1": { en: "Intense and unpredictable rainfall", rw: "Imvura nyinshi idahwitse" },
-  "q3-1.2": { en: "Decreased humidity", rw: "Ubukonje buke" },
-  "q3-1.3": { en: "Longer dry seasons", rw: "Ibihe by'amapfa birebire" },
+  "q3-1.0": { en: "Higher average temperatures", rw: "Ubushyuhe burerure" },
+  "q3-1.1": { en: "Increased rainfall variability and extreme storms", rw: "Imvura nyinshi idahwitse n'inkubi z'umuyaga" },
+  "q3-1.2": { en: "Wind speed in cities", rw: "Umuvuduko w'umuyaga mu mujyi" },
+  "q3-1.3": { en: "Longer daylight hours", rw: "Amasaha y'urumuri menshi" },
   "q3-1.correct": {
     en: "Correct! Intense and unpredictable rainfall increases runoff, which accelerates soil erosion.",
     rw: "Nibyo! Imvura nyinshi idahwitse yongerera amazi atemba, bigateza isuri y'ubutaka.",
   },
   "q3-1.incorrect": {
-    en: "Incorrect. This factor does not directly cause large-scale soil erosion. Intense rainfall is the primary driver.",
-    rw: "Sibyo. Iki kintu ntigiteza isuri y'ubutaka ku rugero runini. Imvura nyinshi ni yo mpamvu y'ibanze.",
+    en: "Incorrect. This factor does not directly cause large-scale soil erosion.",
+    rw: "Sibyo. Iki kintu ntigiteza isuri y'ubutaka ku rugero runini.",
   },
 
   "q4-1.question": { en: "Community participation helps detect soil erosion early.", rw: "Uruhare rw'abaturage rufasha kumenya isuri y'ubutaka hakiri kare." },
@@ -273,21 +287,30 @@ const translations: Record<string, Record<Language, string>> = {
   "q5-1.2": { en: "Works on basic phones without internet", rw: "Ikora kuri telefoni isanzwe nta interineti" },
   "q5-1.3": { en: "Only works in offices", rw: "Ikora mu biro gusa" },
   "q5-1.correct": { en: "Correct! USSD works on basic phones and does not require internet.", rw: "Nibyo! USSD ikora kuri telefoni isanzwe kandi ntisaba interineti." },
-  "q5-1.incorrect": { en: "Incorrect. The SEC App was designed for low-connectivity environments using basic phones.", rw: "Sibyo. SEC App yashyizweho ku buryo ikora ahantu hafite interineti nke ukoresheje telefoni isanzwe." },
+  "q5-1.incorrect": { en: "Incorrect. The SEC App was designed for low-connectivity environments.", rw: "Sibyo. SEC App yashyizweho ku buryo ikora ahantu hafite interineti nke." },
 
   "q6-1.question": { en: "Why is accurate biodata important?", rw: "Kuki amakuru y'umuntu yizewe ari ngombwa?" },
-  "q6-1.0": { en: "It makes reports longer", rw: "Bituma raporo ziba ndende" },
-  "q6-1.1": { en: "It links reports to real users and supports planning", rw: "Bihuza raporo n'abakoresha b'ukuri kandi bishyigikira gutegura" },
-  "q6-1.2": { en: "It is optional and not needed", rw: "Ni ibyo guhitamo kandi ntibikenewe" },
-  "q6-1.3": { en: "It replaces field visits", rw: "Bisimbuza gusura ahantu" },
-  "q6-1.correct": { en: "Correct! Accurate biodata ensures reports are traceable and useful for planning.", rw: "Nibyo! Amakuru y'umuntu yizewe yemeza ko raporo zikurikiranwa kandi zigafasha mu gutegura." },
-  "q6-1.incorrect": { en: "Incorrect. Biodata is essential for linking reports to real users and locations.", rw: "Sibyo. Amakuru y'umuntu ni ngombwa mu guhuza raporo n'abakoresha n'aho bari." },
+  "q6-1.0": { en: "For advertising", rw: "Ku bw'ubucuruzi" },
+  "q6-1.1": { en: "For traceability and planning", rw: "Ku bw'gukurikirana no gutegura" },
+  "q6-1.2": { en: "To rank users", rw: "Gushyira abakoresha mu byiciro" },
+  "q6-1.3": { en: "To identify political views", rw: "Kumenya ibitekerezo bya politiki" },
+  "q6-1.correct": { en: "Correct! Accurate biodata supports planning and verification.", rw: "Nibyo! Amakuru y'umuntu yizewe ashyigikira gutegura no kugenzura." },
+  "q6-1.incorrect": { en: "Incorrect. Biodata is collected only for official monitoring purposes.", rw: "Sibyo. Amakuru y'umuntu akusanywa gusa ku mpamvu zemewe zo gukurikirana." },
 
-  "q7-1.question": { en: "Biodata collected through the SEC App should be kept confidential.", rw: "Amakuru y'umuntu yakusanyijwe muri SEC App agomba kuguma ari ibanga." },
-  "q7-1.0": { en: "True", rw: "Nibyo" },
-  "q7-1.1": { en: "False", rw: "Sibyo" },
-  "q7-1.correct": { en: "Correct! Confidentiality protects users and builds trust.", rw: "Nibyo! Ibanga ririnda abakoresha kandi ryubaka icyizere." },
-  "q7-1.incorrect": { en: "Incorrect. Personal data must always be protected.", rw: "Sibyo. Amakuru bwite agomba guhora arindwa." },
+  "q6-2.question": { en: "Biodata collected through the SEC App should be kept confidential.", rw: "Amakuru y'umuntu yakusanyijwe muri SEC App agomba kuguma ari ibanga." },
+  "q6-2.0": { en: "True", rw: "Nibyo" },
+  "q6-2.1": { en: "False", rw: "Sibyo" },
+  "q6-2.correct": { en: "Correct! Confidentiality protects users and builds trust.", rw: "Nibyo! Ibanga ririnda abakoresha kandi ryubaka icyizere." },
+  "q6-2.incorrect": { en: "Incorrect. Personal data must always be protected.", rw: "Sibyo. Amakuru bwite agomba guhora arindwa." },
+
+  // Keep legacy q7-1 keys for any references
+  "q7-1.question": { en: "What does the long UPI represent?", rw: "UPI ndende ihagarariye iki?" },
+  "q7-1.0": { en: "Phone number", rw: "Nomero ya telefoni" },
+  "q7-1.1": { en: "Unique land parcel identification", rw: "Kumenya umurima ku buryo bwihariye" },
+  "q7-1.2": { en: "Erosion severity score", rw: "Amanota y'urugero rw'isuri" },
+  "q7-1.3": { en: "District budget code", rw: "Kode y'ingengo y'imari y'akarere" },
+  "q7-1.correct": { en: "Correct! The UPI uniquely identifies each land parcel.", rw: "Nibyo! UPI imenya buri murima ku buryo bwihariye." },
+  "q7-1.incorrect": { en: "Incorrect. The UPI is used for geographic identification, not scoring.", rw: "Sibyo. UPI ikoreshwa mu kumenya aho ubutaka buri, ntabwo ari amanota." },
 
   "q7-2.question": { en: "What does the long UPI represent?", rw: "UPI ndende ihagarariye iki?" },
   "q7-2.0": { en: "Phone number", rw: "Nomero ya telefoni" },

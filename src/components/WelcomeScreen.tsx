@@ -18,11 +18,18 @@ const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
   const { t, lang } = useI18n();
   const navigate = useNavigate();
   const location = useLocation();
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [middleName, setMiddleName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [district, setDistrict] = useState("");
+
+  const fullName = [firstName, middleName, lastName].filter(Boolean).join(" ").trim();
+  const canStart = firstName.trim() && lastName.trim() && district.trim();
 
   const handleStart = () => {
-    if (!name.trim()) return;
-    onStart(name.trim());
+    if (!canStart) return;
+    const certName = `${fullName} — ${district.trim()}`;
+    onStart(certName);
   };
 
   const switchToLanguage = (targetLang: "en" | "rw") => {
@@ -100,24 +107,67 @@ const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
             {t("welcome.description")}
           </p>
 
-          {/* Certificate Name Input */}
-          <div className="text-left mb-4 space-y-2">
-            <Label htmlFor="certName" className="text-sm font-semibold">
-              {t("welcome.nameLabel")}
-            </Label>
-            <Input
-              id="certName"
-              value={name}
-              onChange={e => setName(e.target.value)}
-              placeholder={t("welcome.namePlaceholder")}
-              className="text-center"
-              onKeyDown={e => { if (e.key === "Enter" && name.trim()) handleStart(); }}
-            />
+          {/* Name Fields */}
+          <div className="text-left mb-5 space-y-3">
+            <p className="text-xs text-muted-foreground italic">
+              {t("welcome.nameNote")}
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="space-y-1.5">
+                <Label htmlFor="firstName" className="text-sm font-semibold">
+                  {t("welcome.firstName")} <span className="text-destructive">*</span>
+                </Label>
+                <Input
+                  id="firstName"
+                  value={firstName}
+                  onChange={e => setFirstName(e.target.value)}
+                  placeholder={t("welcome.firstNamePlaceholder")}
+                />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="middleName" className="text-sm font-semibold">
+                  {t("welcome.middleName")}
+                </Label>
+                <Input
+                  id="middleName"
+                  value={middleName}
+                  onChange={e => setMiddleName(e.target.value)}
+                  placeholder={t("welcome.middleNamePlaceholder")}
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="space-y-1.5">
+                <Label htmlFor="lastName" className="text-sm font-semibold">
+                  {t("welcome.lastName")} <span className="text-destructive">*</span>
+                </Label>
+                <Input
+                  id="lastName"
+                  value={lastName}
+                  onChange={e => setLastName(e.target.value)}
+                  placeholder={t("welcome.lastNamePlaceholder")}
+                />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="district" className="text-sm font-semibold">
+                  {t("welcome.district")} <span className="text-destructive">*</span>
+                </Label>
+                <Input
+                  id="district"
+                  value={district}
+                  onChange={e => setDistrict(e.target.value)}
+                  placeholder={t("welcome.districtPlaceholder")}
+                  onKeyDown={e => { if (e.key === "Enter" && canStart) handleStart(); }}
+                />
+              </div>
+            </div>
           </div>
 
           <Button
             onClick={handleStart}
-            disabled={!name.trim()}
+            disabled={!canStart}
             size="lg"
             className="w-full md:w-auto text-base font-bold gap-2 h-14 px-10 rounded-xl"
           >
