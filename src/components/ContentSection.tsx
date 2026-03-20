@@ -67,6 +67,7 @@ const erosionEvidenceImages = [
 
 // Control measures photo grid (section 9)
 const controlMeasureImages = [
+  { src: controlMenTerraces, label: "Men next to Erosion Control Terraces" },
   { src: controlProgressiveTerraces, label: "Progressive Terraces" },
   { src: controlAgroforestry, label: "Agroforestry" },
   { src: controlRadicalTerraces, label: "Radical Terraces" },
