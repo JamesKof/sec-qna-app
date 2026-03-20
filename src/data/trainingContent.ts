@@ -204,9 +204,10 @@ export const trainingSections: TrainingSection[] = [
     title: "Erosion Evidence",
     icon: "mountain",
     content: [
-      "Common signs of erosion include gullies, rills, exposed roots, sediment deposits, and bare soil. The SEC App focuses on observable evidence to make reporting easier and consistent.",
-      "The pictures show sheet and rill erosion, large gully, landslide, small gully, turbid water, and river bank erosion respectively.",
-      "The SEC app does not report erosion severity; other government systems handle detailed analysis."
+      "When erosion occurs on a land parcel, it can easily be observed by community members. Common signs of soil erosion include exposed roots and bare soil indicating sheet and rill erosion, shallow channels indicating small gullies, deep channels indicating big gullies, rills, collapsed river banks indicating river bank erosion, turbid water indicating transported soil from surrounding lands, and movement of land en masse indicating landslides. The SEC App focuses on observable evidence to make reporting easier and consistent.",
+      "The SEC app does not report erosion severity; other government systems handle detailed analysis.",
+      "Encouraging observations from diverse community members strengthens the accuracy and inclusiveness of environmental data by incorporating localized knowledge from women, youth, and marginalized groups.",
+      "The pictures above show sheet and rill erosion (top left), large gully (top middle), landslide (top right), small gully (bottom left), turbid water (bottom middle), and river bank erosion (bottom right)."
     ],
     questions: [
       {
@@ -225,10 +226,11 @@ export const trainingSections: TrainingSection[] = [
     title: "Erosion Control Measures",
     icon: "shield-check",
     content: [
-      "Erosion control measures such as terraces, agroforestry, and vegetation cover reduce runoff and stabilize soil.",
-      "The pictures show progressive terraces, agroforestry, radical terraces, riparian buffer, and mulching respectively.",
-      "Quantifying these measures improves planning and monitoring.",
-      "The SEC App guides users through structured data entry to support accuracy."
+      "Communities are able to visually identify and quantify control measures that are implemented on land parcels to reduce soil erosion. Erosion control measures include: progressive terraces which consist of filtration ditches and bunds along the contour lines to reduce runoff; radical terraces which reduce slope steepness; agroforestry which introduces special trees to stabilise the soil; vegetative strips planted aligned with the filtration ditches and bunds to stabilize the soil; mulching which covers the soil to reduce the impact of rain drops and runoff; riparian buffers which consist of vegetation planted along the river to protect the banks; and check dams built across streams to reduce water velocity.",
+      "The pictures above show progressive terraces (top left), agroforestry (top right), radical terraces (bottom left), riparian buffer (bottom middle) and mulching (bottom right) respectively.",
+      "Quantifying these measures improves planning and monitoring. These control measures may be quantified by count (agroforestry trees, check dams), length (progressive terraces, filtration ditches, bunds, vegetative strips and riparian buffers) and area (radical terraces, mulching).",
+      "After quantifying the control measures, the app will ask you to report whether you want to increase the control measures in place. This depends on whether you have observed that the existing control measures are not sufficiently preventing or slowing down soil erosion on the land parcel.",
+      "The SEC App guides users through structured data entry to support accuracy. Women, youth, and vulnerable groups often play critical roles in implementing soil conservation practices. Recognizing and documenting their contributions is essential for inclusive climate adaptation planning and policy development."
     ],
     questions: [
       {

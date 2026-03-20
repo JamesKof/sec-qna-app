@@ -173,31 +173,39 @@ const translations: Record<string, Record<Language, string>> = {
     rw: "Niba abakoresha bibagiwe UPI, bashobora gusaba ubufasha ku ba SEDO, umuryango, cyangwa abaturanyi.",
   },
   "section.8.content.0": {
-    en: "Common signs of erosion include gullies, rills, exposed roots, sediment deposits, and bare soil. The SEC App focuses on observable evidence to make reporting easier and consistent.",
-    rw: "Ibimenyetso bisanzwe by'isuri birimo imigezi, imirongo, imizi igaragara, ibyondo, n'ubutaka butagira ikintu. SEC App ishingira ku bimenyetso bigaragara kugira ngo gutanga raporo bibe byoroshye kandi bihwanye.",
+    en: "When erosion occurs on a land parcel, it can easily be observed by community members. Common signs of soil erosion include exposed roots and bare soil indicating sheet and rill erosion, shallow channels indicating small gullies, deep channels indicating big gullies, rills, collapsed river banks indicating river bank erosion, turbid water indicating transported soil from surrounding lands, and movement of land en masse indicating landslides. The SEC App focuses on observable evidence to make reporting easier and consistent.",
+    rw: "Iyo isuri ibaye ku murima, abaturage bashobora kubibona byoroshye. Ibimenyetso bisanzwe by'isuri y'ubutaka birimo imizi igaragara n'ubutaka butagira ikintu bigaragaza isuri y'urupapuro n'imirongo, imirongo migufi igaragaza imyobo mito, imirongo miremire igaragaza imyobo minini, inkombe z'imigezi zatemvye zigaragaza isuri y'inkombe, amazi y'umukara agaragaza ubutaka bujyanwe n'amazi, n'ubutaka bwimuka byinshi bigaragaza inyerera. SEC App ishingira ku bimenyetso bigaragara kugira ngo gutanga raporo bibe byoroshye kandi bihwanye.",
   },
   "section.8.content.1": {
-    en: "The pictures show sheet and rill erosion, large gully, landslide, small gully, turbid water, and river bank erosion respectively.",
-    rw: "Amafoto agaragaza isuri y'urupapuro n'imirongo, umwobo munini, inyerera, umwobo muto, amazi y'umukara, n'isuri y'inkombe y'umugezi.",
-  },
-  "section.8.content.2": {
     en: "The SEC app does not report erosion severity; other government systems handle detailed analysis.",
     rw: "SEC App ntitanga raporo y'urugero rw'isuri; izindi sisitemu za leta zikora isesengura ryimbitse.",
   },
+  "section.8.content.2": {
+    en: "Encouraging observations from diverse community members strengthens the accuracy and inclusiveness of environmental data by incorporating localized knowledge from women, youth, and marginalized groups.",
+    rw: "Gushishikariza abaturage batandukanye gutanga ibyo babona byongera ireme n'ubwuzuzanye bw'amakuru y'ibidukikije mu gufatanya ubumenyi bw'abagore, urubyiruko, n'amatsinda asigaye inyuma.",
+  },
+  "section.8.content.3": {
+    en: "The pictures above show sheet and rill erosion (top left), large gully (top middle), landslide (top right), small gully (bottom left), turbid water (bottom middle), and river bank erosion (bottom right).",
+    rw: "Amafoto hejuru agaragaza isuri y'urupapuro n'imirongo (ibumoso hejuru), umwobo munini (hagati hejuru), inyerera (iburyo hejuru), umwobo muto (ibumoso hasi), amazi y'umukara (hagati hasi), n'isuri y'inkombe y'umugezi (iburyo hasi).",
+  },
   "section.9.content.0": {
-    en: "Erosion control measures such as terraces, agroforestry, and vegetation cover reduce runoff and stabilize soil.",
-    rw: "Ingamba zo kurwanya isuri nk'amaterasi, ubuhinzi-burorere, n'ibimera bigabanya amazi atemba kandi bikomeza ubutaka.",
+    en: "Communities are able to visually identify and quantify control measures that are implemented on land parcels to reduce soil erosion. Erosion control measures include: progressive terraces which consist of filtration ditches and bunds along the contour lines to reduce runoff; radical terraces which reduce slope steepness; agroforestry which introduces special trees to stabilise the soil; vegetative strips planted aligned with the filtration ditches and bunds to stabilize the soil; mulching which covers the soil to reduce the impact of rain drops and runoff; riparian buffers which consist of vegetation planted along the river to protect the banks; and check dams built across streams to reduce water velocity.",
+    rw: "Abaturage bashobora kumenya no kubara ingamba zo kurwanya isuri zashyizweho ku mirima kugira ngo bagabanye isuri y'ubutaka. Ingamba zo kurwanya isuri zirimo: amaterasi agenda mbere agizwe n'imiyoboro yo gusukura n'udusozi ku mirongo y'ubutaka kugira ngo bagabanye amazi atemba; amaterasi y'ibanze agabanya uburemere bw'umuvuduko; ubuhinzi-burorere bushyiraho ibiti bidasanzwe kugira ngo bikomeze ubutaka; imirongo y'ibimera iteranye n'imiyoboro yo gusukura kugira ngo bikomeze ubutaka; gufunika ubutaka bigabanya ingaruka z'imvura n'amazi atemba; urukingiro rw'inkombe rugizwe n'ibimera bitewe ku nkombe z'umugezi kugira ngo birinde inkombe; n'amadamu mato yubatswe ku mito kugira ngo agabanye umuvuduko w'amazi.",
   },
   "section.9.content.1": {
-    en: "The pictures show progressive terraces, agroforestry, radical terraces, riparian buffer, and mulching respectively.",
-    rw: "Amafoto agaragaza amaterasi agenda mbere, ubuhinzi-burorere, amaterasi y'ibanze, urukingiro rw'inkombe, n'gufunika ubutaka.",
+    en: "The pictures above show progressive terraces (top left), agroforestry (top right), radical terraces (bottom left), riparian buffer (bottom middle) and mulching (bottom right) respectively.",
+    rw: "Amafoto hejuru agaragaza amaterasi agenda mbere (ibumoso hejuru), ubuhinzi-burorere (iburyo hejuru), amaterasi y'ibanze (ibumoso hasi), urukingiro rw'inkombe (hagati hasi) n'gufunika ubutaka (iburyo hasi).",
   },
   "section.9.content.2": {
-    en: "Quantifying these measures improves planning and monitoring.",
-    rw: "Kubara izo ngamba biteza imbere gutegura no gukurikirana.",
+    en: "Quantifying these measures improves planning and monitoring. These control measures may be quantified by count (agroforestry trees, check dams), length (progressive terraces, filtration ditches, bunds, vegetative strips and riparian buffers) and area (radical terraces, mulching).",
+    rw: "Kubara izo ngamba biteza imbere gutegura no gukurikirana. Izo ngamba zo kurwanya zishobora kubarwa ku mubare (ibiti by'ubuhinzi-burorere, amadamu mato), uburebure (amaterasi agenda mbere, imiyoboro yo gusukura, udusozi, imirongo y'ibimera n'urukingiro rw'inkombe) n'ubuso (amaterasi y'ibanze, gufunika ubutaka).",
   },
   "section.9.content.3": {
-    en: "The SEC App guides users through structured data entry to support accuracy.",
+    en: "After quantifying the control measures, the app will ask you to report whether you want to increase the control measures in place. This depends on whether you have observed that the existing control measures are not sufficiently preventing or slowing down soil erosion on the land parcel.",
+    rw: "Nyuma yo kubara ingamba zo kurwanya, app izagusaba gutanga raporo niba ushaka kongera ingamba zo kurwanya ziriho. Ibi bishingira ku ko wabonye ko ingamba zo kurwanya ziriho zitarahagije mu guhagarika cyangwa gutinda isuri y'ubutaka ku murima.",
+  },
+  "section.9.content.4": {
+    en: "The SEC App guides users through structured data entry to support accuracy. Women, youth, and vulnerable groups often play critical roles in implementing soil conservation practices. Recognizing and documenting their contributions is essential for inclusive climate adaptation planning and policy development.",
     rw: "SEC App iyobora abakoresha mu kwinjiza amakuru yubahirije uburyo kugira ngo hafashwe neza.",
   },
   "section.10.content.0": {

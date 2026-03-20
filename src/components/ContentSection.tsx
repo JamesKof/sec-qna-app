@@ -54,7 +54,7 @@ const sectionImages: Record<number, string> = {
   5: ussdImg,
 };
 
-// Erosion evidence photo grid (section 8)
+// Erosion evidence photo grid (section 8) — reordered with control mechanism image first
 const erosionEvidenceImages = [
   { src: erosionSheetRill, label: "Sheet & Rill Erosion" },
   { src: erosionLargeGully, label: "Large Gully" },
