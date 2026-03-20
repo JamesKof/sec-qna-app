@@ -18,6 +18,7 @@ import erosionSmallGully from "@/assets/erosion-small-gully.jpg";
 import erosionTurbidWater from "@/assets/erosion-turbid-water.jpg";
 import erosionRiverbank from "@/assets/erosion-riverbank.jpg";
 import controlMeasuresCollage from "@/assets/control-measures-collage.jpg";
+import controlMenTerraces from "@/assets/control-men-terraces.jpg";
 import controlProgressiveTerraces from "@/assets/control-progressive-terraces.jpg";
 import controlAgroforestry from "@/assets/control-agroforestry.jpg";
 import controlRadicalTerraces from "@/assets/control-radical-terraces.jpg";
