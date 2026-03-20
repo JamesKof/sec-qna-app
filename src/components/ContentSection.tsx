@@ -7,9 +7,21 @@ import {
   UserCheck, MapPin, Mountain, ShieldCheck, MonitorSmartphone,
   CheckCircle, HeartHandshake
 } from "lucide-react";
+import heroImg from "@/assets/hero-landscape.jpg";
 import communityImg from "@/assets/community.jpg";
 import ussdImg from "@/assets/ussd-phone.jpg";
-import heroImg from "@/assets/hero-landscape.jpg";
+import upiDiagram from "@/assets/upi-diagram.png";
+import erosionSheetRill from "@/assets/erosion-sheet-rill.jpg";
+import erosionLargeGully from "@/assets/erosion-large-gully.jpg";
+import erosionLandslide from "@/assets/erosion-landslide.jpg";
+import erosionSmallGully from "@/assets/erosion-small-gully.jpg";
+import erosionTurbidWater from "@/assets/erosion-turbid-water.jpg";
+import erosionRiverbank from "@/assets/erosion-riverbank.jpg";
+import controlMeasuresCollage from "@/assets/control-measures-collage.jpg";
+import controlProgressiveTerraces from "@/assets/control-progressive-terraces.jpg";
+import controlAgroforestry from "@/assets/control-agroforestry.jpg";
+import controlRadicalTerraces from "@/assets/control-radical-terraces.jpg";
+import controlRiparianMulching from "@/assets/control-riparian-mulching.jpg";
 import { useI18n } from "@/lib/i18n";
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -40,8 +52,25 @@ const sectionImages: Record<number, string> = {
   3: heroImg,
   4: communityImg,
   5: ussdImg,
-  8: heroImg,
 };
+
+// Erosion evidence photo grid (section 8)
+const erosionEvidenceImages = [
+  { src: erosionSheetRill, label: "Sheet & Rill Erosion" },
+  { src: erosionLargeGully, label: "Large Gully" },
+  { src: erosionLandslide, label: "Landslide" },
+  { src: erosionSmallGully, label: "Small Gully" },
+  { src: erosionTurbidWater, label: "Turbid Water" },
+  { src: erosionRiverbank, label: "River Bank Erosion" },
+];
+
+// Control measures photo grid (section 9)
+const controlMeasureImages = [
+  { src: controlProgressiveTerraces, label: "Progressive Terraces" },
+  { src: controlAgroforestry, label: "Agroforestry" },
+  { src: controlRadicalTerraces, label: "Radical Terraces" },
+  { src: controlRiparianMulching, label: "Riparian Buffer & Mulching" },
+];
 
 interface ContentSectionProps {
   section: TrainingSection;
@@ -74,7 +103,7 @@ const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSection
         </h2>
       </div>
 
-      {/* Section image */}
+      {/* Section hero image */}
       {sectionImages[section.id] && (
         <img
           src={sectionImages[section.id]}
@@ -91,6 +120,43 @@ const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSection
           </p>
         ))}
       </div>
+
+      {/* UPI Diagram (section 7) */}
+      {section.id === 7 && (
+        <div className="rounded-xl overflow-hidden border bg-muted/30 p-4">
+          <img src={upiDiagram} alt="UPI structure diagram showing province, district, sector, cell, and parcel codes" className="w-full max-w-md mx-auto rounded-lg" />
+          <p className="text-xs text-muted-foreground text-center mt-2">UPI Structure: Province / District / Sector / Cell / Parcel</p>
+        </div>
+      )}
+
+      {/* Erosion evidence photo grid (section 8) */}
+      {section.id === 8 && (
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+          {erosionEvidenceImages.map((img, i) => (
+            <div key={i} className="rounded-xl overflow-hidden border bg-card">
+              <img src={img.src} alt={img.label} className="w-full h-28 md:h-36 object-cover" />
+              <p className="text-xs font-semibold text-center py-2 px-1 text-foreground/80">{img.label}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Control measures photo grid (section 9) */}
+      {section.id === 9 && (
+        <>
+          {controlMeasuresCollage && (
+            <img src={controlMeasuresCollage} alt="Overview of erosion control measures" className="w-full h-40 md:h-52 object-cover rounded-xl" />
+          )}
+          <div className="grid grid-cols-2 gap-3">
+            {controlMeasureImages.map((img, i) => (
+              <div key={i} className="rounded-xl overflow-hidden border bg-card">
+                <img src={img.src} alt={img.label} className="w-full h-28 md:h-36 object-cover" />
+                <p className="text-xs font-semibold text-center py-2 px-1 text-foreground/80">{img.label}</p>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
 
       {/* Learning objectives (section 2 only) */}
       {section.id === 2 && (
