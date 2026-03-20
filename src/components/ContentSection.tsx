@@ -18,6 +18,7 @@ import erosionSmallGully from "@/assets/erosion-small-gully.jpg";
 import erosionTurbidWater from "@/assets/erosion-turbid-water.jpg";
 import erosionRiverbank from "@/assets/erosion-riverbank.jpg";
 import controlMeasuresCollage from "@/assets/control-measures-collage.jpg";
+import controlMenTerraces from "@/assets/control-men-terraces.jpg";
 import controlProgressiveTerraces from "@/assets/control-progressive-terraces.jpg";
 import controlAgroforestry from "@/assets/control-agroforestry.jpg";
 import controlRadicalTerraces from "@/assets/control-radical-terraces.jpg";
@@ -66,6 +67,7 @@ const erosionEvidenceImages = [
 
 // Control measures photo grid (section 9)
 const controlMeasureImages = [
+  { src: controlMenTerraces, label: "Men next to Erosion Control Terraces" },
   { src: controlProgressiveTerraces, label: "Progressive Terraces" },
   { src: controlAgroforestry, label: "Agroforestry" },
   { src: controlRadicalTerraces, label: "Radical Terraces" },
@@ -130,10 +132,10 @@ const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSection
           {controlMeasuresCollage && (
             <img src={controlMeasuresCollage} alt="Overview of erosion control measures" className="w-full h-40 md:h-52 object-cover rounded-xl" />
           )}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="flex flex-col gap-3">
             {controlMeasureImages.map((img, i) => (
               <div key={i} className="rounded-xl overflow-hidden border bg-card">
-                <img src={img.src} alt={img.label} className="w-full h-28 md:h-36 object-cover" />
+                <img src={img.src} alt={img.label} className="w-full h-48 md:h-56 object-cover" />
                 <p className="text-xs font-semibold text-center py-2 px-1 text-foreground/80">{img.label}</p>
               </div>
             ))}
