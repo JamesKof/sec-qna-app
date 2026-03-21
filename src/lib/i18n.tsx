@@ -126,15 +126,15 @@ const translations: Record<string, Record<Language, string>> = {
   },
   "section.4.content.0": {
     en: "Women, men, and youth experience and observe soil erosion differently because of their daily activities.",
-    rw: "Abagore, abagabo, n'urubyiruko babona isuri y'ubutaka mu buryo butandukanye kubera ibikorwa byabo bya buri munsi.",
+    rw: "Abagore, abagabo, n'urubyiruko babona isuri mu buryo butandukanye bitewe n'ibikorwa byabo bya buri munsi. Abagore bashobora kubona isuri hafi y'aho amazi aturuka cyangwa mu mirima iri hafi y'ingo, mu gihe abagabo akenshi bayibona mu mirima minini. Urubyiruko akenshi ruyibona ku mihanda cyangwa aho amatungo anyura cyangwa mu nzuri. Abafite ubumuga bashobora guhura n'imbogamizi z'inyongera mu kugenzura no gukurikirana cyangwa gutanga amakuru y'isuri.",
   },
   "section.4.content.1": {
     en: "Women may notice erosion near water sources or gardens, while men often observe erosion in larger fields. Youth frequently notice erosion along paths and grazing areas.",
-    rw: "Abagore bashobora kubona isuri hafi y'amazi cyangwa imirima, mu gihe abagabo babona isuri mu mirima minini. Urubyiruko rubona isuri ku nzira n'ahantu horagishwa.",
+    rw: "Gushyira hamwe izi ngeri zose byongera ubuziranenge bw'amakuru kandi bigatuma hafatwa ibyemezo byiza kandi bikwiriye mu kurengera ibidukikije.",
   },
   "section.4.content.2": {
     en: "Including all these perspectives improves data quality and ensures fair and effective environmental decision-making.",
-    rw: "Guhuza ibitekerezo byose biteza imbere ireme ry'amakuru kandi bigatuma imyanzuro ku bidukikije ari myiza.",
+    rw: "Ikurikiranabikorwa rikozwe na bose byafasha gufata ingamba zitandukanye kandi bigafasha kubonera hamwe ibisubizo by'imihindagurikire y'ikirere.",
   },
   "section.5.content.0": {
     en: "USSD technology allows users to interact with the SEC App using simple menu prompts on basic mobile phones. It does not require internet access or smartphones.",
