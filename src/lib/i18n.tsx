@@ -210,11 +210,11 @@ const translations: Record<string, Record<Language, string>> = {
   },
   "section.10.content.0": {
     en: "Before live deployment, users should practice using the SEC App simulator.",
-    rw: "Mbere yo gukoresha by'ukuri, abakoresha bagomba kwimenyereza bakoresheje SEC App simulator.",
+    rw: "Mbere yo gukoresha ikoranabuhanga nyirizina, umuntu arasabwa kwimenyereza n'igisa n'iryo koranabuhanga rya SEC App (SEC App simulator). Ibi bigenewe kugabanya amakosa noneho ukazakoresha ikoranabuhanga nyirizina wifitemo icyizere.",
   },
   "section.10.content.1": {
     en: "This reduces errors and builds confidence in using the system.",
-    rw: "Ibi bigabanya amakosa kandi bigatuma wizera sisitemu.",
+    rw: "Abakangurambaga bagomba kuzakora ku buryo ibyiciro by'abantu bose bizahugurirwa gukoresha iyi porogaramu, barimo n'abafite ubumenyi buke bwo gusoma no kwandika, abafite ubumenyi buke mu ikoranabuhanga, abafite ubumuga, bose bazahabwa inkunga ihagije.",
   },
   "section.11.content.0": {
     en: "Let's review what you've learned! Answer these final questions to complete the training.",
