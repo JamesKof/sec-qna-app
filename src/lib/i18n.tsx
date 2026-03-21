@@ -158,19 +158,19 @@ const translations: Record<string, Record<Language, string>> = {
   },
   "section.7.content.0": {
     en: "Each land parcel in Rwanda has a Unique Parcel ID (UPI) based on administrative hierarchy.",
-    rw: "Buri murima mu Rwanda ufite Nomero y'Umurima (UPI) ishingiye ku buyobozi.",
+    rw: "Ubutaka mu Rwanda buhabwa nimero iburanga (UPI) hakurikijwe inzego z'ubuyobozi. Kumenya neza nimero y'ubutaka bizafasha guhuza amakuru y'isuri n'ahantu nyakuri yabereye.",
   },
   "section.7.content.1": {
     en: "Correct parcel identification ensures erosion reports are linked to the correct location.",
-    rw: "Kumenya umurima neza byemeza ko raporo z'isuri zihuza n'ahantu hakwiriye.",
+    rw: "Porogaramu ya SEC ishobora kugufasha mu kwandika UPI ndende. Ukeneye kumenya UPI ngufi yawe — ni imibare 3 cyangwa 4 ya nyuma y'imibare ya UPI yose.",
   },
   "section.7.content.2": {
     en: "The first single digit is the province code; the first two digits are the district code; the second two digits are the sector code; the third two digits are the cell code; and the last set of digits are the short UPI for the parcel. Note that the short UPI may have 3 or 4 digits.",
-    rw: "Imibare ya mbere ni kode y'intara; imibare ibiri ya mbere ni kode y'akarere; imibare ibiri ya kabiri ni kode y'umurenge; imibare ibiri ya gatatu ni kode y'akagari; n'imibare ya nyuma ni UPI ngufi y'umurima. Menya ko UPI ngufi ishobora kugira imibare 3 cyangwa 4.",
+    rw: "Umubare wa mbere umwe ni kode y'Intara cyangwa Umujyi wa Kigali; imibare ibiri ya mbere ni kode y'Akarere; imibare ibiri ya kabiri ni kode y'Umurenge; imibare ibiri ya gatatu ni kode y'Akagari; Imibare ya nyuma ni UPI ngufi. Menya ko UPI ngufi ishobora kugira imibare 3 cyangwa 4.",
   },
   "section.7.content.3": {
     en: "If users forget the UPI, they can seek help from SEDOs, family members, or neighbors.",
-    rw: "Niba abakoresha bibagiwe UPI, bashobora gusaba ubufasha ku ba SEDO, umuryango, cyangwa abaturanyi.",
+    rw: "Niba wibagiwe UPI, ushobora gusaba ubufasha abari hafi yawe (ba SEDOs, abagize umuryango, cyangwa abaturanyi); iki gikorwa kireba buri wese, ari abagore n'abafite ubumuga, nta muntu n'umwe uhejwe mu gutanga amakuru.",
   },
   "section.8.content.0": {
     en: "When erosion occurs on a land parcel, it can easily be observed by community members. Common signs of soil erosion include exposed roots and bare soil indicating sheet and rill erosion, shallow channels indicating small gullies, deep channels indicating big gullies, rills, collapsed river banks indicating river bank erosion, turbid water indicating transported soil from surrounding lands, and movement of land en masse indicating landslides. The SEC App focuses on observable evidence to make reporting easier and consistent.",
