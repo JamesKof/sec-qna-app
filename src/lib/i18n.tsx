@@ -114,15 +114,15 @@ const translations: Record<string, Record<Language, string>> = {
   },
   "section.3.content.0": {
     en: "Climate change is increasing rainfall variability and the frequency of intense storms in Rwanda. When heavy rain falls over a short period, water flows rapidly over land surfaces, washing away fertile topsoil.",
-    rw: "Ihindagurika ry'ikirere rirongeye imvura zidahwitse n'imvura nyinshi mu Rwanda. Iyo imvura nyinshi iguye mu gihe gito, amazi atemba cyane ku butaka, ajyana ubutaka bwera.",
+    rw: "Imihindagurikire y'ikirere iri gutera impinduka mu buryo imvura igwamo n'ubwinshi bwayo butera imyuzure ikomeye mu Rwanda. Iyo imvura nyinshi iguye mu gihe gito, amazi atemba yihuta ku butaka, agakuraho igice cy'ubutaka gihingwa (topsoil) akenshi kiba kirimo intungabihingwa.",
   },
   "section.3.content.1": {
     en: "Soil erosion reduces agricultural productivity, increases sedimentation in rivers, and contributes to land degradation. These impacts are especially severe in areas with steep slopes and intensive land use.",
-    rw: "Isuri y'ubutaka igabanya umusaruro w'ubuhinzi, yongerera ibyondo mu mito, kandi iteza imbere isenyuka ry'ubutaka. Ibi bitera ingaruka zikomeye cyane mu turere dufite imisozi miremire.",
+    rw: "Isuri igabanya umusaruro w'ubuhinzi, ikongera ubutaka bwitekera (sediments) mu migezi n'inzuzi, kandi igateza kwangirika kw'ubutaka. Izi ngaruka zirushaho gukomera cyane cyane ahantu hahanamye n'ahantu ubutaka bukoreshwa cyane.",
   },
   "section.3.content.2": {
     en: "Community members are often the first to notice erosion. Their observations support early detection and timely response.",
-    rw: "Abaturage ni bo basanzwe babona isuri mbere. Ibyo babona bifasha kumenya hakiri kare no gufata ingamba ku gihe.",
+    rw: "Abaturage akenshi ni bo ba mbere babona ibimenyetso by'isuri. Ibyo babona byafasha ubuyobozi gushaka ibisubizo vuba. Ingaruka z'imihindagurikire y'ikirere ntizigaragara kimwe. Izo ngaruka ntizingana ku bagore, urubyiruko, n'abatishoboye akenshi kubera ko batagira uruhare rungana ku mutungo, amakuru, n'ubushobozi mu gufata ibyemezo.",
   },
   "section.4.content.0": {
     en: "Women, men, and youth experience and observe soil erosion differently because of their daily activities.",
