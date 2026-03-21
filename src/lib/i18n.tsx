@@ -138,11 +138,11 @@ const translations: Record<string, Record<Language, string>> = {
   },
   "section.5.content.0": {
     en: "USSD technology allows users to interact with the SEC App using simple menu prompts on basic mobile phones. It does not require internet access or smartphones.",
-    rw: "Ikoranabuhanga rya USSD rituma abakoresha bashobora gukoresha SEC App bakoresheje menu yoroshye kuri telefoni isanzwe. Ntisaba interineti cyangwa telefoni zigezweho.",
+    rw: "Ikoranabuhanga rya USSD rizatuma abazakoresha iyi Porogaramu batanga amakuru y'isuri (USSD SEC App) mu buryo bworoshye, bwihuse bakoresheje telephone zisanzwe. Ntibisaba interineti cyangwa telefoni zigezweho (SMARTPHONE).",
   },
   "section.5.content.1": {
     en: "This makes the SEC App accessible to people in remote areas, older users, and those with limited connectivity, supporting equitable participation.",
-    rw: "Ibi bituma SEC App igerwaho n'abantu bari mu turere tw'icyaro, abakuze, n'abafite interineti nke, bishyigikira ubusabane bungana.",
+    rw: "Ibi bituma porogaramu ya SEC ishobora no gukoreshwa n'abatuye icyaro bafite ubumenyi buke mu ikoranabuhanga, abakuze, n'abandi bafite ubushobozi buke bwo gukoresha iyakure, nk'abagore bo mu cyaro, abasaza, abatarize amashuri menshi, n'abafite ubumuga, bose bagira uruhare muri iki gikorwa.",
   },
   "section.6.content.0": {
     en: "Biodata links each erosion report to a real user and location, making reports traceable and useful for planning. Accurate biodata improves reliability and supports inclusive monitoring.",
