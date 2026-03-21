@@ -20,9 +20,9 @@ const translations: Record<string, Record<Language, string>> = {
   "welcome.firstName": { en: "First Name", rw: "Izina rya Mbere" },
   "welcome.firstNamePlaceholder": { en: "Enter first name", rw: "Injiza izina rya mbere" },
   "welcome.middleName": { en: "Middle Name", rw: "Izina ryo Hagati" },
-  "welcome.middleNamePlaceholder": { en: "Optional", rw: "Ntirihatira" },
-  "welcome.lastName": { en: "Last Name", rw: "Izina rya Nyuma" },
-  "welcome.lastNamePlaceholder": { en: "Enter last name", rw: "Injiza izina rya nyuma" },
+  "welcome.middleNamePlaceholder": { en: "Optional", rw: "Niba ntaryo uryihorere" },
+  "welcome.lastName": { en: "Last Name", rw: "Izina ry'Ababyeyi" },
+  "welcome.lastNamePlaceholder": { en: "Enter last name", rw: "Injiza izina ry'ababyeyi" },
   "welcome.district": { en: "District", rw: "Akarere" },
   "welcome.districtPlaceholder": { en: "Enter district name", rw: "Injiza izina ry'akarere" },
 
