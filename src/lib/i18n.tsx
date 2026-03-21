@@ -4,18 +4,18 @@ export type Language = "en" | "rw";
 
 const translations: Record<string, Record<Language, string>> = {
   // Welcome Screen
-  "welcome.title": { en: "SEC USSD App Training", rw: "Amahugurwa ya SEC USSD App" },
-  "welcome.project": { en: "125 Rwanda Project", rw: "Umushinga wa 125 Rwanda" },
+  "welcome.title": { en: "SEC USSD App Training", rw: "Sisitemu ya USSD yo gutanga amakuru azafasha mu kurwanya isuri" },
+  "welcome.project": { en: "125 Rwanda Project", rw: "125 Rwanda Project" },
   "welcome.description": {
     en: "Learn to use the USSD Soil Erosion Control App for community-based environmental monitoring — step by step, right from your phone.",
-    rw: "Iga gukoresha USSD Soil Erosion Control App mu gukurikirana ibidukikije mu muryango — intambwe ku ntambwe, ukoresheje telefoni yawe.",
+    rw: "Iga gukoresha porogaramu ya USSD yo kugenzura no kurwanya isuri (USSD SEC App) — intambwe ku ntambwe, ukoresheje telefoni yawe.",
   },
   "welcome.start": { en: "Start Training", rw: "Tangira Amahugurwa" },
   "welcome.info": { en: "11 sections · Interactive quizzes · ~25 minutes", rw: "Igice 11 · Ibibazo bihuza · ~Iminota 25" },
   "welcome.dashboard": { en: "View Dashboard", rw: "Reba Dashboard" },
   "welcome.nameNote": {
     en: "Your full name (for certification) should include First Name (required), Middle Name (optional), Last Name (required), and District Name (required).",
-    rw: "Amazina yawe yose (ku cyemezo) agomba kuba arimo Izina rya mbere (rigombwa), Izina ryo hagati (ntirihatira), Izina rya nyuma (rigombwa), n'Izina ry'Akarere (rigombwa).",
+    rw: "Amazina yawe azandikwa kuri SERITIFIKA agomba kuba arimo Izina rya mbere (Ni ngombwa cyane), Izina ryo hagati (Niba ntaryo ufite uryihorere), Izina ry'ababyeyi (Ni ngombwa cyane), n'Izina ry'Akarere (Ni ngombwa).",
   },
   "welcome.firstName": { en: "First Name", rw: "Izina rya Mbere" },
   "welcome.firstNamePlaceholder": { en: "Enter first name", rw: "Injiza izina rya mbere" },
