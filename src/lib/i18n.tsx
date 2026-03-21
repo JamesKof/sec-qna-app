@@ -110,7 +110,7 @@ const translations: Record<string, Record<Language, string>> = {
   },
   "section.2.content.0": {
     en: "By the end of this lesson, you will be able to:",
-    rw: "Nyuma y'iri somo, uzashobora:",
+    rw: "Nyuma y'iri somo, uraba ushobora:",
   },
   "section.3.content.0": {
     en: "Climate change is increasing rainfall variability and the frequency of intense storms in Rwanda. When heavy rain falls over a short period, water flows rapidly over land surfaces, washing away fertile topsoil.",
