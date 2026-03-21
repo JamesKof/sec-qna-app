@@ -190,23 +190,23 @@ const translations: Record<string, Record<Language, string>> = {
   },
   "section.9.content.0": {
     en: "Communities are able to visually identify and quantify control measures that are implemented on land parcels to reduce soil erosion. Erosion control measures include: progressive terraces which consist of filtration ditches and bunds along the contour lines to reduce runoff; radical terraces which reduce slope steepness; agroforestry which introduces special trees to stabilise the soil; vegetative strips planted aligned with the filtration ditches and bunds to stabilize the soil; mulching which covers the soil to reduce the impact of rain drops and runoff; riparian buffers which consist of vegetation planted along the river to protect the banks; and check dams built across streams to reduce water velocity.",
-    rw: "Abaturage bashobora kumenya no kubara ingamba zo kurwanya isuri zashyizweho ku mirima kugira ngo bagabanye isuri y'ubutaka. Ingamba zo kurwanya isuri zirimo: amaterasi agenda mbere agizwe n'imiyoboro yo gusukura n'udusozi ku mirongo y'ubutaka kugira ngo bagabanye amazi atemba; amaterasi y'ibanze agabanya uburemere bw'umuvuduko; ubuhinzi-burorere bushyiraho ibiti bidasanzwe kugira ngo bikomeze ubutaka; imirongo y'ibimera iteranye n'imiyoboro yo gusukura kugira ngo bikomeze ubutaka; gufunika ubutaka bigabanya ingaruka z'imvura n'amazi atemba; urukingiro rw'inkombe rugizwe n'ibimera bitewe ku nkombe z'umugezi kugira ngo birinde inkombe; n'amadamu mato yubatswe ku mito kugira ngo agabanye umuvuduko w'amazi.",
+    rw: "Abaturage bashobora kumenya no kugereranya ingamba zo kurwanya isuri ziri ku butaka bwabo. Ingamba zo kurwanya isuri ni nk'izi zikurikira: Imiringoti, amaterasi yikora agenewe kugabanya umuvuduko w'amazi ku musozi; Amaterasi y'indinganire agabanya ubuhaname bw'umusozi; Ibiti bivangwa n'imyaka bifata ubutaka; Gutera ibyatsi mu mpande z'amaterasi n'imiringoti; Gutwikira ubutaka kugira ngo bigabanye ingaruka zibitonyanga by'imvura; Gutera ibimera ku nkombe z'imigezi birinda inkombe z'umugezi gutwarwa n'amazi; Amadamu ashyirwa mu mugezi kugirango agabanye umuvuduko w'amazi.",
   },
   "section.9.content.1": {
     en: "The pictures above show progressive terraces (top left), agroforestry (top right), radical terraces (bottom left), riparian buffer (bottom middle) and mulching (bottom right) respectively.",
-    rw: "Amafoto hejuru agaragaza amaterasi agenda mbere (ibumoso hejuru), ubuhinzi-burorere (iburyo hejuru), amaterasi y'ibanze (ibumoso hasi), urukingiro rw'inkombe (hagati hasi) n'gufunika ubutaka (iburyo hasi).",
+    rw: "Amafoto yo hejuru yerekana imiringoti/amaterasi yikora (hejuru ibumoso), ibiti bivangwa n'imyaka (hejuru iburyo), amaterasi y'indinganire (munsi ibumoso), Inkengero z'umugezi ziteweho ibimera (munsi hagati) hamwe no gutwikira ubutaka (munsi iburyo).",
   },
   "section.9.content.2": {
     en: "Quantifying these measures improves planning and monitoring. These control measures may be quantified by count (agroforestry trees, check dams), length (progressive terraces, filtration ditches, bunds, vegetative strips and riparian buffers) and area (radical terraces, mulching).",
-    rw: "Kubara izo ngamba biteza imbere gutegura no gukurikirana. Izo ngamba zo kurwanya zishobora kubarwa ku mubare (ibiti by'ubuhinzi-burorere, amadamu mato), uburebure (amaterasi agenda mbere, imiyoboro yo gusukura, udusozi, imirongo y'ibimera n'urukingiro rw'inkombe) n'ubuso (amaterasi y'ibanze, gufunika ubutaka).",
+    rw: "Imibare ijyanye n'ingamba zo kurwanya isuri irakenewe mu igenamigambi n'ikurikiranabikorwa. Iyi mibare ishobora gutangwa ku buryo bugereranyije, kubara buri kintu (ibiti bivangwa n'imyaka, amadamu), gupima uburebure (imiringoti, amaterasi yikora, imirongo iteweho ibyatsi, inkombe z'umugezi ziteweho ibimera) hamwe n'ubuso (amaterasi y'indinganire, gusasa ibyatsi ku butaka).",
   },
   "section.9.content.3": {
     en: "After quantifying the control measures, the app will ask you to report whether you want to increase the control measures in place. This depends on whether you have observed that the existing control measures are not sufficiently preventing or slowing down soil erosion on the land parcel.",
-    rw: "Nyuma yo kubara ingamba zo kurwanya, app izagusaba gutanga raporo niba ushaka kongera ingamba zo kurwanya ziriho. Ibi bishingira ku ko wabonye ko ingamba zo kurwanya ziriho zitarahagije mu guhagarika cyangwa gutinda isuri y'ubutaka ku murima.",
+    rw: "Nyuma yo kugereranya no kubara ingano y'ingamba zo kurwanya isuri, porogaramu irakubaza niba ushaka kongera ingamba zo kurwanya isuri. Ibi biterwa nuko wabonye ko ingamba zihari zo kurwanya isuri zidahagije.",
   },
   "section.9.content.4": {
     en: "The SEC App guides users through structured data entry to support accuracy. Women, youth, and vulnerable groups often play critical roles in implementing soil conservation practices. Recognizing and documenting their contributions is essential for inclusive climate adaptation planning and policy development.",
-    rw: "SEC App iyobora abakoresha mu kwinjiza amakuru yubahirije uburyo kugira ngo hafashwe neza.",
+    rw: "Porogaramu ya SEC igenda iyobora uwinjiza amakuru y'isuri kugira ngo abe amakuru yuzuye kandi yizewe. Abagabo, Abagore, urubyiruko, hamwe n'abandi bantu bafite ubumuga bose nta n'umwe uhejwe bashobora kugira uruhare runini mu gushyira mu bikorwa uburyo bwo kubungabunga ubutaka. Kumenya no kwerekana uruhare rwabo ni ngombwa mu igenamigambi ry'imihindagurikire y'ikirere no guteza imbere politiki.",
   },
   "section.10.content.0": {
     en: "Before live deployment, users should practice using the SEC App simulator.",
