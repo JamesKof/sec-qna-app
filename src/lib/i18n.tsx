@@ -174,19 +174,19 @@ const translations: Record<string, Record<Language, string>> = {
   },
   "section.8.content.0": {
     en: "When erosion occurs on a land parcel, it can easily be observed by community members. Common signs of soil erosion include exposed roots and bare soil indicating sheet and rill erosion, shallow channels indicating small gullies, deep channels indicating big gullies, rills, collapsed river banks indicating river bank erosion, turbid water indicating transported soil from surrounding lands, and movement of land en masse indicating landslides. The SEC App focuses on observable evidence to make reporting easier and consistent.",
-    rw: "Iyo isuri ibaye ku murima, abaturage bashobora kubibona byoroshye. Ibimenyetso bisanzwe by'isuri y'ubutaka birimo imizi igaragara n'ubutaka butagira ikintu bigaragaza isuri y'urupapuro n'imirongo, imirongo migufi igaragaza imyobo mito, imirongo miremire igaragaza imyobo minini, inkombe z'imigezi zatemvye zigaragaza isuri y'inkombe, amazi y'umukara agaragaza ubutaka bujyanwe n'amazi, n'ubutaka bwimuka byinshi bigaragaza inyerera. SEC App ishingira ku bimenyetso bigaragara kugira ngo gutanga raporo bibe byoroshye kandi bihwanye.",
+    rw: "Iyo isuri ibaye mu murima, abaturage bayibona ku buryo bworoshye. Mu bimenyetso by'isuri bikunze kugaragara harimo imizi yanamye, ubutaka bwo hejuru bwatwawe n'amazi, udukoki duto twerekana inzira z'amazi, imikoki minini yerekana imigende minini yacukuwe n'amazi menshi, inkombe z'imigezi zatwawe n'amazi, amazi y'imigezi asa nabi yerekana ubutaka bwatwawe n'amazi ava mu mirima iyikikije, hamwe no kwimuka kw'ubutaka ku bwinshi byerekana inkangu. Porogaramu ya SEC yibanda ku bimenyetso bigaragara kugira ngo byorohere umuntu utanga raporo.",
   },
   "section.8.content.1": {
     en: "The SEC app does not report erosion severity; other government systems handle detailed analysis.",
-    rw: "SEC App ntitanga raporo y'urugero rw'isuri; izindi sisitemu za leta zikora isesengura ryimbitse.",
+    rw: "Iyi porogaramu ntabwo ipima ubukana bw'isuri. Igihugu gifite izindi nzego zishinzwe isesengura ry'imbitse.",
   },
   "section.8.content.2": {
     en: "Encouraging observations from diverse community members strengthens the accuracy and inclusiveness of environmental data by incorporating localized knowledge from women, youth, and marginalized groups.",
-    rw: "Gushishikariza abaturage batandukanye gutanga ibyo babona byongera ireme n'ubwuzuzanye bw'amakuru y'ibidukikije mu gufatanya ubumenyi bw'abagore, urubyiruko, n'amatsinda asigaye inyuma.",
+    rw: "Gushishikariza abantu bose kugenzura isuri bishimangira guhuriza hamwe amakuru y'ukuri kandi yuzuye ku bidukikije, akubiyemo ubumenyi buturuka ku bagabo, abagore, urubyiruko, n'amatsinda atandukanye nta n'umwe uhejwe.",
   },
   "section.8.content.3": {
     en: "The pictures above show sheet and rill erosion (top left), large gully (top middle), landslide (top right), small gully (bottom left), turbid water (bottom middle), and river bank erosion (bottom right).",
-    rw: "Amafoto hejuru agaragaza isuri y'urupapuro n'imirongo (ibumoso hejuru), umwobo munini (hagati hejuru), inyerera (iburyo hejuru), umwobo muto (ibumoso hasi), amazi y'umukara (hagati hasi), n'isuri y'inkombe y'umugezi (iburyo hasi).",
+    rw: "Amafoto yo hejuru yerekana ubutaka bwo hejuru bwatwawe n'amazi (hejuru ibumoso), Umukoki munini (hejuru hagati), inkangu (hejuru iburyo), Umukoki muto (hepfo ibumoso), amazi asa nabi (hepfo hagati), hamwe n'isuri ku nkombe y'uruzi (hepfo iburyo).",
   },
   "section.9.content.0": {
     en: "Communities are able to visually identify and quantify control measures that are implemented on land parcels to reduce soil erosion. Erosion control measures include: progressive terraces which consist of filtration ditches and bunds along the contour lines to reduce runoff; radical terraces which reduce slope steepness; agroforestry which introduces special trees to stabilise the soil; vegetative strips planted aligned with the filtration ditches and bunds to stabilize the soil; mulching which covers the soil to reduce the impact of rain drops and runoff; riparian buffers which consist of vegetation planted along the river to protect the banks; and check dams built across streams to reduce water velocity.",
