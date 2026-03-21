@@ -252,19 +252,19 @@ const translations: Record<string, Record<Language, string>> = {
   // Questions — updated from document
   "q3-1.question": {
     en: "Which climate change factor most directly increases soil erosion in your area (district)?",
-    rw: "Ni ikihe kintu cy'ihindagurika ry'ikirere cyongerera isuri y'ubutaka mu karere kawe?",
+    rw: "Muri ibi bintu bikurikira biranga ikirere bitera kwiyongera kw'isuri mu Rwanda, ni ikihe kiri cyo?",
   },
-  "q3-1.0": { en: "Higher average temperatures", rw: "Ubushyuhe burerure" },
-  "q3-1.1": { en: "Increased rainfall variability and extreme storms", rw: "Imvura nyinshi idahwitse n'inkubi z'umuyaga" },
-  "q3-1.2": { en: "Wind speed in cities", rw: "Umuvuduko w'umuyaga mu mujyi" },
-  "q3-1.3": { en: "Longer daylight hours", rw: "Amasaha y'urumuri menshi" },
+  "q3-1.0": { en: "Higher average temperatures", rw: "Ubushyuhe bwinshi" },
+  "q3-1.1": { en: "Increased rainfall variability and extreme storms", rw: "Ukwiyongera kw'ihindagurika ry'imvura n'ibiza bikomeye" },
+  "q3-1.2": { en: "Wind speed in cities", rw: "Imiyaga mu mijyi" },
+  "q3-1.3": { en: "Longer daylight hours", rw: "Amasaha menshi y'amanywa" },
   "q3-1.correct": {
     en: "Correct! Intense and unpredictable rainfall increases runoff, which accelerates soil erosion.",
-    rw: "Nibyo! Imvura nyinshi idahwitse yongerera amazi atemba, bigateza isuri y'ubutaka.",
+    rw: "Ni igisubizo cy'ukuri: Imvura nyinshi kandi itari iteganyijwe yongera umuvuduko w'amazi bityo igateza isuri ahantu hanini.",
   },
   "q3-1.incorrect": {
     en: "Incorrect. This factor does not directly cause large-scale soil erosion.",
-    rw: "Sibyo. Iki kintu ntigiteza isuri y'ubutaka ku rugero runini.",
+    rw: "Ikitari ukuri: Icyo wahisemo ntabwo giteza vuba isuri y'ahantu hanini.",
   },
 
   "q4-1.question": { en: "Community participation helps detect soil erosion early.", rw: "Uruhare rw'abaturage rufasha kumenya isuri y'ubutaka hakiri kare." },
