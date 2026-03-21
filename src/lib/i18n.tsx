@@ -94,19 +94,19 @@ const translations: Record<string, Record<Language, string>> = {
   // Section content — updated from professional document
   "section.1.content.0": {
     en: "Welcome to the SEC App Online Training Module!",
-    rw: "Murakaza neza mu mahugurwa ya SEC App!",
+    rw: "Murakaza neza muri iri somo ry'iyakure kuri porogaramu ikoreshwa mu gutanga amakuru azafasha mu kurwanya isuri",
   },
   "section.1.content.1": {
     en: "This interactive lesson will guide you step-by-step through the use of the USSD Soil Erosion Control (SEC) App. You will learn why soil erosion monitoring matters, how climate change influences erosion, and how to correctly report erosion evidence and control measures using a basic mobile phone.",
-    rw: "Iri somo rihuza rizakuyobora intambwe ku ntambwe mu gukoresha USSD Soil Erosion Control (SEC) App. Uziga impamvu gukurikirana isuri y'ubutaka ari ngombwa, uko ihindagurika ry'ikirere riteza imbere isuri, n'uko utanga raporo y'ibimenyetso by'isuri n'ingamba zo kurwanya ukoresheje telefoni isanzwe.",
+    rw: "Iri somo rirakuyobora, intambwe ku yindi, mu gukoresha porogaramu ya USSD yo kugenzura no kurwanya isuri (USSD SEC App). Urasobanukirwa impamvu gukurikirana isuri ari ngombwa, uko imihindagurikire y'ikirere itera isuri, n'uburyo bwo gutanga amakuru yo kugenzura no kurwanya isuri hifashishijwe telefoni isanzwe.",
   },
   "section.1.content.2": {
     en: "This lesson is self-paced. Please read each section carefully and answer the questions that follow.",
-    rw: "Iri somo urikora ku muvuduko wawe. Nyamuneka soma buri gice witonze kandi usubize ibibazo bikurikira.",
+    rw: "Iri somo urikurikirana ukurikije igihe ufite. Urasabwa gusoma neza kandi witonze buri gice, mbere yo gusubiza ibibazo bizakurikiraho.",
   },
   "section.1.content.3": {
     en: "The training is part of the 125 Rwanda Project, supporting community-based environmental monitoring across Rwanda.",
-    rw: "Amahugurwa ni igice cy'umushinga wa 125 Rwanda, ushyigikira gukurikirana ibidukikije mu baturage mu Rwanda hose.",
+    rw: "Iri somo riratangwa mu buryo bufasha abantu bose kwibonamo. Abantu bose bagomba kugira uburenganzira bungana ku nyungu zose bahabwa n'igihugu, baba abagore, abagabo, urubyiruko n'abafite ubumuga.",
   },
   "section.2.content.0": {
     en: "By the end of this lesson, you will be able to:",
