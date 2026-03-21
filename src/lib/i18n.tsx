@@ -297,19 +297,19 @@ const translations: Record<string, Record<Language, string>> = {
   "q5-1.correct": { en: "Correct! USSD works on basic phones and does not require internet.", rw: "Igisubizo cy'ukuri: Ikoranabuhanga rya USSD rikoresha telefoni zisanzwe kandi ntikenera interineti." },
   "q5-1.incorrect": { en: "Incorrect. The SEC App was designed for low-connectivity environments.", rw: "Ikitari ukuri: Porogaramu ya SEC ikoze kuburyo igera ahantu hose umuntu yakwitaba akoresheje telefoni isanzwe kandi ntikenera interineti." },
 
-  "q6-1.question": { en: "Why is accurate biodata important?", rw: "Kuki amakuru y'umuntu yizewe ari ngombwa?" },
-  "q6-1.0": { en: "For advertising", rw: "Ku bw'ubucuruzi" },
-  "q6-1.1": { en: "For traceability and planning", rw: "Ku bw'gukurikirana no gutegura" },
-  "q6-1.2": { en: "To rank users", rw: "Gushyira abakoresha mu byiciro" },
+  "q6-1.question": { en: "Why is accurate biodata important?", rw: "Ni kuki amakuru yuzuye y'umwirondoro ari ngombwa?" },
+  "q6-1.0": { en: "For advertising", rw: "Akoreshwa mu kwamamaza" },
+  "q6-1.1": { en: "For traceability and planning", rw: "Akoreshwa mu kumenya aho yaturutse bigafasha mu igenamigambi" },
+  "q6-1.2": { en: "To rank users", rw: "Gushyira abantu mu byiciro" },
   "q6-1.3": { en: "To identify political views", rw: "Kumenya ibitekerezo bya politiki" },
-  "q6-1.correct": { en: "Correct! Accurate biodata supports planning and verification.", rw: "Nibyo! Amakuru y'umuntu yizewe ashyigikira gutegura no kugenzura." },
-  "q6-1.incorrect": { en: "Incorrect. Biodata is collected only for official monitoring purposes.", rw: "Sibyo. Amakuru y'umuntu akusanywa gusa ku mpamvu zemewe zo gukurikirana." },
+  "q6-1.correct": { en: "Correct! Accurate biodata supports planning and verification.", rw: "Igisubizo cy'ukuri: Umwirondoro wuzuye utuma amakuru yatanzwe yizerwa bigafasha Leta mu igenamigambi." },
+  "q6-1.incorrect": { en: "Incorrect. Biodata is collected only for official monitoring purposes.", rw: "Ikitari ukuri: Umwirondoro ukoreshwa gusa na Leta mu igenamigambi." },
 
-  "q6-2.question": { en: "Biodata collected through the SEC App should be kept confidential.", rw: "Amakuru y'umuntu yakusanyijwe muri SEC App agomba kuguma ari ibanga." },
+  "q6-2.question": { en: "Biodata collected through the SEC App should be kept confidential.", rw: "Amakuru azatangwa hakoreshejwe porogaramu ya SEC azabikwa mu ibanga." },
   "q6-2.0": { en: "True", rw: "Nibyo" },
   "q6-2.1": { en: "False", rw: "Sibyo" },
-  "q6-2.correct": { en: "Correct! Confidentiality protects users and builds trust.", rw: "Nibyo! Ibanga ririnda abakoresha kandi ryubaka icyizere." },
-  "q6-2.incorrect": { en: "Incorrect. Personal data must always be protected.", rw: "Sibyo. Amakuru bwite agomba guhora arindwa." },
+  "q6-2.correct": { en: "Correct! Confidentiality protects users and builds trust.", rw: "Nibyo: Ukoresha porogaramu ya SEC nta ngaruka bizamugiraho kuko ibanga ryubaka icyizere." },
+  "q6-2.incorrect": { en: "Incorrect. Personal data must always be protected.", rw: "Sibyo: Umwirondoro w'umuntu ugomba kurindwa." },
 
   // Keep legacy q7-1 keys for any references
   "q7-1.question": { en: "What does the long UPI represent?", rw: "UPI ndende ihagarariye iki?" },
