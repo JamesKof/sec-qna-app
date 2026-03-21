@@ -244,10 +244,10 @@ const translations: Record<string, Record<Language, string>> = {
   },
 
   // Practice tasks
-  "practice.0": { en: "Enter biodata", rw: "Injiza amakuru y'umuntu" },
-  "practice.1": { en: "Enter a land parcel (UPI)", rw: "Injiza umurima (UPI)" },
-  "practice.2": { en: "Report erosion evidence", rw: "Tanga raporo y'ibimenyetso by'isuri" },
-  "practice.3": { en: "Record erosion control measures", rw: "Andika ingamba zo kurwanya isuri" },
+  "practice.0": { en: "Enter biodata", rw: "Kwinjiza umwirondoro" },
+  "practice.1": { en: "Enter a land parcel (UPI)", rw: "Kwandika UPI y'umurima" },
+  "practice.2": { en: "Report erosion evidence", rw: "Gutanga amakuru ku bimenyetso by'isuri" },
+  "practice.3": { en: "Record erosion control measures", rw: "Gutanga amakuru ku ngamba zo kurwanya isuri ziri mu murima" },
 
   // Questions — updated from document
   "q3-1.question": {
