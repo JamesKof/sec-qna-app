@@ -146,15 +146,15 @@ const translations: Record<string, Record<Language, string>> = {
   },
   "section.6.content.0": {
     en: "Biodata links each erosion report to a real user and location, making reports traceable and useful for planning. Accurate biodata improves reliability and supports inclusive monitoring.",
-    rw: "Amakuru y'umuntu ahuza buri raporo y'isuri n'umukoresha n'aho ari, bituma raporo zikurikiranwa kandi zigafasha mu gutegura. Amakuru y'umuntu yizewe ateza imbere kwizera no gushyigikira gukurikirana guhwanye.",
+    rw: "Amakuru y'umwirondoro ahuza raporo y'ubutaka bwangiritse na nyirabwo hamwe n'ahantu buherereye, bigatuma raporo zishobora gukurikiranwa kandi bigafasha mu gukora igenamigambi. Iyo amakuru y'umwirondoro atanzwe neza, bituma arushaho kwizerwa kandi kuyakurikirana bikoroha.",
   },
   "section.6.content.1": {
     en: "Fields such as gender, age range, and disability status help ensure equitable representation across social groups.",
-    rw: "Ibice nk'igitsina, imyaka, n'ubumuga bifasha kwemeza ko abantu bose bahagarariye neza.",
+    rw: "Kumenya umuntu watanze amakuru (umugore/umukobwa cyangwa umugabo/umuhungu, imyaka, niba afite ubumuga cyangwa atabufite, n'ibindi) bifasha kwizera ko nta tsinda ry'abantu ryahejwe muri iki gikorwa kandi harebwe niba ingamba z'imihindagurikire y'ikirere zitabirwa na bose ntawe uhejwe.",
   },
   "section.6.content.2": {
     en: "All personal information must be handled ethically and kept confidential.",
-    rw: "Amakuru yose bwite agomba gufatwa neza kandi agakomeza kuba ibanga.",
+    rw: "Amakuru yose ya buri muntu azakoreshwa mu buryo bwiza kandi agirwe ibanga, kandi akoreshwe gusa mu igenabikorwa n'isuzumabikorwa rya Leta.",
   },
   "section.7.content.0": {
     en: "Each land parcel in Rwanda has a Unique Parcel ID (UPI) based on administrative hierarchy.",
