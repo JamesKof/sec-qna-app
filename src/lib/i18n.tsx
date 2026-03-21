@@ -224,23 +224,23 @@ const translations: Record<string, Record<Language, string>> = {
   // Learning objectives
   "objective.0": {
     en: "Explain how climate change contributes to soil erosion in Rwanda",
-    rw: "Sobanura uko ihindagurika ry'ikirere riteza imbere isuri y'ubutaka mu Rwanda",
+    rw: "Gusobanura uko imihindagurikire y'ikirere ituma habaho isuri mu Rwanda",
   },
   "objective.1": {
     en: "Describe the importance of community-based monitoring",
-    rw: "Sobanura akamaro ko gukurikirana ibidukikije mu baturage",
+    rw: "Gusobanura uruhare rw'abaturage mu gukurikirana ibibazo bijyanye n'isuri",
   },
   "objective.2": {
     en: "Use the USSD SEC App to enter biodata, land parcels, erosion evidence, and control measures",
-    rw: "Koresha USSD SEC App kwinjiza amakuru y'umuntu, imirima, ibimenyetso by'isuri, n'ingamba zo kurwanya",
+    rw: "Gukoresha sisitemu (USSD SEC App) mu kwinjiza umwirondoro wawe, nimero y'ubutaka bwawe (UPI), ibimenyetso by'isuri yabaye ku butaka bwawe, n'uburyo bwakoreshejwe mu kuyirwanya",
   },
   "objective.3": {
     en: "Apply gender equality and social inclusion principles",
-    rw: "Gushyira mu bikorwa uburinganire n'ubusabane",
+    rw: "Kuzirikana uburyo ihame ry'Uburinganire hagati y'abantu b'igitsina gabo n'ab'igitsina gore ndetse n'abo mu byiciro bitandukanye bagira uruhare mu gukurikirana no kurwanya isuri",
   },
   "objective.4": {
     en: "Practice reporting using a simulator before live deployment",
-    rw: "Kwimenyereza gutanga raporo ukoresheje simulator mbere yo gukoresha by'ukuri",
+    rw: "Gukora imyitozo ku gutanga raporo hakoreshejwe ikoranabuhanga mbere yo gutangira kubikora mu buryo nyakuri",
   },
 
   // Practice tasks
