@@ -80,16 +80,16 @@ const translations: Record<string, Record<Language, string>> = {
 
   // Training section titles
   "section.1.title": { en: "Introduction", rw: "Intangiriro" },
-  "section.2.title": { en: "Learning Objectives", rw: "Intego z'Amahugurwa" },
-  "section.3.title": { en: "Climate Change & Soil Erosion", rw: "Ihindagurika ry'Ikirere n'Isuri y'Ubutaka" },
-  "section.4.title": { en: "Social & Gender Dimensions", rw: "Uburinganire n'Imibereho" },
-  "section.5.title": { en: "Why USSD Technology", rw: "Impamvu Ikoranabuhanga rya USSD" },
-  "section.6.title": { en: "Entering Biodata", rw: "Kwinjiza Amakuru y'Umuntu" },
-  "section.7.title": { en: "Land Parcel Identification (UPI)", rw: "Kumenya Umurima (UPI)" },
+  "section.2.title": { en: "Learning Objectives", rw: "Intego z'Iri Somo" },
+  "section.3.title": { en: "Climate Change & Soil Erosion", rw: "Imihindagurikire y'Ikirere n'Isuri" },
+  "section.4.title": { en: "Social & Gender Dimensions", rw: "Imiterere n'Imibereho bya Muntu mu Kugenzura no Kurwanya Isuri" },
+  "section.5.title": { en: "Why USSD Technology", rw: "Isobanurampamvu ry'Ikoranabuhanga rya USSD" },
+  "section.6.title": { en: "Entering Biodata", rw: "Amakuru y'Umwirondoro" },
+  "section.7.title": { en: "Land Parcel Identification (UPI)", rw: "Kumenya Kwinjiza Nimero Iranga Ubutaka (UPI)" },
   "section.8.title": { en: "Erosion Evidence", rw: "Ibimenyetso by'Isuri" },
   "section.9.title": { en: "Erosion Control Measures", rw: "Ingamba zo Kurwanya Isuri" },
-  "section.10.title": { en: "Simulator Practice", rw: "Kwimenyereza kuri Simulator" },
-  "section.11.title": { en: "Final Check", rw: "Isuzuma Nyuma" },
+  "section.10.title": { en: "Simulator Practice", rw: "Kwimenyereza Ukoresheje Igisa na SEC App" },
+  "section.11.title": { en: "Final Check", rw: "Isuzuma rya Nyuma no Gusoza" },
 
   // Section content — updated from professional document
   "section.1.content.0": {
