@@ -344,22 +344,22 @@ const translations: Record<string, Record<Language, string>> = {
   "q9-1.correct": { en: "Correct! Terraces are used to control erosion.", rw: "Igisubizo cy'ukuri: Amaterasi akoreshwa mu kurwanya isuri." },
   "q9-1.incorrect": { en: "Incorrect. These are signs of erosion, not control measures.", rw: "Ntabwo ari ukuri: Ibi ni ibimenyetso by'isuri, Ntabwo ari ingamba zo kurwanya isuri." },
 
-  "q11-1.question": { en: "USSD works without internet.", rw: "USSD ikora nta interineti." },
+  "q11-1.question": { en: "USSD works without internet.", rw: "Ikoranabuhanga rya USSD ntirikenera interineti kugirango rikore." },
   "q11-1.0": { en: "True", rw: "Nibyo" },
   "q11-1.1": { en: "False", rw: "Sibyo" },
-  "q11-1.correct": { en: "Correct! USSD technology does not require internet access.", rw: "Nibyo! Ikoranabuhanga rya USSD ntrisaba interineti." },
+  "q11-1.correct": { en: "Correct! USSD technology does not require internet access.", rw: "Nibyo! Ikoranabuhanga rya USSD ntirikenera interineti." },
   "q11-1.incorrect": { en: "Incorrect. USSD is designed to work without internet connectivity.", rw: "Sibyo. USSD yashyizweho ku buryo ikora nta interineti." },
 
-  "q11-2.question": { en: "Accurate biodata supports planning.", rw: "Amakuru y'umuntu yizewe ashyigikira gutegura." },
+  "q11-2.question": { en: "Accurate biodata supports planning.", rw: "Amakuru yuzuye y'umwirondoro yifashishwa mu igenamigambi." },
   "q11-2.0": { en: "True", rw: "Nibyo" },
   "q11-2.1": { en: "False", rw: "Sibyo" },
-  "q11-2.correct": { en: "Correct! Accurate biodata makes reports useful for planning.", rw: "Nibyo! Amakuru y'umuntu yizewe atuma raporo zifasha mu gutegura." },
-  "q11-2.incorrect": { en: "Incorrect. Biodata is essential for effective planning.", rw: "Sibyo. Amakuru y'umuntu ni ngombwa mu gutegura neza." },
+  "q11-2.correct": { en: "Correct! Accurate biodata makes reports useful for planning.", rw: "Nibyo! Amakuru yuzuye y'umwirondoro yifashishwa mu igenamigambi." },
+  "q11-2.incorrect": { en: "Incorrect. Biodata is essential for effective planning.", rw: "Sibyo. Amakuru y'umwirondoro ni ngombwa mu gutegura neza." },
 
-  "q11-3.question": { en: "Community monitoring supports early detection.", rw: "Gukurikirana kw'abaturage gushyigikira kumenya hakiri kare." },
+  "q11-3.question": { en: "Community monitoring supports early detection.", rw: "Abaturage bagira uruhare mu kumenya kare ahabaye isuri." },
   "q11-3.0": { en: "True", rw: "Nibyo" },
   "q11-3.1": { en: "False", rw: "Sibyo" },
-  "q11-3.correct": { en: "Correct! Communities are often the first to notice erosion.", rw: "Nibyo! Abaturage ni bo basanzwe babona isuri mbere." },
+  "q11-3.correct": { en: "Correct! Communities are often the first to notice erosion.", rw: "Nibyo! Abaturage bagira uruhare mu kumenya kare ahabaye isuri." },
   "q11-3.incorrect": { en: "Incorrect. Community monitoring is key to early detection.", rw: "Sibyo. Gukurikirana kw'abaturage ni ngombwa mu kumenya hakiri kare." },
 };
 
