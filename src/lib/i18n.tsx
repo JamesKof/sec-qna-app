@@ -11,7 +11,7 @@ const translations: Record<string, Record<Language, string>> = {
     rw: "Iga gukoresha porogaramu ya USSD yo kugenzura no kurwanya isuri (USSD SEC App) — intambwe ku ntambwe, ukoresheje telefoni yawe.",
   },
   "welcome.start": { en: "Start Training", rw: "Tangira Amahugurwa" },
-  "welcome.info": { en: "11 sections · Interactive quizzes · ~25 minutes", rw: "Igice 11 · Ibibazo bihuza · ~Iminota 25" },
+  "welcome.info": { en: "11 sections · Interactive quizzes · ~25 minutes", rw: "Ibice 11 . Ibibazo muri buri gice · ~Iminota 25" },
   "welcome.dashboard": { en: "View Dashboard", rw: "Reba Dashboard" },
   "welcome.nameNote": {
     en: "Your full name (for certification) should include First Name (required), Middle Name (optional), Last Name (required), and District Name (required).",
