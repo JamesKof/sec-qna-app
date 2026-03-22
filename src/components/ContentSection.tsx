@@ -11,18 +11,8 @@ import heroImg from "@/assets/hero-landscape.jpg";
 import communityImg from "@/assets/community.jpg";
 import ussdImg from "@/assets/ussd-phone.jpg";
 import upiDiagram from "@/assets/upi-diagram.png";
-import erosionSheetRill from "@/assets/erosion-sheet-rill.jpg";
-import erosionLargeGully from "@/assets/erosion-large-gully.jpg";
-import erosionLandslide from "@/assets/erosion-landslide.jpg";
-import erosionSmallGully from "@/assets/erosion-small-gully.jpg";
-import erosionTurbidWater from "@/assets/erosion-turbid-water.jpg";
-import erosionRiverbank from "@/assets/erosion-riverbank.jpg";
-import controlMeasuresCollage from "@/assets/control-measures-collage.jpg";
-import controlMenTerraces from "@/assets/control-men-terraces.jpg";
-import controlProgressiveTerraces from "@/assets/control-progressive-terraces.jpg";
-import controlAgroforestry from "@/assets/control-agroforestry.jpg";
-import controlRadicalTerraces from "@/assets/control-radical-terraces.jpg";
-import controlRiparianMulching from "@/assets/control-riparian-mulching.jpg";
+import erosionEvidenceCollage from "@/assets/erosion-evidence-collage.png";
+import erosionControlCollage from "@/assets/erosion-control-collage.png";
 import { useI18n } from "@/lib/i18n";
 
 const iconMap: Record<string, React.ReactNode> = {
