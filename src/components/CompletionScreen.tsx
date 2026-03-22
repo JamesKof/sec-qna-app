@@ -80,7 +80,7 @@ const CompletionScreen = ({ score, totalQuestions, onRetry, certificateName }: C
             className="w-full h-12 text-base font-bold rounded-xl gap-2 mb-3 bg-success hover:bg-success/90 text-success-foreground"
           >
             <Download className="w-5 h-5" />
-            Download Certificate
+            {t("completion.downloadCert")}
           </Button>
         )}
 

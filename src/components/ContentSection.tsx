@@ -45,24 +45,6 @@ const sectionImages: Record<number, string> = {
   5: ussdImg,
 };
 
-// Erosion evidence photo grid (section 8) — reordered with control mechanism image first
-const erosionEvidenceImages = [
-  { src: erosionSheetRill, label: "Sheet & Rill Erosion" },
-  { src: erosionLargeGully, label: "Large Gully" },
-  { src: erosionLandslide, label: "Landslide" },
-  { src: erosionSmallGully, label: "Small Gully" },
-  { src: erosionTurbidWater, label: "Turbid Water" },
-  { src: erosionRiverbank, label: "River Bank Erosion" },
-];
-
-// Control measures photo grid (section 9)
-const controlMeasureImages = [
-  { src: controlMenTerraces, label: "Men next to Erosion Control Terraces" },
-  { src: controlProgressiveTerraces, label: "Progressive Terraces" },
-  { src: controlAgroforestry, label: "Agroforestry" },
-  { src: controlRadicalTerraces, label: "Radical Terraces" },
-  { src: controlRiparianMulching, label: "Riparian Buffer & Mulching" },
-];
 
 interface ContentSectionProps {
   section: TrainingSection;

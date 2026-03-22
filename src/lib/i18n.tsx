@@ -47,7 +47,7 @@ const translations: Record<string, Record<Language, string>> = {
   "quiz.checkAnswer": { en: "Check Answer", rw: "Reba Igisubizo" },
   "quiz.tryAgain": { en: "Not quite right. You have one more attempt — try again!", rw: "Ntibyakunze neza. Ufite undi mushinga — ongera ugerageze!" },
   "quiz.retryButton": { en: "Try Again", rw: "Ongera Ugerageze" },
-  "quiz.currentQuestion": { en: "Current Question", rw: "Ikibazo Uriho" },
+  "quiz.currentQuestion": { en: "Current Question", rw: "Ikibazo Ugezeho" },
 
   // Practice
   "practice.title": { en: "Practice Tasks", rw: "Imyitozo" },
