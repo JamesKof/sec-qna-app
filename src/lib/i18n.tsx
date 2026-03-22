@@ -11,7 +11,7 @@ const translations: Record<string, Record<Language, string>> = {
     rw: "Iga gukoresha porogaramu ya USSD yo kugenzura no kurwanya isuri (USSD SEC App) — intambwe ku ntambwe, ukoresheje telefoni yawe.",
   },
   "welcome.start": { en: "Start Training", rw: "Tangira Amahugurwa" },
-  "welcome.info": { en: "11 sections · Interactive quizzes · ~25 minutes", rw: "Igice 11 · Ibibazo bihuza · ~Iminota 25" },
+  "welcome.info": { en: "11 sections · Interactive quizzes · ~25 minutes", rw: "Ibice 11 . Ibibazo muri buri gice · ~Iminota 25" },
   "welcome.dashboard": { en: "View Dashboard", rw: "Reba Dashboard" },
   "welcome.nameNote": {
     en: "Your full name (for certification) should include First Name (required), Middle Name (optional), Last Name (required), and District Name (required).",
@@ -43,11 +43,11 @@ const translations: Record<string, Record<Language, string>> = {
   // Quiz
   "quiz.multipleChoice": { en: "Multiple Choice", rw: "Hitamo Igisubizo" },
   "quiz.trueFalse": { en: "True / False", rw: "Nibyo / Sibyo" },
-  "quiz.selectAll": { en: "Select All", rw: "Hitamo Byose" },
+  "quiz.selectAll": { en: "Select All", rw: "Hitamo ibisubizo biri byo" },
   "quiz.checkAnswer": { en: "Check Answer", rw: "Reba Igisubizo" },
   "quiz.tryAgain": { en: "Not quite right. You have one more attempt — try again!", rw: "Ntibyakunze neza. Ufite undi mushinga — ongera ugerageze!" },
   "quiz.retryButton": { en: "Try Again", rw: "Ongera Ugerageze" },
-  "quiz.currentQuestion": { en: "Current Question", rw: "Ikibazo Uriho" },
+  "quiz.currentQuestion": { en: "Current Question", rw: "Ikibazo Ugezeho" },
 
   // Practice
   "practice.title": { en: "Practice Tasks", rw: "Imyitozo" },
@@ -74,6 +74,7 @@ const translations: Record<string, Record<Language, string>> = {
   "completion.launchSimulator": { en: "Launch SEC App Simulator", rw: "Fungura SEC App Simulator" },
   "completion.retake": { en: "Retake Training", rw: "Subiramo Amahugurwa" },
   "completion.tryAgain": { en: "Try Again", rw: "Ongera Ugerageze" },
+  "completion.downloadCert": { en: "Download Certificate", rw: "Kuramo Seritifika" },
 
   // Language toggle
   "lang.switch": { en: "Kinyarwanda", rw: "English" },

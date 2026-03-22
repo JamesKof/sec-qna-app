@@ -11,18 +11,8 @@ import heroImg from "@/assets/hero-landscape.jpg";
 import communityImg from "@/assets/community.jpg";
 import ussdImg from "@/assets/ussd-phone.jpg";
 import upiDiagram from "@/assets/upi-diagram.png";
-import erosionSheetRill from "@/assets/erosion-sheet-rill.jpg";
-import erosionLargeGully from "@/assets/erosion-large-gully.jpg";
-import erosionLandslide from "@/assets/erosion-landslide.jpg";
-import erosionSmallGully from "@/assets/erosion-small-gully.jpg";
-import erosionTurbidWater from "@/assets/erosion-turbid-water.jpg";
-import erosionRiverbank from "@/assets/erosion-riverbank.jpg";
-import controlMeasuresCollage from "@/assets/control-measures-collage.jpg";
-import controlMenTerraces from "@/assets/control-men-terraces.jpg";
-import controlProgressiveTerraces from "@/assets/control-progressive-terraces.jpg";
-import controlAgroforestry from "@/assets/control-agroforestry.jpg";
-import controlRadicalTerraces from "@/assets/control-radical-terraces.jpg";
-import controlRiparianMulching from "@/assets/control-riparian-mulching.jpg";
+import erosionEvidenceCollage from "@/assets/erosion-evidence-collage.png";
+import erosionControlCollage from "@/assets/erosion-control-collage.png";
 import { useI18n } from "@/lib/i18n";
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -55,24 +45,6 @@ const sectionImages: Record<number, string> = {
   5: ussdImg,
 };
 
-// Erosion evidence photo grid (section 8) — reordered with control mechanism image first
-const erosionEvidenceImages = [
-  { src: erosionSheetRill, label: "Sheet & Rill Erosion" },
-  { src: erosionLargeGully, label: "Large Gully" },
-  { src: erosionLandslide, label: "Landslide" },
-  { src: erosionSmallGully, label: "Small Gully" },
-  { src: erosionTurbidWater, label: "Turbid Water" },
-  { src: erosionRiverbank, label: "River Bank Erosion" },
-];
-
-// Control measures photo grid (section 9)
-const controlMeasureImages = [
-  { src: controlMenTerraces, label: "Men next to Erosion Control Terraces" },
-  { src: controlProgressiveTerraces, label: "Progressive Terraces" },
-  { src: controlAgroforestry, label: "Agroforestry" },
-  { src: controlRadicalTerraces, label: "Radical Terraces" },
-  { src: controlRiparianMulching, label: "Riparian Buffer & Mulching" },
-];
 
 interface ContentSectionProps {
   section: TrainingSection;
@@ -114,33 +86,24 @@ const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSection
         />
       )}
 
-      {/* Erosion evidence photo grid (section 8) — shown BEFORE text */}
+      {/* Erosion evidence collage (section 8) */}
       {section.id === 8 && (
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-          {erosionEvidenceImages.map((img, i) => (
-            <div key={i} className="rounded-xl overflow-hidden border bg-card">
-              <img src={img.src} alt={img.label} className="w-full h-28 md:h-36 object-cover" />
-              <p className="text-xs font-semibold text-center py-2 px-1 text-foreground/80">{img.label}</p>
-            </div>
-          ))}
+        <div className="rounded-xl overflow-hidden border bg-card">
+          <img src={erosionEvidenceCollage} alt="Erosion evidence: sheet & rill erosion, large gully, landslide, small gully, turbid water, river bank erosion" className="w-full object-cover rounded-xl" />
+          <p className="text-xs font-semibold text-center py-2 px-1 text-foreground/80">
+            {t(`section.8.content.3`)}
+          </p>
         </div>
       )}
 
-      {/* Control measures photo grid (section 9) — shown BEFORE text */}
+      {/* Erosion control measures collage (section 9) */}
       {section.id === 9 && (
-        <>
-          {controlMeasuresCollage && (
-            <img src={controlMeasuresCollage} alt="Overview of erosion control measures" className="w-full h-40 md:h-52 object-cover rounded-xl" />
-          )}
-          <div className="flex flex-col gap-3">
-            {controlMeasureImages.map((img, i) => (
-              <div key={i} className="rounded-xl overflow-hidden border bg-card">
-                <img src={img.src} alt={img.label} className="w-full h-48 md:h-56 object-cover" />
-                <p className="text-xs font-semibold text-center py-2 px-1 text-foreground/80">{img.label}</p>
-              </div>
-            ))}
-          </div>
-        </>
+        <div className="rounded-xl overflow-hidden border bg-card">
+          <img src={erosionControlCollage} alt="Erosion control measures: progressive terraces, agroforestry, radical terraces, riparian buffer, mulching" className="w-full object-cover rounded-xl" />
+          <p className="text-xs font-semibold text-center py-2 px-1 text-foreground/80">
+            {t(`section.9.content.1`)}
+          </p>
+        </div>
       )}
 
       {/* Content paragraphs */}
