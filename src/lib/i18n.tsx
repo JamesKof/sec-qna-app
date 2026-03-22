@@ -74,6 +74,7 @@ const translations: Record<string, Record<Language, string>> = {
   "completion.launchSimulator": { en: "Launch SEC App Simulator", rw: "Fungura SEC App Simulator" },
   "completion.retake": { en: "Retake Training", rw: "Subiramo Amahugurwa" },
   "completion.tryAgain": { en: "Try Again", rw: "Ongera Ugerageze" },
+  "completion.downloadCert": { en: "Download Certificate", rw: "Kuramo Seritifika" },
 
   // Language toggle
   "lang.switch": { en: "Kinyarwanda", rw: "English" },
