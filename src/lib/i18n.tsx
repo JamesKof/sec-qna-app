@@ -43,7 +43,7 @@ const translations: Record<string, Record<Language, string>> = {
   // Quiz
   "quiz.multipleChoice": { en: "Multiple Choice", rw: "Hitamo Igisubizo" },
   "quiz.trueFalse": { en: "True / False", rw: "Nibyo / Sibyo" },
-  "quiz.selectAll": { en: "Select All", rw: "Hitamo Byose" },
+  "quiz.selectAll": { en: "Select All", rw: "Hitamo ibisubizo biri byo" },
   "quiz.checkAnswer": { en: "Check Answer", rw: "Reba Igisubizo" },
   "quiz.tryAgain": { en: "Not quite right. You have one more attempt — try again!", rw: "Ntibyakunze neza. Ufite undi mushinga — ongera ugerageze!" },
   "quiz.retryButton": { en: "Try Again", rw: "Ongera Ugerageze" },
