@@ -121,8 +121,10 @@ const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSection
       {/* UPI Diagram (section 7) */}
       {section.id === 7 && (
         <div className="rounded-xl overflow-hidden border bg-muted/30 p-4">
-          <img src={upiDiagram} alt="UPI structure diagram showing province, district, sector, cell, and parcel codes" className="w-full max-w-md mx-auto rounded-lg" />
-          <p className="text-xs text-muted-foreground text-center mt-2">UPI Structure: Province / District / Sector / Cell / Parcel</p>
+          <img src={lang === "rw" ? upiDiagramRw : upiDiagram} alt="UPI structure diagram" className="w-full max-w-md mx-auto rounded-lg" />
+          <p className="text-xs text-muted-foreground text-center mt-2">
+            {lang === "rw" ? "Imiterere ya UPI: Intara / Akarere / Umurenge / Akagari / Umurima" : "UPI Structure: Province / District / Sector / Cell / Parcel"}
+          </p>
         </div>
       )}
 
