@@ -29,7 +29,12 @@ const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
   const handleStart = () => {
     if (!canStart) return;
     const certName = `${fullName} — ${district.trim()}`;
-    onStart(certName);
+    onStart(certName, {
+      firstName: firstName.trim(),
+      middleName: middleName.trim(),
+      lastName: lastName.trim(),
+      district: district.trim(),
+    });
   };
 
   const switchToLanguage = (targetLang: "en" | "rw") => {
