@@ -11,7 +11,7 @@ import PartnerLogos from "./PartnerLogos";
 import { useI18n } from "@/lib/i18n";
 
 interface WelcomeScreenProps {
-  onStart: (certificateName: string) => void;
+  onStart: (certificateName: string, details: { firstName: string; middleName: string; lastName: string; district: string }) => void;
 }
 
 const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
@@ -29,7 +29,12 @@ const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
   const handleStart = () => {
     if (!canStart) return;
     const certName = `${fullName} — ${district.trim()}`;
-    onStart(certName);
+    onStart(certName, {
+      firstName: firstName.trim(),
+      middleName: middleName.trim(),
+      lastName: lastName.trim(),
+      district: district.trim(),
+    });
   };
 
   const switchToLanguage = (targetLang: "en" | "rw") => {
