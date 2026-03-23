@@ -36,6 +36,7 @@ const App = () => (
               {/* Kinyarwanda routes under /rw prefix */}
               <Route path="/rw" element={<LanguageRoute><Index /></LanguageRoute>} />
               <Route path="/rw/login" element={<LanguageRoute><Login /></LanguageRoute>} />
+              <Route path="/rw/forgot-password" element={<LanguageRoute><ForgotPassword /></LanguageRoute>} />
               <Route path="/rw/dashboard" element={<LanguageRoute><Dashboard /></LanguageRoute>} />
               <Route path="/rw/admin" element={<LanguageRoute><Admin /></LanguageRoute>} />
 
