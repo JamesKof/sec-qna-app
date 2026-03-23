@@ -1,6 +1,5 @@
 import { TrainingSection, learningObjectives } from "@/data/trainingContent";
 import QuizQuestion from "./QuizQuestion";
-import { Checkbox } from "@/components/ui/checkbox";
 import { useState, useEffect, useRef } from "react";
 import {
   BookOpen, Target, CloudRain, Users, Smartphone,
@@ -11,6 +10,7 @@ import heroImg from "@/assets/hero-landscape.jpg";
 import communityImg from "@/assets/community.jpg";
 import ussdImg from "@/assets/ussd-phone.jpg";
 import upiDiagram from "@/assets/upi-diagram.png";
+import upiDiagramRw from "@/assets/upi-diagram-rw.png";
 import erosionEvidenceCollage from "@/assets/erosion-evidence-collage.png";
 import erosionControlCollage from "@/assets/erosion-control-collage.png";
 import { useI18n } from "@/lib/i18n";
