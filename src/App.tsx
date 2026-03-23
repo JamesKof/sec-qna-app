@@ -8,6 +8,8 @@ import { AuthProvider } from "@/hooks/useAuth";
 import LanguageRoute from "@/components/LanguageRoute";
 import Index from "./pages/Index.tsx";
 import Login from "./pages/Login.tsx";
+import ForgotPassword from "./pages/ForgotPassword.tsx";
+import ResetPassword from "./pages/ResetPassword.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
 import Admin from "./pages/Admin.tsx";
 import NotFound from "./pages/NotFound.tsx";
