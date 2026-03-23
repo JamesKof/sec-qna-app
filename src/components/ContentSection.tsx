@@ -54,7 +54,7 @@ interface ContentSectionProps {
 
 const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSectionProps) => {
   const [checkedTasks, setCheckedTasks] = useState<Record<number, boolean>>({});
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const firstQuestionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
