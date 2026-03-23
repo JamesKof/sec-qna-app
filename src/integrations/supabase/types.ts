@@ -71,6 +71,57 @@ export type Database = {
         }
         Relationships: []
       }
+      training_sessions: {
+        Row: {
+          certificate_name: string
+          completed_at: string | null
+          district: string
+          first_name: string
+          id: string
+          language: string
+          last_name: string
+          middle_name: string
+          passed: boolean | null
+          score: number | null
+          started_at: string
+          status: string
+          total_questions: number | null
+          user_id: string | null
+        }
+        Insert: {
+          certificate_name?: string
+          completed_at?: string | null
+          district?: string
+          first_name?: string
+          id?: string
+          language?: string
+          last_name?: string
+          middle_name?: string
+          passed?: boolean | null
+          score?: number | null
+          started_at?: string
+          status?: string
+          total_questions?: number | null
+          user_id?: string | null
+        }
+        Update: {
+          certificate_name?: string
+          completed_at?: string | null
+          district?: string
+          first_name?: string
+          id?: string
+          language?: string
+          last_name?: string
+          middle_name?: string
+          passed?: boolean | null
+          score?: number | null
+          started_at?: string
+          status?: string
+          total_questions?: number | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           id: string
