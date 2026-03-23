@@ -146,15 +146,14 @@ const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSection
       {section.practiceTasks && (
         <div className="space-y-3 bg-muted/50 rounded-xl p-4">
           <p className="text-sm font-bold text-foreground uppercase tracking-wider">{t("practice.title")}</p>
-          {section.practiceTasks.map((_, i) => (
-            <label key={i} className="flex items-center gap-3 p-3 bg-card rounded-lg cursor-pointer border hover:border-primary/50 transition-colors">
-              <Checkbox
-                checked={checkedTasks[i] || false}
-                onCheckedChange={(checked) => setCheckedTasks(prev => ({ ...prev, [i]: !!checked }))}
-              />
-              <span className="text-sm font-medium text-foreground">{t(`practice.${i}`)}</span>
-            </label>
-          ))}
+          <ul className="space-y-2 ml-1">
+            {section.practiceTasks.map((_, i) => (
+              <li key={i} className="flex items-start gap-3 p-3 bg-card rounded-lg border">
+                <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0 mt-1.5" />
+                <span className="text-sm font-medium text-foreground">{t(`practice.${i}`)}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
 
