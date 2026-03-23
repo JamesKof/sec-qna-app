@@ -28,6 +28,8 @@ const App = () => (
               {/* Default English routes */}
               <Route path="/" element={<LanguageRoute><Index /></LanguageRoute>} />
               <Route path="/login" element={<LanguageRoute><Login /></LanguageRoute>} />
+              <Route path="/forgot-password" element={<LanguageRoute><ForgotPassword /></LanguageRoute>} />
+              <Route path="/reset-password" element={<ResetPassword />} />
               <Route path="/dashboard" element={<LanguageRoute><Dashboard /></LanguageRoute>} />
               <Route path="/admin" element={<LanguageRoute><Admin /></LanguageRoute>} />
 
