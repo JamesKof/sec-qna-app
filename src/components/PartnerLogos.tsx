@@ -1,21 +1,21 @@
-import alineaLogo from "@/assets/logos/alinea.png";
-import mekLogo from "@/assets/logos/mek.png";
-import rwbLogo from "@/assets/logos/rwb.png";
-import climateActionCanadaLogo from "@/assets/logos/climate-action-canada.png";
 import climateActionAfricaLogo from "@/assets/logos/climate-action-africa.png";
+import alineaLogo from "@/assets/logos/alinea.png";
 import econolerLogo from "@/assets/logos/econoler.jpg";
+import wspLogo from "@/assets/logos/wsp.png";
+import rwbLogo from "@/assets/logos/rwb.png";
+import mekLogo from "@/assets/logos/mek.png";
 
 interface PartnerLogosProps {
   variant?: "full" | "compact" | "certificate";
 }
 
 const partners = [
-  { name: "Rwanda Water Resources Board", logo: rwbLogo, role: "Client" },
-  { name: "Alinea International", logo: alineaLogo, role: "Lead Consultant" },
-  { name: "MEK Earth & Environmental", logo: mekLogo, role: "Consulting Partner" },
   { name: "Climate Action Africa", logo: climateActionAfricaLogo, role: "Sponsor" },
-  { name: "Climate Action Canada", logo: climateActionCanadaLogo, role: "Sponsor" },
+  { name: "Alinea International", logo: alineaLogo, role: "Lead Consultant" },
   { name: "Econoler", logo: econolerLogo, role: "Sponsor" },
+  { name: "WSP", logo: wspLogo, role: "Sponsor" },
+  { name: "Rwanda Water Resources Board", logo: rwbLogo, role: "Client" },
+  { name: "MEK Earth & Environmental", logo: mekLogo, role: "Consulting Partner" },
 ];
 
 const PartnerLogos = ({ variant = "full" }: PartnerLogosProps) => {

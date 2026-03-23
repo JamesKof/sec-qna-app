@@ -90,9 +90,6 @@ const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSection
       {section.id === 8 && (
         <div className="rounded-xl overflow-hidden border bg-card">
           <img src={erosionEvidenceCollage} alt="Erosion evidence: sheet & rill erosion, large gully, landslide, small gully, turbid water, river bank erosion" className="w-full object-cover rounded-xl" />
-          <p className="text-xs font-semibold text-center py-2 px-1 text-foreground/80">
-            {t(`section.8.content.3`)}
-          </p>
         </div>
       )}
 
@@ -110,6 +107,7 @@ const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSection
       <div className="space-y-3">
         {section.content.map((_, i) => {
           if (section.id === 9 && i === 1) return null;
+          if (section.id === 8 && i === 3) return null;
           return (
             <p key={i} className="text-base leading-relaxed text-foreground/90">
               {t(`section.${section.id}.content.${i}`)}
