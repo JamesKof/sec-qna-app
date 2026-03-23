@@ -107,6 +107,7 @@ const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSection
       <div className="space-y-3">
         {section.content.map((_, i) => {
           if (section.id === 9 && i === 1) return null;
+          if (section.id === 8 && i === 3) return null;
           return (
             <p key={i} className="text-base leading-relaxed text-foreground/90">
               {t(`section.${section.id}.content.${i}`)}
