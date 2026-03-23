@@ -5,10 +5,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Leaf, LogOut, UserPlus, Shield, Users, AlertCircle, FileDown } from "lucide-react";
+import { LogOut, UserPlus, Shield, Users, AlertCircle, FileDown, Activity } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import ThemeToggle from "@/components/ThemeToggle";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface StudentRecord {
   user_id: string;
@@ -20,10 +22,27 @@ interface StudentRecord {
   certificate_name: string;
 }
 
+interface SessionRecord {
+  id: string;
+  first_name: string;
+  middle_name: string;
+  last_name: string;
+  district: string;
+  certificate_name: string;
+  language: string;
+  started_at: string;
+  completed_at: string | null;
+  score: number | null;
+  total_questions: number | null;
+  passed: boolean;
+  status: string;
+}
+
 const Admin = () => {
   const navigate = useNavigate();
   const { user, loading, isAdmin, signOut } = useAuth();
   const [students, setStudents] = useState<StudentRecord[]>([]);
+  const [sessions, setSessions] = useState<SessionRecord[]>([]);
   const [newEmail, setNewEmail] = useState("");
   const [newName, setNewName] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -36,7 +55,10 @@ const Admin = () => {
       navigate("/login");
       return;
     }
-    if (isAdmin) loadStudents();
+    if (isAdmin) {
+      loadStudents();
+      loadSessions();
+    }
   }, [user, loading, isAdmin, navigate]);
 
   const loadStudents = async () => {
@@ -71,13 +93,21 @@ const Admin = () => {
     }
   };
 
+  const loadSessions = async () => {
+    const { data } = await supabase
+      .from("training_sessions")
+      .select("*")
+      .order("started_at", { ascending: false })
+      .limit(500);
+    if (data) setSessions(data as SessionRecord[]);
+  };
+
   const handleAddUser = async (e: React.FormEvent) => {
     e.preventDefault();
     setAddError("");
     setAddSuccess("");
     setAddLoading(true);
 
-    // Admin creates user via edge function or direct signup
     const { error } = await supabase.auth.signUp({
       email: newEmail,
       password: newPassword,
@@ -115,14 +145,39 @@ const Admin = () => {
     URL.revokeObjectURL(a.href);
   };
 
+  const handleExportSessionsCSV = () => {
+    const headers = ["First Name", "Middle Name", "Last Name", "District", "Certificate Name", "Language", "Started", "Completed", "Score", "Status"];
+    const rows = sessions.map(s => [
+      s.first_name,
+      s.middle_name,
+      s.last_name,
+      s.district,
+      s.certificate_name,
+      s.language,
+      new Date(s.started_at).toLocaleString(),
+      s.completed_at ? new Date(s.completed_at).toLocaleString() : "—",
+      s.score !== null && s.total_questions ? `${Math.round((s.score / s.total_questions) * 100)}%` : "—",
+      s.status === "completed" ? (s.passed ? "Passed" : "Failed") : "In Progress",
+    ]);
+    const csv = [headers, ...rows].map(r => r.map(c => `"${c.replace(/"/g, '""')}"`).join(",")).join("\n");
+    const blob = new Blob([csv], { type: "text/csv" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `SEC_Sessions_Report_${new Date().toISOString().split("T")[0]}.csv`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  };
+
   const handleLogout = async () => {
     await signOut();
     navigate("/login");
   };
 
   if (loading) return <div className="min-h-screen flex items-center justify-center"><p className="text-muted-foreground">Loading...</p></div>;
-
   if (!isAdmin) return null;
+
+  const completedSessions = sessions.filter(s => s.status === "completed");
+  const inProgressSessions = sessions.filter(s => s.status === "in_progress");
 
   return (
     <div className="min-h-screen bg-muted/30">
@@ -146,26 +201,31 @@ const Admin = () => {
 
       <main className="max-w-5xl mx-auto px-4 py-6 space-y-6">
         {/* Stats */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <Card>
             <CardContent className="p-4 text-center">
               <Users className="w-6 h-6 mx-auto text-primary mb-1" />
               <p className="text-2xl font-bold text-foreground">{students.length}</p>
-              <p className="text-xs text-muted-foreground">Total Students</p>
+              <p className="text-xs text-muted-foreground">Registered Users</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="p-4 text-center">
-              <p className="text-2xl font-bold text-success">{students.filter(s => s.passed).length}</p>
+              <Activity className="w-6 h-6 mx-auto text-accent mb-1" />
+              <p className="text-2xl font-bold text-foreground">{sessions.length}</p>
+              <p className="text-xs text-muted-foreground">Total Sessions</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="p-4 text-center">
+              <p className="text-2xl font-bold text-success">{completedSessions.filter(s => s.passed).length}</p>
               <p className="text-xs text-muted-foreground">Passed</p>
             </CardContent>
           </Card>
-          <Card className="col-span-2 sm:col-span-1">
+          <Card>
             <CardContent className="p-4 text-center">
-              <p className="text-2xl font-bold text-foreground">
-                {students.length > 0 ? Math.round(students.reduce((s, st) => s + st.best_score, 0) / students.length) : 0}%
-              </p>
-              <p className="text-xs text-muted-foreground">Avg Best Score</p>
+              <p className="text-2xl font-bold text-foreground">{inProgressSessions.length}</p>
+              <p className="text-xs text-muted-foreground">In Progress</p>
             </CardContent>
           </Card>
         </div>
@@ -208,51 +268,125 @@ const Admin = () => {
           </CardContent>
         </Card>
 
-        {/* Students Table */}
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle className="text-lg">Students & Scores</CardTitle>
-            {students.length > 0 && (
-              <Button variant="outline" size="sm" onClick={handleExportCSV} className="gap-2">
-                <FileDown className="w-4 h-4" /> Export CSV
-              </Button>
-            )}
-          </CardHeader>
-          <CardContent>
-            {students.length === 0 ? (
-              <p className="text-sm text-muted-foreground text-center py-8">No students registered yet.</p>
-            ) : (
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Name</TableHead>
-                    <TableHead>Certificate Name</TableHead>
-                    <TableHead>Email</TableHead>
-                    <TableHead className="text-center">Attempts</TableHead>
-                    <TableHead className="text-center">Best Score</TableHead>
-                    <TableHead className="text-center">Status</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {students.map(s => (
-                    <TableRow key={s.user_id}>
-                      <TableCell className="font-medium">{s.full_name || "—"}</TableCell>
-                      <TableCell className="text-muted-foreground">{s.certificate_name || "—"}</TableCell>
-                      <TableCell className="text-muted-foreground">{s.email || "—"}</TableCell>
-                      <TableCell className="text-center">{s.attempts}</TableCell>
-                      <TableCell className="text-center">{s.best_score}%</TableCell>
-                      <TableCell className="text-center">
-                        <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${s.passed ? "bg-success/15 text-success" : s.attempts > 0 ? "bg-destructive/15 text-destructive" : "bg-muted text-muted-foreground"}`}>
-                          {s.passed ? "Passed" : s.attempts > 0 ? "Failed" : "Not Started"}
-                        </span>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            )}
-          </CardContent>
-        </Card>
+        {/* Tabs for Sessions & Students */}
+        <Tabs defaultValue="sessions" className="w-full">
+          <TabsList className="grid w-full grid-cols-2">
+            <TabsTrigger value="sessions">All Sessions ({sessions.length})</TabsTrigger>
+            <TabsTrigger value="students">Registered Students ({students.length})</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="sessions">
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between">
+                <CardTitle className="text-lg">Training Sessions</CardTitle>
+                {sessions.length > 0 && (
+                  <Button variant="outline" size="sm" onClick={handleExportSessionsCSV} className="gap-2">
+                    <FileDown className="w-4 h-4" /> Export CSV
+                  </Button>
+                )}
+              </CardHeader>
+              <CardContent>
+                {sessions.length === 0 ? (
+                  <p className="text-sm text-muted-foreground text-center py-8">No sessions recorded yet.</p>
+                ) : (
+                  <div className="overflow-x-auto">
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Name</TableHead>
+                          <TableHead>District</TableHead>
+                          <TableHead>Language</TableHead>
+                          <TableHead>Started</TableHead>
+                          <TableHead className="text-center">Score</TableHead>
+                          <TableHead className="text-center">Status</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {sessions.map(s => {
+                          const fullName = [s.first_name, s.middle_name, s.last_name].filter(Boolean).join(" ") || s.certificate_name || "—";
+                          const pct = s.score !== null && s.total_questions ? Math.round((s.score / s.total_questions) * 100) : null;
+                          return (
+                            <TableRow key={s.id}>
+                              <TableCell className="font-medium">{fullName}</TableCell>
+                              <TableCell className="text-muted-foreground">{s.district || "—"}</TableCell>
+                              <TableCell>
+                                <Badge variant="outline" className="text-[10px]">
+                                  {s.language === "rw" ? "KIN" : "ENG"}
+                                </Badge>
+                              </TableCell>
+                              <TableCell className="text-muted-foreground whitespace-nowrap text-xs">
+                                {new Date(s.started_at).toLocaleString()}
+                              </TableCell>
+                              <TableCell className="text-center">{pct !== null ? `${pct}%` : "—"}</TableCell>
+                              <TableCell className="text-center">
+                                <Badge
+                                  variant={s.status === "completed" ? (s.passed ? "default" : "destructive") : "secondary"}
+                                  className="text-[10px]"
+                                >
+                                  {s.status === "completed" ? (s.passed ? "Passed" : "Failed") : "In Progress"}
+                                </Badge>
+                              </TableCell>
+                            </TableRow>
+                          );
+                        })}
+                      </TableBody>
+                    </Table>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="students">
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between">
+                <CardTitle className="text-lg">Registered Students</CardTitle>
+                {students.length > 0 && (
+                  <Button variant="outline" size="sm" onClick={handleExportCSV} className="gap-2">
+                    <FileDown className="w-4 h-4" /> Export CSV
+                  </Button>
+                )}
+              </CardHeader>
+              <CardContent>
+                {students.length === 0 ? (
+                  <p className="text-sm text-muted-foreground text-center py-8">No students registered yet.</p>
+                ) : (
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Name</TableHead>
+                        <TableHead>Certificate Name</TableHead>
+                        <TableHead>Email</TableHead>
+                        <TableHead className="text-center">Attempts</TableHead>
+                        <TableHead className="text-center">Best Score</TableHead>
+                        <TableHead className="text-center">Status</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {students.map(s => (
+                        <TableRow key={s.user_id}>
+                          <TableCell className="font-medium">{s.full_name || "—"}</TableCell>
+                          <TableCell className="text-muted-foreground">{s.certificate_name || "—"}</TableCell>
+                          <TableCell className="text-muted-foreground">{s.email || "—"}</TableCell>
+                          <TableCell className="text-center">{s.attempts}</TableCell>
+                          <TableCell className="text-center">{s.best_score}%</TableCell>
+                          <TableCell className="text-center">
+                            <Badge
+                              variant={s.passed ? "default" : s.attempts > 0 ? "destructive" : "secondary"}
+                              className="text-[10px]"
+                            >
+                              {s.passed ? "Passed" : s.attempts > 0 ? "Failed" : "Not Started"}
+                            </Badge>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                )}
+              </CardContent>
+            </Card>
+          </TabsContent>
+        </Tabs>
       </main>
     </div>
   );
