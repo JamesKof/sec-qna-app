@@ -11,7 +11,7 @@ import PartnerLogos from "./PartnerLogos";
 import { useI18n } from "@/lib/i18n";
 
 interface WelcomeScreenProps {
-  onStart: (certificateName: string) => void;
+  onStart: (certificateName: string, details: { firstName: string; middleName: string; lastName: string; district: string }) => void;
 }
 
 const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
