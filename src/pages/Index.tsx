@@ -43,7 +43,8 @@ const Index = () => {
   const [answeredQuestions, setAnsweredQuestions] = useState<Record<string, boolean>>({});
   const [direction, setDirection] = useState(1);
   const [certificateName, setCertificateName] = useState("");
-  const { t } = useI18n();
+  const [sessionId, setSessionId] = useState<string | null>(null);
+  const { t, lang } = useI18n();
   const { user } = useAuth();
 
   const score = Object.values(answeredQuestions).filter(Boolean).length;
@@ -72,6 +73,17 @@ const Index = () => {
         });
       }
 
+      // Update session record
+      if (sessionId) {
+        await supabase.from("training_sessions").update({
+          completed_at: new Date().toISOString(),
+          score,
+          total_questions: totalQuestions,
+          passed,
+          status: "completed",
+        }).eq("id", sessionId);
+      }
+
       // Also keep localStorage for non-logged-in users
       const record = { completedAt: new Date().toISOString(), score, totalQuestions, passed, certificateName };
       const existing = JSON.parse(localStorage.getItem("sec-training-records") || "[]");
@@ -96,11 +108,35 @@ const Index = () => {
   const handleRetry = () => {
     setCurrentSection(0);
     setAnsweredQuestions({});
+    setSessionId(null);
     setState("welcome");
   };
 
-  const handleStart = (name: string) => {
+  const handleStart = async (name: string, details?: { firstName: string; middleName: string; lastName: string; district: string }) => {
     setCertificateName(name);
+
+    // Record session in backend
+    const sessionData: any = {
+      certificate_name: name,
+      language: lang,
+      first_name: details?.firstName || "",
+      middle_name: details?.middleName || "",
+      last_name: details?.lastName || "",
+      district: details?.district || "",
+      user_id: user?.id || null,
+      status: "in_progress",
+    };
+
+    const { data } = await supabase
+      .from("training_sessions")
+      .insert(sessionData)
+      .select("id")
+      .single();
+
+    if (data) {
+      setSessionId(data.id);
+    }
+
     setState("training");
   };
 
