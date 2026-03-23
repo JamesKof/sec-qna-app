@@ -106,13 +106,16 @@ const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSection
         </div>
       )}
 
-      {/* Content paragraphs */}
+      {/* Content paragraphs — skip section 9 content.1 (caption already shown in collage) */}
       <div className="space-y-3">
-        {section.content.map((_, i) => (
-          <p key={i} className="text-base leading-relaxed text-foreground/90">
-            {t(`section.${section.id}.content.${i}`)}
-          </p>
-        ))}
+        {section.content.map((_, i) => {
+          if (section.id === 9 && i === 1) return null;
+          return (
+            <p key={i} className="text-base leading-relaxed text-foreground/90">
+              {t(`section.${section.id}.content.${i}`)}
+            </p>
+          );
+        })}
       </div>
 
       {/* UPI Diagram (section 7) */}
