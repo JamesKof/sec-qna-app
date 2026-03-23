@@ -1,6 +1,5 @@
 import { TrainingSection, learningObjectives } from "@/data/trainingContent";
 import QuizQuestion from "./QuizQuestion";
-import { Checkbox } from "@/components/ui/checkbox";
 import { useState, useEffect, useRef } from "react";
 import {
   BookOpen, Target, CloudRain, Users, Smartphone,
@@ -11,6 +10,7 @@ import heroImg from "@/assets/hero-landscape.jpg";
 import communityImg from "@/assets/community.jpg";
 import ussdImg from "@/assets/ussd-phone.jpg";
 import upiDiagram from "@/assets/upi-diagram.png";
+import upiDiagramRw from "@/assets/upi-diagram-rw.png";
 import erosionEvidenceCollage from "@/assets/erosion-evidence-collage.png";
 import erosionControlCollage from "@/assets/erosion-control-collage.png";
 import { useI18n } from "@/lib/i18n";
@@ -54,7 +54,7 @@ interface ContentSectionProps {
 
 const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSectionProps) => {
   const [checkedTasks, setCheckedTasks] = useState<Record<number, boolean>>({});
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const firstQuestionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -106,20 +106,25 @@ const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSection
         </div>
       )}
 
-      {/* Content paragraphs */}
+      {/* Content paragraphs — skip section 9 content.1 (caption already shown in collage) */}
       <div className="space-y-3">
-        {section.content.map((_, i) => (
-          <p key={i} className="text-base leading-relaxed text-foreground/90">
-            {t(`section.${section.id}.content.${i}`)}
-          </p>
-        ))}
+        {section.content.map((_, i) => {
+          if (section.id === 9 && i === 1) return null;
+          return (
+            <p key={i} className="text-base leading-relaxed text-foreground/90">
+              {t(`section.${section.id}.content.${i}`)}
+            </p>
+          );
+        })}
       </div>
 
       {/* UPI Diagram (section 7) */}
       {section.id === 7 && (
         <div className="rounded-xl overflow-hidden border bg-muted/30 p-4">
-          <img src={upiDiagram} alt="UPI structure diagram showing province, district, sector, cell, and parcel codes" className="w-full max-w-md mx-auto rounded-lg" />
-          <p className="text-xs text-muted-foreground text-center mt-2">UPI Structure: Province / District / Sector / Cell / Parcel</p>
+          <img src={lang === "rw" ? upiDiagramRw : upiDiagram} alt="UPI structure diagram" className="w-full max-w-md mx-auto rounded-lg" />
+          <p className="text-xs text-muted-foreground text-center mt-2">
+            {lang === "rw" ? "Imiterere ya UPI: Intara / Akarere / Umurenge / Akagari / Umurima" : "UPI Structure: Province / District / Sector / Cell / Parcel"}
+          </p>
         </div>
       )}
 
@@ -141,15 +146,14 @@ const ContentSection = ({ section, answeredQuestions, onAnswer }: ContentSection
       {section.practiceTasks && (
         <div className="space-y-3 bg-muted/50 rounded-xl p-4">
           <p className="text-sm font-bold text-foreground uppercase tracking-wider">{t("practice.title")}</p>
-          {section.practiceTasks.map((_, i) => (
-            <label key={i} className="flex items-center gap-3 p-3 bg-card rounded-lg cursor-pointer border hover:border-primary/50 transition-colors">
-              <Checkbox
-                checked={checkedTasks[i] || false}
-                onCheckedChange={(checked) => setCheckedTasks(prev => ({ ...prev, [i]: !!checked }))}
-              />
-              <span className="text-sm font-medium text-foreground">{t(`practice.${i}`)}</span>
-            </label>
-          ))}
+          <ul className="space-y-2 ml-1">
+            {section.practiceTasks.map((_, i) => (
+              <li key={i} className="flex items-start gap-3 p-3 bg-card rounded-lg border">
+                <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0 mt-1.5" />
+                <span className="text-sm font-medium text-foreground">{t(`practice.${i}`)}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
 
